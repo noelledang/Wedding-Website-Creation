@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,12 +7,20 @@ export default function LanguageSelector() {
   const [showSelector, setShowSelector] = useState(false);
   const { setLanguage } = useLanguage();
 
-    useEffect(() => {
-        setShowSelector(true);
-    }, []);
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("wedding-language");
+
+    if (savedLanguage === "eng" || savedLanguage === "viet") {
+      setLanguage(savedLanguage);
+      setShowSelector(false);
+    } else {
+      setShowSelector(true);
+    }
+  }, [setLanguage]);
 
   const selectLanguage = (language: "eng" | "viet") => {
     setLanguage(language);
+    localStorage.setItem("wedding-language", language);
     setShowSelector(false);
   };
 
@@ -58,4 +65,3 @@ export default function LanguageSelector() {
     </div>
   );
 }
-
