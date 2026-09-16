@@ -15,7 +15,7 @@ export default function Home() {
       heroInvitation: "We invite you to celebrate the wedding of",
       heroDate: "MARCH 13, 2027",
       heroMessage: "Please join us as we celebrate our love",
-      scroll: "Scroll to explore",
+      scroll: "We can't wait to see you!",
     },
 
     viet: {
@@ -77,7 +77,7 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-top"           
              style={{
               backgroundImage:
-                "url('/images/hero-ocean-background.png')",
+                "url('/images/white flowers.png')",
             }}
           />
 
