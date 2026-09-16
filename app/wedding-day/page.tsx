@@ -39,7 +39,7 @@ export default function WeddingDayPage() {
           <div className="relative">
 
             {/* VERTICAL LINE */}
-            <div className="absolute left-[32px] md:left-[150px] top-2 bottom-2 w-px bg-[#916A63]/40"></div>
+            <div className="absolute hidden md:block left-[150px] top-2 bottom-2 w-px bg-[#916A63]/40"></div>
 
             <div className="space-y-14">
 
@@ -79,7 +79,7 @@ export default function WeddingDayPage() {
               {/* CEREMONY */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
-            <div className="w-16 md:w-32 shrink-0 text-right">
+            <div className="w-20 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     4:00 PM
                   </p>
@@ -111,7 +111,7 @@ export default function WeddingDayPage() {
               {/* COCKTAIL HOUR */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-16 md:w-32 shrink-0 text-right">
+                <div className="w-20 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     5:00 PM
                   </p>
@@ -143,7 +143,7 @@ export default function WeddingDayPage() {
               {/* RECEPTION */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-16 md:w-32 shrink-0 text-right">
+                <div className="w-20 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     6:00 PM
                   </p>
@@ -175,7 +175,7 @@ export default function WeddingDayPage() {
               {/* FIRST DANCE */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-16 md:w-32 shrink-0 text-right">
+                <div className="w-20 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     8:00 PM
                   </p>
@@ -207,7 +207,7 @@ export default function WeddingDayPage() {
               {/* SEND OFF */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-16 md:w-32 shrink-0 text-right">
+                <div className="w-20 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     9:30 PM
                   </p>
@@ -220,7 +220,7 @@ export default function WeddingDayPage() {
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-3xl md:text-4xl">
+                  <h3 className="font-heading text-xl md:text-4xl">
                     {language === "eng"
                       ? "Bride & Groom Send Off"
                       : "Tiễn Cô Dâu & Chú Rể"}
