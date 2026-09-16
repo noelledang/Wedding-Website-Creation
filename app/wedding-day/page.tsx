@@ -39,7 +39,7 @@ export default function WeddingDayPage() {
           <div className="relative">
 
             {/* VERTICAL LINE */}
-            <div className="absolute left-[7px] md:left-[150px] top-2 bottom-2 w-px bg-[#916A63]/40"></div>
+            <div className="absolute left-[32px] md:left-[150px] top-2 bottom-2 w-px bg-[#916A63]/40"></div>
 
             <div className="space-y-14">
 
@@ -47,7 +47,7 @@ export default function WeddingDayPage() {
               {/* GUEST ARRIVAL */}
               <div className="relative flex items-start gap-8 md:gap-12">
 
-                <div className="w-4 md:w-32 shrink-0 md:text-right">
+                <div className="w-16 md:w-32 shrink-0 text-center md:text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     3:30 PM
                   </p>

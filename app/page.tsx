@@ -74,8 +74,8 @@ export default function Home() {
 
           {/* Hero Background */}
           <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
+            className="absolute inset-0 bg-cover bg-top"           
+             style={{
               backgroundImage:
                 "url('/images/hero-ocean-background.png')",
             }}
