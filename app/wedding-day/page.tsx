@@ -45,9 +45,9 @@ export default function WeddingDayPage() {
 
 
               {/* GUEST ARRIVAL */}
-              <div className="relative flex items-start gap-8 md:gap-12">
+            <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-16 md:w-32 shrink-0 text-center md:text-right">
+            <div className="w-16 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     3:30 PM
                   </p>
@@ -77,9 +77,9 @@ export default function WeddingDayPage() {
 
 
               {/* CEREMONY */}
-              <div className="relative flex items-start gap-8 md:gap-12">
+              <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-4 md:w-32 shrink-0 md:text-right">
+            <div className="w-16 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     4:00 PM
                   </p>
@@ -109,9 +109,9 @@ export default function WeddingDayPage() {
 
 
               {/* COCKTAIL HOUR */}
-              <div className="relative flex items-start gap-8 md:gap-12">
+              <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-4 md:w-32 shrink-0 md:text-right">
+                <div className="w-16 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     5:00 PM
                   </p>
@@ -141,9 +141,9 @@ export default function WeddingDayPage() {
 
 
               {/* RECEPTION */}
-              <div className="relative flex items-start gap-8 md:gap-12">
+              <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-4 md:w-32 shrink-0 md:text-right">
+                <div className="w-16 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     6:00 PM
                   </p>
@@ -173,9 +173,9 @@ export default function WeddingDayPage() {
 
 
               {/* FIRST DANCE */}
-              <div className="relative flex items-start gap-8 md:gap-12">
+              <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-4 md:w-32 shrink-0 md:text-right">
+                <div className="w-16 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     8:00 PM
                   </p>
@@ -205,9 +205,9 @@ export default function WeddingDayPage() {
 
 
               {/* SEND OFF */}
-              <div className="relative flex items-start gap-8 md:gap-12">
+              <div className="relative flex items-start gap-4 md:gap-12">
 
-                <div className="w-4 md:w-32 shrink-0 md:text-right">
+                <div className="w-16 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     9:30 PM
                   </p>
