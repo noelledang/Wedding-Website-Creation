@@ -47,11 +47,11 @@ export default function WeddingDayPage() {
               {/* GUEST ARRIVAL */}
             <div className="relative flex items-start gap-4 md:gap-12">
 
-            <div className="w-20 md:w-32 shrink-0 text-right">
-                  <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
-                    3:30 PM
-                  </p>
-                </div>
+                              <div className="w-20 md:w-32 shrink-0 text-right pl-1 md:pl-0">
+                                  <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
+                                      3:30 PM
+                                  </p>
+                              </div>
 
                               <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
