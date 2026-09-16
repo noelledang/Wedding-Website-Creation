@@ -7,6 +7,10 @@ import {
 } from "next/font/google";
 import "./globals.css";
 
+import Navbar from "./components/Navbar";
+import MusicPlayerWrapper from "./MusicPlayerWrapper";
+
+
 import { LanguageProvider } from "./LanguageProvider";
 import LanguageSelector from "./LanguageSelector";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -46,8 +50,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
+          <Navbar />
           <LanguageSelector />
           <LanguageSwitcher />
+          <MusicPlayerWrapper />
           {children}
         </LanguageProvider>
       </body>
