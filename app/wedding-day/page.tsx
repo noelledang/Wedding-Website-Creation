@@ -267,7 +267,7 @@ export default function WeddingDayPage() {
                               </div>
 
                 <div>
-                  <h3 className="font-heading text-xl md:text-4xl">
+                  <h3 className="font-heading text-3xl md:text-4xl">
                     {language === "eng"
                       ? "Bride & Groom Send Off"
                       : "Tiễn Cô Dâu & Chú Rể"}

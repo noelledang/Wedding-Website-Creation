@@ -4,8 +4,7 @@ import { useState } from "react";
 import { useLanguage } from "../LanguageProvider";
 
 const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyh-flC_23B9Z0HTOuD3jMJLVxP9f4HpgNKQB2NlCutm3i3vVrspJtxQezaSlAx9qqvw/exec";
-
+    "https://script.google.com/macros/s/AKfycbztNFNB_-PFYIfeqjL0gw-xr8uM1OwIx9IqkcSoLvLKW8M_rzPKRyi3hW1Kl5J68cVWbg/exec";
 type Guest = {
     name: string;
 };
