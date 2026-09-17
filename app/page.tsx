@@ -74,14 +74,15 @@ export default function Home() {
       <main>
 
         {/* HERO SECTION */}
-        <section className="relative min-h-screen flex items-center justify-center px-6 py-12 overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-12 md:py-12 overflow-hidden">
 
           {/* Hero Background */}
           <div
-            className="absolute inset-0 bg-cover bg-top"
+            className="absolute inset-0 bg-cover"
             style={{
               backgroundImage:
                 "url('/images/white flowers.png')",
+              backgroundPosition: "center center",
             }}
           />
 
