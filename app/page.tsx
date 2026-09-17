@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -16,6 +17,7 @@ export default function Home() {
       heroDate: "MARCH 13, 2027",
       heroMessage: "Please join us as we celebrate our love",
       scroll: "We can't wait to see you!",
+      rsvp: "RSVP",
     },
 
     viet: {
@@ -25,6 +27,7 @@ export default function Home() {
       heroMessage:
         "Trân trọng kính mời mọi người cùng chung vui trong ngày trọng đại của chúng tôi",
       scroll: "Kính mời!",
+      rsvp: "Xác nhận tham dự",
     },
   };
 
@@ -49,11 +52,11 @@ export default function Home() {
           ),
           hours: Math.floor(
             (difference % (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
+              (1000 * 60 * 60)
           ),
           minutes: Math.floor(
             (difference % (1000 * 60 * 60)) /
-            (1000 * 60)
+              (1000 * 60)
           ),
           seconds: Math.floor(
             (difference % (1000 * 60)) / 1000
@@ -199,8 +202,18 @@ export default function Home() {
                 {translations[language].heroMessage}
               </p>
 
+              {/* RSVP BUTTON */}
+              <div className="mt-8">
+                <a
+                  href="/rsvp"
+                  className="inline-block bg-[#D4AF37] text-white px-8 py-4 rounded-full font-body text-sm uppercase tracking-[0.2em] hover:opacity-90 transition"
+                >
+                  {translations[language].rsvp}
+                </a>
+              </div>
+
               {/* SCROLL */}
-              <div className="mt-12">
+              <div className="mt-10">
                 <span className="font-body text-xs uppercase tracking-[0.3em]">
                   {translations[language].scroll}
                 </span>
@@ -251,7 +264,6 @@ export default function Home() {
                 <div className="text-center">
 
                   {/* Female Icon */}
-                  {/* Female Icon */}
                   <div className="mb-5 flex justify-center">
                     <svg
                       viewBox="0 0 64 64"
@@ -297,7 +309,7 @@ export default function Home() {
                     </p>
 
                     <p className="font-body text-base text-[#8c756b]">
-                      Bà: Lâm Thị Lan
+                      Bà: Lâm Lan
                     </p>
 
                   </div>
@@ -364,6 +376,7 @@ export default function Home() {
 
           </section>
         )}
+
 
         {/* OUR WEDDING SECTION */}
         <section
@@ -581,3 +594,4 @@ export default function Home() {
     </>
   );
 }
+

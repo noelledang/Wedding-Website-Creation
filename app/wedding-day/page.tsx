@@ -149,14 +149,14 @@ export default function WeddingDayPage() {
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
                     {language === "eng"
-                      ? "Cocktail Hour"
-                      : "Tiệc Cocktail"}
+                      ? "Photos & Drink Hour"
+                      : "Chụp hình và giải khát"}
                   </h3>
 
                   <p className="font-body text-sm mt-2 text-[#916A63]">
                     {language === "eng"
                       ? "Mingle, sip & celebrate"
-                      : "Cùng nâng ly, trò chuyện và chung vui"}
+                      : "Cùng chụp hình, trò chuyện và chung vui"}
                   </p>
                 </div>
 
@@ -196,7 +196,7 @@ export default function WeddingDayPage() {
                   <p className="font-body text-sm mt-2 text-[#916A63]">
                     {language === "eng"
                       ? "Dinner, dancing & good vibes"
-                      : "Dùng tiệc, khiêu vũ và tận hưởng những khoảnh khắc đáng nhớ"}
+                      : "Dùng tiệc và giao lưu, tận hưởng những khoảnh khắc đáng nhớ"}
                   </p>
                 </div>
 

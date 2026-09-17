@@ -65,7 +65,7 @@ export default function FAQPage() {
                   A suit or dress pants with a button-up shirt is appropriate.
                   Feeling fancy? Add a tie or bowtie for a polished look.
                   <br />
-
+                <br />
                   If you are unsure about what to wear, you are welcome to reach
                   out to us directly for guidance.
                 </>

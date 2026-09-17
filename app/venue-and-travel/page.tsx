@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useLanguage } from "../LanguageProvider";
@@ -156,9 +157,41 @@ export default function TravelPage() {
                     {/* SECTION HEADER */}
                     <div className="text-center mb-16">
 
-                        <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
-                            ♥
-                        </span>
+                        {/* HOTEL ICON */}
+                        <div className="flex justify-center">
+                            <svg
+                                viewBox="0 0 64 64"
+                                className="h-12 w-12 text-[var(--color-gold-accent)]"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.6"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                aria-hidden="true"
+                            >
+                                {/* Hotel Building */}
+                                <path d="M14 54V16h36v38" />
+
+                                {/* Roof */}
+                                <path d="M10 54h44" />
+
+                                {/* Entrance */}
+                                <path d="M27 54V42h10v12" />
+
+                                {/* Windows */}
+                                <rect x="20" y="23" width="5" height="6" />
+                                <rect x="31" y="23" width="5" height="6" />
+                                <rect x="42" y="23" width="5" height="6" />
+
+                                <rect x="20" y="33" width="5" height="6" />
+                                <rect x="31" y="33" width="5" height="6" />
+                                <rect x="42" y="33" width="5" height="6" />
+
+                                {/* Hotel Roof Detail */}
+                                <path d="M10 16h44" />
+                                <path d="M18 10h28l4 6H14l4-6Z" />
+                            </svg>
+                        </div>
 
                         <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
                             {language === "eng"
@@ -239,12 +272,6 @@ export default function TravelPage() {
                                 {language === "eng"
                                     ? "There are a variety of hotels and resorts in the Da Nang area to suit different preferences and budgets."
                                     : "Đà Nẵng có nhiều khách sạn và khu nghỉ dưỡng phù hợp với nhiều nhu cầu và ngân sách khác nhau."}
-                            </p>
-
-                            <p className="font-body text-xs leading-6 mt-5 text-[#916A63]/80">
-                                {language === "eng"
-                                    ? "More recommendations coming soon."
-                                    : "Thông tin gợi ý sẽ được cập nhật sớm."}
                             </p>
 
                         </div>
@@ -550,3 +577,4 @@ export default function TravelPage() {
         </main>
     );
 }
+
