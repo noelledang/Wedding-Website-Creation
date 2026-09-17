@@ -23,7 +23,7 @@ export default function WelcomeScreen() {
         setStorageLoaded(true);
     }, []);
 
-    const handleLanguageSelect = async (selectedLanguage: Language) => {
+    const handleLanguageSelect = (selectedLanguage: Language) => {
         const musicFile =
             selectedLanguage === "eng"
                 ? "/music/wedding-song-eng.mp3"
@@ -44,21 +44,18 @@ export default function WelcomeScreen() {
         // Store it globally so MusicPlayer can control it later
         window.__weddingAudio = audio;
 
-        try {
-            await audio.play();
-
-            window.dispatchEvent(
-                new Event("wedding-audio-changed")
-            );
-        } catch (error) {
-            console.error("Music could not start:", error);
-        }
+        // Start music directly from the user's button click
+        audio
+            .play()
+            .then(() => {
+                window.dispatchEvent(new Event("wedding-audio-changed"));
+            })
+            .catch((error) => {
+                console.error("Music could not start:", error);
+            });
 
         // Save language
-        localStorage.setItem(
-            "wedding-language",
-            selectedLanguage
-        );
+        localStorage.setItem("wedding-language", selectedLanguage);
 
         // Update website language
         setLanguage(selectedLanguage);
@@ -96,11 +93,12 @@ export default function WelcomeScreen() {
                 </div>
 
                 {/* WELCOME */}
+                
 
                 <h1 className="font-heading mt-4 text-5xl text-[#622825] md:text-6xl">
                     {isVietnamese
-                        ? "Chào mừng đến với đám cưới của Cường & Nghi"
-                        : "Welcome to the wedding of Noelle & Nathan"}
+                        ? "Chào mừng đến với đám cưới của chúng tôi"
+                        : "Welcome to Our Wedding"}
                 </h1>
 
                 {/* FIRST VISIT */}
