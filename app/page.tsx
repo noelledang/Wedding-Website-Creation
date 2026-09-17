@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageProvider";
+import Link from "next/link";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -204,12 +205,12 @@ export default function Home() {
 
               {/* RSVP BUTTON */}
               <div className="mt-8">
-                <a
+                <Link
                   href="/rsvp"
                   className="inline-block bg-[#D4AF37] text-white px-8 py-4 rounded-full font-body text-sm uppercase tracking-[0.2em] hover:opacity-90 transition"
                 >
                   {translations[language].rsvp}
-                </a>
+                </Link>
               </div>
 
               {/* SCROLL */}
