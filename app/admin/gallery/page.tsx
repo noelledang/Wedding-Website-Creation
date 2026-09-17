@@ -1,9 +1,15 @@
-
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+type Photo = {
+  url: string;
+  pathname: string;
+};
 
 export default function AdminGalleryPage() {
+  const [photos, setPhotos] = useState<Photo[]>([]);
+
   const [englishIntro, setEnglishIntro] = useState("Moments We Treasure");
   const [englishTitle, setEnglishTitle] = useState("Our Gallery");
   const [englishSubtitle, setEnglishSubtitle] = useState(
@@ -24,6 +30,82 @@ export default function AdminGalleryPage() {
   const [vietnameseFooter, setVietnameseFooter] = useState(
     "Những khoảnh khắc đẹp hơn sẽ được cập nhật sớm..."
   );
+
+  useEffect(() => {
+    async function loadPhotos() {
+      try {
+        const response = await fetch("/api/gallery");
+
+        if (!response.ok) {
+          return;
+        }
+
+        const result = await response.json();
+
+        if (result.success) {
+          setPhotos(result.photos);
+        }
+      } catch (error) {
+        console.error("Could not load gallery photos:", error);
+      }
+    }
+
+    loadPhotos();
+  }, []);
+
+  async function handleUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const files = event.target.files;
+
+    if (!files || files.length === 0) {
+      return;
+    }
+
+    const uploadPromises = Array.from(files).map(async (file) => {
+      const formData = new FormData();
+
+      formData.append("file", file);
+
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const result = await response.json();
+
+        throw new Error(
+          result.error ||
+          "An unknown error occurred while uploading the photo."
+        );
+      }
+
+      return response.json();
+    });
+
+    try {
+      await Promise.all(uploadPromises);
+
+      alert("Photos uploaded successfully!");
+
+      const galleryResponse = await fetch("/api/gallery");
+
+      if (galleryResponse.ok) {
+        const galleryResult = await galleryResponse.json();
+
+        if (galleryResult.success) {
+          setPhotos(galleryResult.photos);
+        }
+      }
+    } catch (error) {
+      alert(
+        error instanceof Error
+          ? `Upload failed: ${error.message}`
+          : "An unknown error occurred while uploading the photos."
+      );
+    }
+
+    event.target.value = "";
+  }
 
   function handleSave() {
     alert("Gallery changes saved!");
@@ -50,7 +132,6 @@ export default function AdminGalleryPage() {
 
         {/* ENGLISH */}
         <section className="bg-white/70 rounded-2xl p-6 md:p-8 border border-[#916A63]/20 mb-8">
-
           <h2 className="font-heading text-3xl text-[#622825] mb-6">
             English
           </h2>
@@ -114,7 +195,6 @@ export default function AdminGalleryPage() {
 
         {/* VIETNAMESE */}
         <section className="bg-white/70 rounded-2xl p-6 md:p-8 border border-[#916A63]/20 mb-8">
-
           <h2 className="font-heading text-3xl text-[#622825] mb-6">
             Vietnamese
           </h2>
@@ -184,25 +264,23 @@ export default function AdminGalleryPage() {
           </h2>
 
           <p className="font-body text-sm text-[#916A63] mb-6">
-            Manage the six photos displayed in your gallery.
+            Manage the photos displayed in your gallery.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
 
-            {[1, 2, 3, 4, 5, 6].map((photo) => (
+            {photos.map((photo) => (
               <div
-                key={photo}
-                className="aspect-[4/5] rounded-xl bg-[#FDEFE8] border border-[#916A63]/20 flex items-center justify-center"
+                key={photo.pathname}
+                className="aspect-[4/5] rounded-xl overflow-hidden border border-[#916A63]/20 bg-[#FDEFE8]"
               >
-                <div className="text-center">
-                  <span className="text-3xl text-[#D4AF37]">
-                    ♥
-                  </span>
-
-                  <p className="font-body text-xs uppercase tracking-[0.15em] text-[#916A63] mt-3">
-                    Photo {photo}
-                  </p>
-                </div>
+                <img
+                  src={photo.url}
+                  alt="Wedding gallery photo"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
 
@@ -210,6 +288,7 @@ export default function AdminGalleryPage() {
 
           {/* UPLOAD BUTTON */}
           <label className="inline-block cursor-pointer mt-6 px-6 py-3 rounded-full bg-[#622825] text-white font-body text-sm">
+
             Upload Photos
 
             <input
@@ -217,32 +296,10 @@ export default function AdminGalleryPage() {
               accept="image/*"
               multiple
               className="hidden"
-              onChange={async (event) => {
-                const files = event.target.files;
-
-                if (!files) return;
-
-                for (const file of Array.from(files)) {
-                  const formData = new FormData();
-                  formData.append("file", file);
-
-                  const response = await fetch("/api/upload", {
-                    method: "POST",
-                    body: formData,
-                  });
-
-                  if (!response.ok) {
-                    alert(`Failed to upload ${file.name}`);
-                    return;
-                  }
-                }
-
-                alert("Photos uploaded successfully!");
-              }}
+              onChange={handleUpload}
             />
-          </label>
-        
 
+          </label>
 
         </section>
 
@@ -262,4 +319,3 @@ export default function AdminGalleryPage() {
     </main>
   );
 }
-

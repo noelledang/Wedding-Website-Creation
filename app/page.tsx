@@ -74,8 +74,8 @@ export default function Home() {
 
           {/* Hero Background */}
           <div
-            className="absolute inset-0 bg-cover bg-top"           
-             style={{
+            className="absolute inset-0 bg-cover bg-top"
+            style={{
               backgroundImage:
                 "url('/images/white flowers.png')",
             }}
@@ -215,199 +215,219 @@ export default function Home() {
         {/* OUR WEDDING SECTION */}
         <section
           id="details"
-          className="py-28 px-6 bg-[#FDEFE8]"
+          className="py-28 px-6 section-texture"
         >
           <div className="max-w-6xl mx-auto text-center">
 
-            {language === "eng" ? (
-              <>
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
-                  The beginning of forever
-                </p>
+            {/* SECTION HEADER */}
+            <div className="text-center">
 
-                <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                  Our Wedding
-                </h2>
+              {language === "eng" ? (
+                <>
+                  <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
+                    The beginning of forever
+                  </p>
 
-                <p className="font-script text-3xl md:text-4xl text-[#916A63] mt-6">
-                  Join us as we celebrate
-                </p>
+                  <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                    Our Wedding
+                  </h2>
 
-                <div className="grid md:grid-cols-3 gap-12 mt-16">
+                  <p className="font-script text-3xl md:text-4xl text-[#916A63] mt-6">
+                    Join us as we celebrate
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
+                    Khởi đầu của một hành trình mới
+                  </p>
 
-                  {/* DATE */}
-                  <div>
-                    <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
-                      When
-                    </p>
+                  <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                    Ngày Cưới
+                  </h2>
 
-                    <h3 className="font-heading text-3xl text-[#622825] mt-3">
-                      The Date
-                    </h3>
+                  <p className="font-script text-3xl md:text-4xl text-[#916A63] mt-6">
+                    Cùng chúng tôi chung vui
+                  </p>
+                </>
+              )}
 
-                    <p className="font-body text-sm text-[#916A63] mt-4">
-                      March 13, 2027
-                    </p>
-                  </div>
+            </div>
 
-                  {/* VENUE */}
-                  <div>
-                    <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
-                      Where
-                    </p>
 
-                    <h3 className="font-heading text-3xl text-[#622825] mt-3">
-                      The Venue
-                    </h3>
+            <div className="grid md:grid-cols-3 gap-12 mt-16">
 
-                    <p className="font-body text-sm text-[#916A63] mt-4">
-                      The Ocean Villas Resort
-                    </p>
+              {/* DATE */}
+              <div className="text-center">
 
-                    <p className="font-body text-xs text-[#916A63] mt-1">
-                      Da Nang, Viet Nam
-                    </p>
-                  </div>
+                <div className="mb-4 flex justify-center">
+                  <svg
+                    viewBox="0 0 64 64"
+                    className="h-12 w-12 text-[var(--color-gold-accent)]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {/* Calendar */}
+                    <rect
+                      x="12"
+                      y="14"
+                      width="40"
+                      height="38"
+                      rx="2"
+                    />
 
-                  {/* ATTIRE */}
-                  <div>
-                    <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
-                      Attire
-                    </p>
+                    {/* Calendar binding rings */}
+                    <path d="M21 10v9" />
+                    <path d="M43 10v9" />
 
-                    <h3 className="font-heading text-3xl text-[#622825] mt-3">
-                      Dress Code
-                    </h3>
+                    {/* Header line */}
+                    <path d="M12 25h40" />
 
-                    <p className="font-body text-sm text-[#916A63] mt-4">
-                      Formal / Garden Elegant
-                    </p>
+                    {/* Date marks */}
+                    <circle
+                      cx="22"
+                      cy="34"
+                      r="1"
+                      fill="currentColor"
+                    />
+                    <circle
+                      cx="32"
+                      cy="34"
+                      r="1"
+                      fill="currentColor"
+                    />
+                    <circle
+                      cx="42"
+                      cy="34"
+                      r="1"
+                      fill="currentColor"
+                    />
 
-                    <p className="font-body text-xs leading-6 text-[#916A63] mt-2">
-                      No white, jeans, shorts, or sneakers
-                    </p>
-                  </div>
-
+                    <circle
+                      cx="22"
+                      cy="43"
+                      r="1"
+                      fill="currentColor"
+                    />
+                    <circle
+                      cx="32"
+                      cy="43"
+                      r="1"
+                      fill="currentColor"
+                    />
+                    <circle
+                      cx="42"
+                      cy="43"
+                      r="1"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </div>
-              </>
-            ) : (
-              <>
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
-                  Khởi đầu của một hành trình mới
+
+                <h3 className="font-heading text-2xl text-[#5f4a42]">
+                  {language === "eng"
+                    ? "Date"
+                    : "Ngày"}
+                </h3>
+
+                <p className="mt-3 font-body text-sm text-[#8c756b]">
+                  {language === "eng"
+                    ? "March 13, 2027"
+                    : "13 tháng 3, 2027"}
                 </p>
 
-                <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                  Ngày Cưới
-                </h2>
+              </div>
 
-                <p className="font-script text-3xl md:text-4xl text-[#916A63] mt-6">
-                  Cùng chúng tôi chung vui
+
+              {/* VENUE */}
+              <div className="text-center">
+
+                <div className="mb-4 flex justify-center">
+                  <svg
+                    viewBox="0 0 64 64"
+                    className="h-12 w-12 text-[var(--color-gold-accent)]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M32 56s18-17.2 18-32A18 18 0 0 0 14 24c0 14.8 18 32 18 32Z" />
+                    <circle cx="32" cy="24" r="6" />
+                  </svg>
+                </div>
+
+                <h3 className="font-heading text-2xl text-[#5f4a42]">
+                  {language === "eng"
+                    ? "Venue"
+                    : "Địa điểm"}
+                </h3>
+
+                <p className="mt-3 font-body text-sm text-[#8c756b]">
+                  The Ocean Villas Resort
+                  <br />
+                  {language === "eng"
+                    ? "Da Nang, Viet Nam"
+                    : "Đà Nẵng, Việt Nam"}
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-12 mt-16">
-
-                  {/* DATE */}
-                  <div className="text-center">
-
-                    <div className="mb-4 flex justify-center">
-                      <svg
-                        viewBox="0 0 64 64"
-                        className="h-12 w-12 text-[var(--color-gold-accent)]"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <circle cx="25" cy="32" r="12" />
-                        <circle cx="39" cy="32" r="12" />
-                      </svg>
-                    </div>
-
-                    <h3 className="font-heading text-2xl text-[#5f4a42]">
-                      Thời gian
-                    </h3>
-
-                    <p className="mt-3 font-body text-sm text-[#8c756b]">
-                      13 tháng 3, 2027
-                    </p>
-
-                  </div>
+              </div>
 
 
-                  {/* VENUE */}
-                  <div className="text-center">
+              {/* ATTIRE */}
+              <div className="text-center">
 
-                    <div className="mb-4 flex justify-center">
-                      <svg
-                        viewBox="0 0 64 64"
-                        className="h-12 w-12 text-[var(--color-gold-accent)]"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M32 56s18-17.2 18-32A18 18 0 0 0 14 24c0 14.8 18 32 18 32Z" />
-                        <circle cx="32" cy="24" r="6" />
-                      </svg>
-                    </div>
+                <div className="mb-4 flex justify-center">
+                  <svg
+                    viewBox="0 0 64 64"
+                    className="h-12 w-12 text-[var(--color-gold-accent)]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M28 8c0 3 1.5 6 4 7.5C34.5 14 36 11 36 8" />
+                    <path d="M28 15.5 22 22l-7 4 7 4" />
+                    <path d="M36 15.5 42 22l7 4-7 4" />
+                    <path d="M22 30c4 2 16 2 20 0" />
+                    <path d="M22 30 13 56h38L42 30" />
+                    <path d="M18 43c9 3 19 3 28 0" />
+                    <path d="M13 56h38" />
+                  </svg>
+                </div>
 
-                    <h3 className="font-heading text-2xl text-[#5f4a42]">
-                      Địa điểm
-                    </h3>
+                <h3 className="font-heading text-2xl text-[#5f4a42]">
+                  {language === "eng"
+                    ? "Attire"
+                    : "Trang phục"}
+                </h3>
 
-                    <p className="mt-3 font-body text-sm text-[#8c756b]">
-                      The Ocean Villas Resort
+                <p className="mt-3 font-body text-sm text-[#8c756b]">
+                  {language === "eng" ? (
+                    <>
+                      Formal
                       <br />
-                      Đà Nẵng, Việt Nam
-                    </p>
-
-                  </div>
-
-
-                  {/* ATTIRE */}
-                  <div className="text-center">
-
-                    <div className="mb-4 flex justify-center">
-                      <svg
-                        viewBox="0 0 64 64"
-                        className="h-12 w-12 text-[var(--color-gold-accent)]"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M28 8c0 3 1.5 6 4 7.5C34.5 14 36 11 36 8" />
-                        <path d="M28 15.5 22 22l-7 4 7 4" />
-                        <path d="M36 15.5 42 22l7 4-7 4" />
-                        <path d="M22 30c4 2 16 2 20 0" />
-                        <path d="M22 30 13 56h38L42 30" />
-                        <path d="M18 43c9 3 19 3 28 0" />
-                        <path d="M13 56h38" />
-                      </svg>
-                    </div>
-
-                    <h3 className="font-heading text-2xl text-[#5f4a42]">
-                      Trang phục
-                    </h3>
-
-                    <p className="mt-3 font-body text-sm text-[#8c756b]">
+                      Garden Elegant
+                    </>
+                  ) : (
+                    <>
                       Trang trọng
                       <br />
                       Thanh lịch
-                    </p>
+                    </>
+                  )}
+                </p>
 
-                  </div>
+              </div>
 
-                </div>
-              </>
-            )}
+            </div>
 
           </div>
         </section>
-
 
       </main>
     </>

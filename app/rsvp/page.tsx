@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useLanguage } from "../LanguageProvider";
@@ -7,25 +6,30 @@ export default function RSVPPage() {
     const { language } = useLanguage();
 
     return (
-        <main className="min-h-screen bg-[#FDEFE8] text-[#622825]">
+        <main className="min-h-screen text-[#622825]">
 
             {/* HERO */}
-            <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-28">
+            <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-28 section-texture">
 
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63] mb-6">
-                    {language === "eng"
-                        ? "We'd Love to Celebrate With You"
-                        : "Chúng Tôi Rất Mong Được Đón Tiếp Bạn"}
-                </p>
+                {/* SECTION HEADER */}
+                <div className="mb-10">
 
-                <h1 className="font-heading text-6xl md:text-8xl text-[#622825]">
-                    {language === "eng"
-                        ? "RSVP"
-                        : "Xác Nhận Tham Dự"}
-                </h1>
+                    <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63] mb-6">
+                        {language === "eng"
+                            ? "We'd Love to Celebrate With You"
+                            : "Chúng Tôi Rất Mong Được Đón Tiếp Bạn"}
+                    </p>
 
-                <div className="mt-6 mb-8 text-[#D4AF37] text-2xl">
-                    ❦
+                    <h1 className="font-heading text-6xl md:text-8xl text-[#622825]">
+                        {language === "eng"
+                            ? "RSVP"
+                            : "Xác Nhận Tham Dự"}
+                    </h1>
+
+                    <div className="mt-6 text-[#D4AF37] text-2xl">
+                        ❦
+                    </div>
+
                 </div>
 
                 <p className="font-body text-sm md:text-base max-w-xl leading-8 text-[#916A63]">
@@ -48,8 +52,9 @@ export default function RSVPPage() {
 
             </section>
 
+
             {/* DETAILS */}
-            <section className="px-6 pb-24 text-center">
+            <section className="px-6 pb-24 text-center section-texture">
 
                 <div className="max-w-2xl mx-auto border-t border-[#916A63]/30 pt-12">
 
@@ -72,4 +77,3 @@ export default function RSVPPage() {
         </main>
     );
 }
-

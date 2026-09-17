@@ -9,31 +9,36 @@ export default function TravelPage() {
         <main>
 
             {/* VENUE HERO */}
-            <section className="py-32 px-6 bg-[#FDEFE8]">
+            <section className="py-32 px-6 section-texture">
                 <div className="max-w-5xl mx-auto text-center">
 
-                    <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
-                        ♥
-                    </span>
+                    {/* SECTION HEADER */}
+                    <div className="mb-10">
 
-                    <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63] mt-6">
-                        {language === "eng"
-                            ? "Where We Say I Do"
-                            : "Nơi Ta Trao Lời Hẹn Ước"}
-                    </p>
+                        <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
+                            ♥
+                        </span>
 
-                    <h1 className="font-heading text-6xl md:text-8xl text-[#622825] mt-4">
-                        The Ocean Villas Resort
-                    </h1>
+                        <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63] mt-6">
+                            {language === "eng"
+                                ? "Where We Say I Do"
+                                : "Nơi Ta Trao Lời Hẹn Ước"}
+                        </p>
 
-                    <p className="font-script text-4xl md:text-5xl mt-6 text-[#916A63]">
-                        {language === "eng"
-                            ? "Da Nang, Viet Nam"
-                            : "Đà Nẵng, Việt Nam"}
-                    </p>
+                        <h1 className="font-heading text-6xl md:text-8xl text-[#622825] mt-4">
+                            The Ocean Villas Resort
+                        </h1>
 
-                    <div className="flex justify-center mt-7">
-                        <div className="w-24 h-px bg-[#D4AF37]/60" />
+                        <p className="font-script text-4xl md:text-5xl mt-6 text-[#916A63]">
+                            {language === "eng"
+                                ? "Da Nang, Viet Nam"
+                                : "Đà Nẵng, Việt Nam"}
+                        </p>
+
+                        <div className="flex justify-center mt-7">
+                            <div className="w-24 h-px bg-[#D4AF37]/60" />
+                        </div>
+
                     </div>
 
                     <p className="font-body text-sm leading-7 max-w-2xl mx-auto mt-10 text-[#622825]">
@@ -63,6 +68,7 @@ export default function TravelPage() {
             <section className="py-28 px-6 section-texture">
                 <div className="max-w-5xl mx-auto">
 
+                    {/* SECTION HEADER */}
                     <div className="text-center mb-16">
 
                         <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
@@ -144,9 +150,10 @@ export default function TravelPage() {
 
 
             {/* WHERE TO STAY */}
-            <section className="py-28 px-6 bg-[#FDEFE8]">
+            <section className="py-28 px-6 section-texture">
                 <div className="max-w-6xl mx-auto">
 
+                    {/* SECTION HEADER */}
                     <div className="text-center mb-16">
 
                         <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
@@ -280,6 +287,7 @@ export default function TravelPage() {
             <section className="py-28 px-6 section-texture">
                 <div className="max-w-5xl mx-auto">
 
+                    {/* SECTION HEADER */}
                     <div className="text-center mb-16">
 
                         <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
@@ -385,9 +393,10 @@ export default function TravelPage() {
 
 
             {/* TRAVEL TIPS */}
-            <section className="py-28 px-6 bg-[#FDEFE8]">
+            <section className="py-28 px-6 section-texture">
                 <div className="max-w-4xl mx-auto">
 
+                    {/* SECTION HEADER */}
                     <div className="text-center mb-16">
 
                         <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
@@ -503,24 +512,29 @@ export default function TravelPage() {
 
                 <div className="max-w-4xl mx-auto text-center">
 
-                    <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
-                        ♥
-                    </span>
+                    {/* SECTION HEADER */}
+                    <div className="mb-10">
 
-                    <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                        {language === "eng"
-                            ? "See You in Da Nang"
-                            : "Hẹn Gặp Bạn Tại Đà Nẵng"}
-                    </h2>
+                        <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
+                            ♥
+                        </span>
 
-                    <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
-                        {language === "eng"
-                            ? "We cannot wait to celebrate with you"
-                            : "Chúng tôi rất mong được cùng bạn chung vui"}
-                    </p>
+                        <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                            {language === "eng"
+                                ? "See You in Da Nang"
+                                : "Hẹn Gặp Bạn Tại Đà Nẵng"}
+                        </h2>
 
-                    <div className="flex justify-center mt-6">
-                        <div className="w-24 h-px bg-[#D4AF37]/60" />
+                        <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
+                            {language === "eng"
+                                ? "We cannot wait to celebrate with you"
+                                : "Chúng tôi rất mong được cùng bạn chung vui"}
+                        </p>
+
+                        <div className="flex justify-center mt-6">
+                            <div className="w-24 h-px bg-[#D4AF37]/60" />
+                        </div>
+
                     </div>
 
                     <p className="font-body text-sm leading-7 max-w-xl mx-auto mt-10 text-[#916A63]">

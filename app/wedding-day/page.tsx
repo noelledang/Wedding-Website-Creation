@@ -109,7 +109,7 @@ export default function WeddingDayPage() {
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
                     {language === "eng"
-                      ? "Ceremony"
+                      ? "Vows Ceremony"
                       : "Lễ Vows"}
                   </h3>
 
