@@ -192,7 +192,9 @@ export default function RSVPPage() {
 
                         <div className="mt-10">
                             <p className="font-heading text-3xl">
-                                Noelle & Nathan
+                                {isVietnamese
+                                    ? "Cường & Nghi"
+                                    : "Noelle & Nathan"}
                             </p>
 
                             <p className="text-sm tracking-[0.2em] uppercase mt-3">

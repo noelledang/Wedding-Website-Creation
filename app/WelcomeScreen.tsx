@@ -23,7 +23,7 @@ export default function WelcomeScreen() {
         setStorageLoaded(true);
     }, []);
 
-    const handleLanguageSelect = (selectedLanguage: Language) => {
+    const handleLanguageSelect = async (selectedLanguage: Language) => {
         const musicFile =
             selectedLanguage === "eng"
                 ? "/music/wedding-song-eng.mp3"
@@ -45,17 +45,21 @@ export default function WelcomeScreen() {
         window.__weddingAudio = audio;
 
         // Start music directly from the user's button click
-        audio
-            .play()
-            .then(() => {
-                window.dispatchEvent(new Event("wedding-audio-changed"));
-            })
-            .catch((error) => {
-                console.error("Music could not start:", error);
-            });
+        try {
+            await audio.play();
+
+            window.dispatchEvent(
+                new Event("wedding-audio-changed")
+            );
+        } catch (error) {
+            console.error("Music could not start:", error);
+        }
 
         // Save language
-        localStorage.setItem("wedding-language", selectedLanguage);
+        localStorage.setItem(
+            "wedding-language",
+            selectedLanguage
+        );
 
         // Update website language
         setLanguage(selectedLanguage);
@@ -66,7 +70,6 @@ export default function WelcomeScreen() {
         setTimeout(() => {
             setVisible(false);
         }, 700);
-    };
 
     if (!storageLoaded || !visible) {
         return null;
