@@ -1,3 +1,4 @@
+import WelcomeScreen from "./WelcomeScreen";
 import type { Metadata } from "next";
 import {
   Cormorant_Garamond,
@@ -10,9 +11,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import MusicPlayerWrapper from "./MusicPlayerWrapper";
 
-
 import { LanguageProvider } from "./LanguageProvider";
-import LanguageSelector from "./LanguageSelector";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const cormorant = Cormorant_Garamond({
@@ -50,8 +49,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
+          <WelcomeScreen />
           <Navbar />
-          <LanguageSelector />
           <LanguageSwitcher />
           <MusicPlayerWrapper />
           {children}

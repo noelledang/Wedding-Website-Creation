@@ -1,56 +1,55 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type MusicPlayerProps = {
   language: "eng" | "viet";
 };
 
-export default function MusicPlayer({ language }: MusicPlayerProps) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+export default function MusicPlayer({
+  language,
+}: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // Keep the player synced with the actual audio
   useEffect(() => {
-    const audio = audioRef.current;
+    const checkAudioState = () => {
+      const audio = window.__weddingAudio;
 
-    if (!audio) return;
-
-    audio.volume = 0.5;
-
-    const isMobile =
-      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    const handleVisibilityChange = () => {
-      if (isMobile && document.hidden) {
-        audio.pause();
-        setIsPlaying(false);
+      if (audio) {
+        setIsPlaying(!audio.paused);
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+    checkAudioState();
 
-    return () => {
-      document.removeEventListener(
-        "visibilitychange",
-        handleVisibilityChange
-      );
+    const interval = setInterval(checkAudioState, 200);
 
-      audio.pause();
-    };
-  }, []);
+    return () => clearInterval(interval);
+  }, [language]);
 
+  // Switch music when the language changes
   useEffect(() => {
-    const audio = audioRef.current;
+    const audio = window.__weddingAudio;
 
     if (!audio) return;
 
-    const wasPlaying = isPlaying;
-
-    audio.src =
+    const newSource =
       language === "eng"
         ? "/music/wedding-song-eng.mp3"
         : "/music/wedding-song.mp3";
 
+    const currentSource = audio.src;
+
+    if (currentSource.endsWith(newSource)) {
+      return;
+    }
+
+    const wasPlaying = !audio.paused;
+
+    audio.pause();
+
+    audio.src = newSource;
     audio.load();
 
     if (wasPlaying) {
@@ -60,7 +59,7 @@ export default function MusicPlayer({ language }: MusicPlayerProps) {
           setIsPlaying(true);
         })
         .catch((error) => {
-          console.error("Music could not play:", error);
+          console.error("Music could not switch:", error);
           setIsPlaying(false);
         });
     } else {
@@ -69,7 +68,7 @@ export default function MusicPlayer({ language }: MusicPlayerProps) {
   }, [language]);
 
   const toggleMusic = async () => {
-    const audio = audioRef.current;
+    const audio = window.__weddingAudio;
 
     if (!audio) return;
 
@@ -87,33 +86,49 @@ export default function MusicPlayer({ language }: MusicPlayerProps) {
   };
 
   return (
-    <>
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        src={
-          language === "eng"
-            ? "/music/wedding-song-eng.mp3"
-            : "/music/wedding-song.mp3"
-        }
-      />
-
-      <button
-        type="button"
-        onClick={toggleMusic}
-        aria-label={isPlaying ? "Turn music off" : "Turn music on"}
-        className={`fixed bottom-6 right-6 z-[9999] flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d9a6a6] bg-white shadow-lg transition-transform duration-300 hover:scale-105 ${isPlaying ? "music-pulse" : ""
-          }`}
+    <button
+      type="button"
+      onClick={toggleMusic}
+      aria-label={isPlaying ? "Turn music off" : "Turn music on"}
+      style={{
+        position: "fixed",
+        bottom: "24px",
+        right: "24px",
+        zIndex: 999999,
+        width: "60px",
+        height: "60px",
+        borderRadius: "50%",
+        background: "white",
+        border: "3px solid #d9a6a6",
+        fontSize: "28px",
+        color: "#D4AF37",
+        cursor: "pointer",
+        boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+      }}
+    >
+      <span
+        style={{
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          lineHeight: 1,
+        }}
       >
-        <span className="relative flex items-center justify-center text-2xl leading-none text-[var(--color-gold-accent)]">
-          ♪
+        ♪
 
-          {!isPlaying && (
-            <span className="absolute h-[2px] w-7 rotate-[-45deg] bg-[#d9a6a6]" />
-          )}
-        </span>
-      </button>
-    </>
+        {!isPlaying && (
+          <span
+            style={{
+              position: "absolute",
+              width: "28px",
+              height: "2px",
+              background: "#d9a6a6",
+              transform: "rotate(-45deg)",
+            }}
+          />
+        )}
+      </span>
+    </button>
   );
 }
