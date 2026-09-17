@@ -58,7 +58,7 @@ export default function MusicPlayer({
         .then(() => {
           setIsPlaying(true);
         })
-        .catch((error) => {
+        .catch((error: unknown) => {
           console.error("Music could not switch:", error);
           setIsPlaying(false);
         });
