@@ -212,6 +212,159 @@ export default function Home() {
         </section>
 
 
+        {/* VIETNAMESE FAMILY SECTION */}
+        {language === "viet" && (
+          <section className="py-24 px-6 section-texture">
+
+            <div className="max-w-5xl mx-auto text-center">
+
+              {/* SECTION HEADER */}
+              <div className="text-center">
+
+                <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
+                  Với sự chúc phúc của:
+                </p>
+
+                <h2 className="font-heading text-4xl md:text-5xl text-[#622825] mt-4">
+                  Gia Đình Hai Bên
+                </h2>
+
+              </div>
+
+
+              {/* Divider */}
+              <div className="flex items-center justify-center gap-5 my-10">
+                <span className="h-px w-20 bg-[#916A63]/30"></span>
+
+                <span className="text-xl text-[var(--color-gold-accent)]">
+                  ❦
+                </span>
+
+                <span className="h-px w-20 bg-[#916A63]/30"></span>
+              </div>
+
+
+              {/* FAMILY GROUPS */}
+              <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
+
+                {/* BRIDE'S FAMILY */}
+                <div className="text-center">
+
+                  {/* Female Icon */}
+                  {/* Female Icon */}
+                  <div className="mb-5 flex justify-center">
+                    <svg
+                      viewBox="0 0 64 64"
+                      className="h-14 w-14 text-[var(--color-gold-accent)]"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      {/* Head */}
+                      <circle cx="32" cy="17" r="7" />
+
+                      {/* Long Flowing Hair */}
+                      <path d="M25 18c-5 2-7 7-6 13 1 5 3 9 1 14" />
+                      <path d="M39 18c5 2 7 7 6 13-1 5-3 9-1 14" />
+
+                      {/* Hair framing face */}
+                      <path d="M25 13c2-5 5-7 7-7s5 2 7 7" />
+
+                      {/* Shoulders / Dress */}
+                      <path d="M23 34c2-5 5-8 9-8s7 3 9 8" />
+                      <path d="M23 34l-7 22h32l-7-22" />
+
+                      {/* Neckline */}
+                      <path d="M27 28c1.5 2 3 3 5 3s3.5-1 5-3" />
+
+                      {/* Dress Detail */}
+                      <path d="M21 43c7 3 15 3 22 0" />
+                    </svg>
+                  </div>
+
+
+                  <h3 className="font-heading text-2xl md:text-3xl text-[#5f4a42]">
+                    Gia đình nhà gái
+                  </h3>
+
+                  <div className="mt-6 space-y-2">
+
+                    <p className="font-body text-base text-[#8c756b]">
+                      Ông: Đặng Mậu Tân
+                    </p>
+
+                    <p className="font-body text-base text-[#8c756b]">
+                      Bà: Lâm Thị Lan
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                {/* GROOM'S FAMILY */}
+                <div className="text-center">
+
+                  {/* Male Icon */}
+                  <div className="mb-5 flex justify-center">
+                    <svg
+                      viewBox="0 0 64 64"
+                      className="h-14 w-14 text-[var(--color-gold-accent)]"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      {/* Head */}
+                      <circle cx="32" cy="16" r="7" />
+
+                      {/* Hair */}
+                      <path d="M25 15c1-5 4-8 7-8s6 2 7 7" />
+
+                      {/* Shoulders / Suit */}
+                      <path d="M23 34c2-5 5-8 9-8s7 3 9 8" />
+                      <path d="M23 34l-7 22h32l-7-22" />
+
+                      {/* Shirt / Tie */}
+                      <path d="M27 28l5 7 5-7" />
+                      <path d="M30 35l2 5 2-5" />
+
+                      {/* Jacket Detail */}
+                      <path d="M21 43l11 13 11-13" />
+                    </svg>
+                  </div>
+
+
+                  <h3 className="font-heading text-2xl md:text-3xl text-[#5f4a42]">
+                    Gia đình nhà trai
+                  </h3>
+
+                  <div className="mt-6 space-y-2">
+
+                    <p className="font-body text-base text-[#8c756b]">
+                      Ông: Huỳnh Văn Tấn
+                    </p>
+
+                    <p className="font-body text-base text-[#8c756b]">
+                      Bà: Phạm Thị Thu
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+        )}
+
         {/* OUR WEDDING SECTION */}
         <section
           id="details"
@@ -270,7 +423,6 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    {/* Calendar */}
                     <rect
                       x="12"
                       y="14"
@@ -279,14 +431,10 @@ export default function Home() {
                       rx="2"
                     />
 
-                    {/* Calendar binding rings */}
                     <path d="M21 10v9" />
                     <path d="M43 10v9" />
-
-                    {/* Header line */}
                     <path d="M12 25h40" />
 
-                    {/* Date marks */}
                     <circle
                       cx="22"
                       cy="34"
