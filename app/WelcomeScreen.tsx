@@ -44,7 +44,6 @@ export default function WelcomeScreen() {
         // Store it globally so MusicPlayer can control it later
         window.__weddingAudio = audio;
 
-        // Start music directly from the user's button click
         try {
             await audio.play();
 
@@ -70,6 +69,7 @@ export default function WelcomeScreen() {
         setTimeout(() => {
             setVisible(false);
         }, 700);
+    };
 
     if (!storageLoaded || !visible) {
         return null;
