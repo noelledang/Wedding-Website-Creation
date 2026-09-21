@@ -11,12 +11,22 @@ export default function WeddingDayPage() {
       {/* WEDDING DAY SCHEDULE */}
       <section
         id="schedule"
-        className="py-28 px-6 section-texture"
+        className="relative py-28 px-6 section-texture overflow-hidden"
       >
-        <div className="max-w-4xl mx-auto">
+
+        {/* MOBILE BACKGROUND */}
+        <div className="absolute inset-0 md:hidden">
+          <img
+            src="/images/schedule-mobile2.png"
+            alt=""
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto">
 
           {/* SECTION HEADER */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 pt-12 md:pt-0">
 
             <h2 className="font-heading text-5xl md:text-7xl text-[#622825]">
               {language === "eng" ? "Wedding Day" : "Lịch trình"}
@@ -45,27 +55,27 @@ export default function WeddingDayPage() {
 
 
               {/* GUEST ARRIVAL */}
-            <div className="relative flex items-start gap-4 md:gap-12">
+              <div className="relative flex items-start gap-4 md:gap-12">
 
-                              <div className="w-20 md:w-32 shrink-0 text-right pl-1 md:pl-0">
-                                  <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
-                                      3:30 PM
-                                  </p>
-                              </div>
+                <div className="w-20 md:w-32 shrink-0 text-right pl-1 md:pl-0">
+                  <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
+                    3:30 PM
+                  </p>
+                </div>
 
-                              <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
+                <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
-                                  {/* Mobile line */}
-                                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
+                  {/* Mobile line */}
+                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
 
-                                  {/* Desktop heart */}
-                                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
-                                      <span className="text-[16px] leading-none text-[#916A63]">
-                                          ♥
-                                      </span>
-                                  </span>
+                  {/* Desktop heart */}
+                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
+                    <span className="text-[16px] leading-none text-[#916A63]">
+                      ♥
+                    </span>
+                  </span>
 
-                              </div>
+                </div>
 
                 <div className="pt-0">
                   <h3 className="font-heading text-3xl md:text-4xl">
@@ -87,25 +97,26 @@ export default function WeddingDayPage() {
               {/* CEREMONY */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
-            <div className="w-20 md:w-32 shrink-0 text-right">
+                <div className="w-20 md:w-32 shrink-0 text-right">
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-gold-accent)]">
                     4:00 PM
                   </p>
                 </div>
 
-                              <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
+                <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
-                                  {/* Mobile line */}
-                                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
+                  {/* Mobile line */}
+                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
 
-                                  {/* Desktop heart */}
-                                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
-                                      <span className="text-[16px] leading-none text-[#916A63]">
-                                          ♥
-                                      </span>
-                                  </span>
+                  {/* Desktop heart */}
+                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
+                    <span className="text-[16px] leading-none text-[#916A63]">
+                      ♥
+                    </span>
+                  </span>
 
-                              </div>
+                </div>
+
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
                     {language === "eng"
@@ -132,19 +143,19 @@ export default function WeddingDayPage() {
                   </p>
                 </div>
 
-                              <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
+                <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
-                                  {/* Mobile line */}
-                                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
+                  {/* Mobile line */}
+                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
 
-                                  {/* Desktop heart */}
-                                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
-                                      <span className="text-[16px] leading-none text-[#916A63]">
-                                          ♥
-                                      </span>
-                                  </span>
+                  {/* Desktop heart */}
+                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
+                    <span className="text-[16px] leading-none text-[#916A63]">
+                      ♥
+                    </span>
+                  </span>
 
-                              </div>
+                </div>
 
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
@@ -172,19 +183,19 @@ export default function WeddingDayPage() {
                   </p>
                 </div>
 
-                              <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
+                <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
-                                  {/* Mobile line */}
-                                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
+                  {/* Mobile line */}
+                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
 
-                                  {/* Desktop heart */}
-                                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
-                                      <span className="text-[16px] leading-none text-[#916A63]">
-                                          ♥
-                                      </span>
-                                  </span>
+                  {/* Desktop heart */}
+                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
+                    <span className="text-[16px] leading-none text-[#916A63]">
+                      ♥
+                    </span>
+                  </span>
 
-                              </div>
+                </div>
 
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
@@ -212,19 +223,19 @@ export default function WeddingDayPage() {
                   </p>
                 </div>
 
-                              <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
+                <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
-                                  {/* Mobile line */}
-                                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
+                  {/* Mobile line */}
+                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
 
-                                  {/* Desktop heart */}
-                                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
-                                      <span className="text-[16px] leading-none text-[#916A63]">
-                                          ♥
-                                      </span>
-                                  </span>
+                  {/* Desktop heart */}
+                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
+                    <span className="text-[16px] leading-none text-[#916A63]">
+                      ♥
+                    </span>
+                  </span>
 
-                              </div>
+                </div>
 
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
@@ -252,19 +263,19 @@ export default function WeddingDayPage() {
                   </p>
                 </div>
 
-                              <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
+                <div className="relative z-10 mt-1 w-7 h-7 shrink-0 flex items-center justify-center">
 
-                                  {/* Mobile line */}
-                                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
+                  {/* Mobile line */}
+                  <span className="md:hidden w-px h-7 bg-[#916A63]/50"></span>
 
-                                  {/* Desktop heart */}
-                                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
-                                      <span className="text-[16px] leading-none text-[#916A63]">
-                                          ♥
-                                      </span>
-                                  </span>
+                  {/* Desktop heart */}
+                  <span className="hidden md:flex w-7 h-7 rounded-full border border-[#916A63] bg-[#FDEFE8] items-center justify-center">
+                    <span className="text-[16px] leading-none text-[#916A63]">
+                      ♥
+                    </span>
+                  </span>
 
-                              </div>
+                </div>
 
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">

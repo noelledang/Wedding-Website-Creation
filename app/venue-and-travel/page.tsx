@@ -8,10 +8,29 @@ export default function TravelPage() {
 
     return (
         <main>
-
+            ```tsx
             {/* VENUE HERO */}
-            <section className="py-32 px-6 section-texture">
-                <div className="max-w-5xl mx-auto text-center">
+            <section className="relative min-h-[850px] md:min-h-[700px] px-6 overflow-hidden">
+
+                {/* Venue Background */}
+                <div className="absolute inset-0">
+
+                    {/* Mobile */}
+                    <img
+                        src="/images/venue-mobile2.png"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
+                    />
+
+                    {/* Desktop intentionally left blank for now */}
+
+                </div>
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-white/15" />
+
+                {/* Content */}
+                <div className="relative z-10 max-w-5xl mx-auto text-center pt-32 pb-32">
 
                     {/* SECTION HEADER */}
                     <div className="mb-10">
@@ -26,7 +45,7 @@ export default function TravelPage() {
                                 : "Nơi Ta Trao Lời Hẹn Ước"}
                         </p>
 
-                        <h1 className="font-heading text-6xl md:text-8xl text-[#622825] mt-4">
+                        <h1 className="font-heading text-6xl md:text-8xl text-[#4A1E1C] mt-4">
                             The Ocean Villas Resort
                         </h1>
 
@@ -62,7 +81,9 @@ export default function TravelPage() {
                     </div>
 
                 </div>
+
             </section>
+        
 
 
             {/* GETTING TO DA NANG */}

@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useLanguage } from "../LanguageProvider";
 
 const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbztNFNB_-PFYIfeqjL0gw-xr8uM1OwIx9IqkcSoLvLKW8M_rzPKRyi3hW1Kl5J68cVWbg/exec";
+    "https://script.google.com/macros/s/AKfycbyh-flC_23B9Z0HTOuD3jMJLVxP9f4HpgNKQB2NlCutm3i3vVrspJtxQezaSlAx9qqvw/exec";
+
 type Guest = {
     name: string;
 };
@@ -208,8 +209,17 @@ export default function RSVPPage() {
     }
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen relative">
 
+            {/* Mobile Background Only */}
+            <div className="fixed inset-0 md:hidden -z-10 flex items-center justify-center bg-[#FDEFE8]">
+                <img
+                    src="/images/RSVP-mobile.png"
+                    alt=""
+                    className="h-full w-full object-cover"
+                />
+            </div>
+            
             {/* RSVP HEADER */}
             <section className="py-24 px-6 text-center section-texture">
                 <div className="max-w-3xl mx-auto">
@@ -260,8 +270,8 @@ export default function RSVPPage() {
                                     handleAttendanceChange("yes")
                                 }
                                 className={`border px-6 py-5 rounded-lg transition ${attending === "yes"
-                                        ? "bg-[#D4AF37] text-white border-[#D4AF37]"
-                                        : "border-gray-300 hover:border-[#D4AF37]"
+                                    ? "bg-[#D4AF37] text-white border-[#D4AF37]"
+                                    : "border-gray-300 hover:border-[#D4AF37]"
                                     }`}
                             >
                                 <span className="block text-lg">
@@ -277,8 +287,8 @@ export default function RSVPPage() {
                                     handleAttendanceChange("no")
                                 }
                                 className={`border px-6 py-5 rounded-lg transition ${attending === "no"
-                                        ? "bg-[#D4AF37] text-white border-[#D4AF37]"
-                                        : "border-gray-300 hover:border-[#D4AF37]"
+                                    ? "bg-[#D4AF37] text-white border-[#D4AF37]"
+                                    : "border-gray-300 hover:border-[#D4AF37]"
                                     }`}
                             >
                                 <span className="block text-lg">

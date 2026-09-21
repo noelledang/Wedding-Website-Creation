@@ -52,3 +52,103 @@ html {
     transform: scale(1.12);
   }
 }
+
+
+/* ========================================
+   FALLING ROSE PETAL OVERLAY
+   ======================================== */
+
+     .falling-rose-1,
+     .falling-rose-2,
+     .falling-rose-3 {
+       position: absolute;
+       top: -200px;
+       width: 35px;
+       height: auto;
+       opacity: 0.75;
+       object-fit: contain;
+     }
+  
+     .falling-rose-1 {
+       left: 10%;
+       animation: roseFall1 14s linear infinite;
+     }
+  
+     .falling-rose-2 {
+       left: 50%;
+       width: 30px;
+       animation: roseFall2 18s linear infinite;
+       animation-delay: -7s;
+     }
+  
+     .falling-rose-3 {
+       left: 82%;
+       width: 25px;
+       animation: roseFall3 16s linear infinite;
+       animation-delay: -11s;
+     }
+  
+     @keyframes roseFall1 {
+       0% {
+         transform: translateY(-200px) translateX(0) rotate(0deg);
+       }
+  
+       25% {
+         transform: translateY(25vh) translateX(35px) rotate(90deg);
+       }
+  
+       50% {
+         transform: translateY(50vh) translateX(-30px) rotate(180deg);
+       }
+  
+       75% {
+         transform: translateY(75vh) translateX(40px) rotate(270deg);
+       }
+  
+       100% {
+         transform: translateY(115vh) translateX(-20px) rotate(360deg);
+       }
+     }
+  
+     @keyframes roseFall2 {
+       0% {
+         transform: translateY(-200px) translateX(0) rotate(20deg);
+       }
+  
+       25% {
+         transform: translateY(25vh) translateX(-40px) rotate(110deg);
+       }
+  
+       50% {
+         transform: translateY(50vh) translateX(30px) rotate(200deg);
+       }
+  
+       75% {
+         transform: translateY(75vh) translateX(-35px) rotate(290deg);
+       }
+  
+       100% {
+         transform: translateY(115vh) translateX(25px) rotate(380deg);
+       }
+     }
+  
+     @keyframes roseFall3 {
+       0% {
+         transform: translateY(-200px) translateX(0) rotate(-20deg);
+       }
+  
+       25% {
+         transform: translateY(25vh) translateX(25px) rotate(70deg);
+       }
+  
+       50% {
+         transform: translateY(50vh) translateX(-35px) rotate(160deg);
+       }
+  
+       75% {
+         transform: translateY(75vh) translateX(30px) rotate(250deg);
+       }
+  
+       100% {
+         transform: translateY(115vh) translateX(-25px) rotate(340deg);
+       }  }

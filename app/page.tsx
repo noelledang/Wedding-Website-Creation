@@ -73,18 +73,22 @@ export default function Home() {
     <>
       <main>
 
-        {/* HERO SECTION */}
         <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-12 md:py-12 overflow-hidden">
 
           {/* Hero Background */}
-          <div
-            className="absolute inset-0 bg-cover"
-            style={{
-              backgroundImage:
-                "url('/images/white flowers.png')",
-              backgroundPosition: "center center",
-            }}
-          />
+          <div className="absolute inset-0">
+            <img
+              src="/images/hero.png"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover md:hidden"
+            />
+
+            <img
+              src="/images/hero-desktop.png"
+              alt=""
+              className="hidden md:block absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
 
           {/* Light Overlay */}
           <div className="absolute inset-0 bg-white/10" />
@@ -100,42 +104,70 @@ export default function Home() {
               {translations[language].heroInvitation}
             </p>
 
-            <h1 className="font-great-vibes text-7xl md:text-9xl text-[var(--color-gold-accent)]">
+            {/* COUPLE NAMES */}
+            <div className="font-great-vibes text-7xl md:text-9xl text-[var(--color-gold-accent)]">
               {language === "viet" ? (
                 <>
-                  <span className="block">Tấn Cường</span>
+                  <h1 className="font-great-vibes text-7xl md:text-9xl text-[var(--color-gold-accent)]">
+                    <span className="block">Tấn Cường</span>
 
-                  <span className="flex justify-center my-3">
-                    <svg
-                      viewBox="0 0 100 50"
-                      className="w-16 h-8 md:w-20 md:h-10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <circle
-                        cx="38"
-                        cy="25"
-                        r="16"
-                        stroke="var(--color-gold-accent)"
-                        strokeWidth="3"
-                      />
-                      <circle
-                        cx="62"
-                        cy="25"
-                        r="16"
-                        stroke="var(--color-gold-accent)"
-                        strokeWidth="3"
-                      />
-                    </svg>
-                  </span>
+                    <span className="flex justify-center my-3">
+                      <svg
+                        viewBox="0 0 100 50"
+                        className="w-16 h-8 md:w-20 md:h-10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="38"
+                          cy="25"
+                          r="16"
+                          stroke="var(--color-gold-accent)"
+                          strokeWidth="3"
+                        />
+                        <circle
+                          cx="62"
+                          cy="25"
+                          r="16"
+                          stroke="var(--color-gold-accent)"
+                          strokeWidth="3"
+                        />
+                      </svg>
+                    </span>
 
-                  <span className="block">Lãm Nghi</span>
+                    <span className="block">Lãm Nghi</span>
+                  </h1>
                 </>
               ) : (
-                coupleNames
+                <div className="text-center leading-none">
+                  <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl font-light tracking-[0.18em] uppercase text-[var(--color-gold-accent)]">
+                    NOELLE
+                  </h1>
+
+                  <div className="font-script text-4xl md:text-5xl text-[#916A63] -mt-2">
+                    Dang
+                  </div>
+
+                    <div className="flex items-center justify-center gap-3 my-4">
+                      <span className="h-px w-10 md:w-14 bg-[#916A63]/40"></span>
+
+                      <span className="font-script text-3xl md:text-4xl text-[#916A63]">
+                        &
+                      </span>
+
+                      <span className="h-px w-10 md:w-14 bg-[#916A63]/40"></span>
+                    </div>
+                  <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl font-light tracking-[0.18em] uppercase text-[var(--color-gold-accent)]">
+                    NATHAN
+                  </h1>
+
+                  <div className="font-script text-4xl md:text-5xl text-[#916A63] -mt-2">
+                    Huynh
+                  </div>
+                </div>
               )}
-            </h1>
+            </div>
 
             <div className="flex items-center justify-center gap-4 mt-8">
               <span className="h-px w-16 bg-[#916A63]/50"></span>
