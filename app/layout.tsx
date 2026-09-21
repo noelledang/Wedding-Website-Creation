@@ -1,6 +1,5 @@
 
 import WelcomeScreen from "./WelcomeScreen";
-import RoseOverlay from "./components/RoseOverlay";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import {
@@ -67,7 +66,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <MusicPlayerWrapper />
           {children}
         </LanguageProvider>
-        <RoseOverlay />
       </body>
     </html>
   );
