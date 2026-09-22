@@ -68,7 +68,7 @@ export default function WeddingIntro() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
-                    src="/wedding-intro/intro-2.jpg"
+                    src="/wedding-intro/intro-2.JPG"
                     alt="Welcome to Our Wedding"
                     className="h-full w-full object-cover"
                 />
