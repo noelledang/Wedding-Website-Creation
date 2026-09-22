@@ -1832,7 +1832,7 @@ function MobileRSVPSection() {
       {/* Mobile Background Only */}
       <div className="absolute inset-0 md:hidden -z-10 flex items-center justify-center bg-[#FDEFE8]">
         <img
-          src="/images/RSVP-mobile2.png"
+          src="/images/rsvp-mobile2.png"
           alt=""
           className="h-full w-full object-cover"
         />
