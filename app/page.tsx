@@ -1827,16 +1827,13 @@ function MobileRSVPSection() {
   }
 
   return (
-    <div className="min-h-screen relative isolate">
-
-      {/* Mobile Background Only */}
-      <div className="absolute inset-0 md:hidden -z-10 flex items-center justify-center bg-[#FDEFE8]">
-        <img
-          src="/images/rsvp-mobile2.png"
-          alt=""
-          className="h-full w-full object-cover"
-        />
-      </div>
+    <div
+      className="relative min-h-screen bg-[#FDEFE8] bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/rsvp-mobile2.png')",
+      }}
+    >
+      { }
 
       {/* RSVP HEADER */}
       <section className="py-24 px-6 text-center section-texture">
