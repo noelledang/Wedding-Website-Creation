@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLanguage } from "../LanguageProvider";
 
+
 const GOOGLE_SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbyh-flC_23B9Z0HTOuD3jMJLVxP9f4HpgNKQB2NlCutm3i3vVrspJtxQezaSlAx9qqvw/exec";
 
@@ -198,7 +199,7 @@ export default function RSVPPage() {
                             </p>
 
                             <p className="text-sm tracking-[0.2em] uppercase mt-3">
-                                September 13, 2027
+                                March 13, 2027
                             </p>
                         </div>
 
@@ -219,7 +220,7 @@ export default function RSVPPage() {
                     className="h-full w-full object-cover"
                 />
             </div>
-            
+
             {/* RSVP HEADER */}
             <section className="py-24 px-6 text-center section-texture">
                 <div className="max-w-3xl mx-auto">

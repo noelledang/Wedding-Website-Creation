@@ -1,5 +1,4 @@
-
-import WelcomeScreen from "./WelcomeScreen";
+import WeddingIntro from "./components/WeddingIntro";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import {
@@ -56,11 +55,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${ cormorant.variable } ${ allura.variable } ${ greatVibes.variable } ${ montserrat.variable } h - full antialiased`}
+      className={`${cormorant.variable} ${allura.variable} ${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
-          <WelcomeScreen />
+          <WeddingIntro />
           <Navbar />
           <LanguageSwitcher />
           <MusicPlayerWrapper />
@@ -70,4 +69,3 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
-

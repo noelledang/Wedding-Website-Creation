@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
                         : "text-[#916A63]/50 hover:text-[#916A63]"
                     }`}
             >
-                ENG
+                US
             </button>
 
             <span className="text-[#d9a6a6]">|</span>
@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
                         : "text-[#916A63]/50 hover:text-[#916A63]"
                     }`}
             >
-                VIET
+                VN
             </button>
 
         </div>

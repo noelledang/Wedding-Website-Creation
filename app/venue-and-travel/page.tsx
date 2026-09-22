@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useLanguage } from "../LanguageProvider";
@@ -8,71 +7,71 @@ export default function TravelPage() {
 
     return (
         <main>
-            ```tsx
-            {/* VENUE HERO */}
-            <section className="relative min-h-[850px] md:min-h-[700px] px-6 overflow-hidden">
 
-                {/* Venue Background */}
+            {/* ========================================================= */}
+            {/* MOBILE VENUE */}
+            {/* ========================================================= */}
+
+            <section className="relative min-h-[850px] md:hidden px-6 overflow-hidden">
+
+                {/* Mobile Venue Background */}
                 <div className="absolute inset-0">
-
-                    {/* Mobile */}
                     <img
                         src="/images/venue-mobile2.png"
                         alt=""
-                        className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
+                        className="absolute inset-0 w-full h-full object-cover object-center"
                     />
-
-                    {/* Desktop intentionally left blank for now */}
-
                 </div>
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-white/15" />
 
-                {/* Content */}
-                <div className="relative z-10 max-w-5xl mx-auto text-center pt-32 pb-32">
+                {/* Mobile Content */}
+                <div className="relative z-10 max-w-md mx-auto text-center pt-28 pb-24">
 
-                    {/* SECTION HEADER */}
-                    <div className="mb-10">
+                    {/* HEART */}
+                    <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
+                        ♥
+                    </span>
 
-                        <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
-                            ♥
-                        </span>
+                    {/* SECTION LABEL */}
+                    <p className="font-body text-[11px] uppercase tracking-[0.28em] text-[#916A63] mt-6">
+                        {language === "eng"
+                            ? "Where We Say I Do"
+                            : "Nơi Ta Trao Lời Hẹn Ước"}
+                    </p>
 
-                        <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63] mt-6">
-                            {language === "eng"
-                                ? "Where We Say I Do"
-                                : "Nơi Ta Trao Lời Hẹn Ước"}
-                        </p>
+                    {/* VENUE NAME */}
+                    <h1 className="font-heading text-5xl leading-tight text-[#4A1E1C] mt-5">
+                        The Ocean Villas Resort
+                    </h1>
 
-                        <h1 className="font-heading text-6xl md:text-8xl text-[#4A1E1C] mt-4">
-                            The Ocean Villas Resort
-                        </h1>
+                    {/* LOCATION */}
+                    <p className="font-script text-4xl mt-6 text-[#916A63]">
+                        {language === "eng"
+                            ? "Da Nang, Viet Nam"
+                            : "Đà Nẵng, Việt Nam"}
+                    </p>
 
-                        <p className="font-script text-4xl md:text-5xl mt-6 text-[#916A63]">
-                            {language === "eng"
-                                ? "Da Nang, Viet Nam"
-                                : "Đà Nẵng, Việt Nam"}
-                        </p>
-
-                        <div className="flex justify-center mt-7">
-                            <div className="w-24 h-px bg-[#D4AF37]/60" />
-                        </div>
-
+                    {/* GOLD DIVIDER */}
+                    <div className="flex justify-center mt-7">
+                        <div className="w-24 h-px bg-[#D4AF37]/60" />
                     </div>
 
-                    <p className="font-body text-sm leading-7 max-w-2xl mx-auto mt-10 text-[#622825]">
+                    {/* DESCRIPTION */}
+                    <p className="font-body text-sm leading-7 max-w-sm mx-auto mt-10 text-[#622825]">
                         {language === "eng"
                             ? "A beautiful seaside setting where we will gather with our favorite people to celebrate this special day."
                             : "Một không gian bên biển tuyệt đẹp, nơi chúng ta sẽ cùng những người thân yêu lưu giữ những khoảnh khắc đáng nhớ trong ngày đặc biệt này."}
                     </p>
 
+                    {/* DIRECTIONS */}
                     <div className="mt-10">
                         <a
                             href="https://www.google.com/maps/search/?api=1&query=The+Ocean+Villas+Resort+Da+Nang+Vietnam"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block border border-[#622825] text-[#622825] px-10 py-4 font-body text-xs uppercase tracking-[0.3em] hover:bg-[#622825] hover:text-[#FDEFE8] transition"
+                            className="inline-block border border-[#622825] bg-[#FDEFE8]/30 text-[#622825] px-9 py-4 font-body text-xs uppercase tracking-[0.28em] hover:bg-[#622825] hover:text-[#FDEFE8] transition"
                         >
                             {language === "eng"
                                 ? "View Directions"
@@ -83,519 +82,564 @@ export default function TravelPage() {
                 </div>
 
             </section>
-        
 
 
-            {/* GETTING TO DA NANG */}
-            <section className="py-28 px-6 section-texture">
-                <div className="max-w-5xl mx-auto">
+            {/* ========================================================= */}
+            {/* DESKTOP VENUE PAGE */}
+            {/* ========================================================= */}
 
-                    {/* SECTION HEADER */}
-                    <div className="text-center mb-16">
+            <div className="hidden md:block">
 
-                        <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
-                            ✈
-                        </span>
+                {/* VENUE HERO */}
+                <section className="relative min-h-[700px] px-6 overflow-hidden">
 
-                        <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                            {language === "eng"
-                                ? "Getting to Da Nang"
-                                : "Đến Đà Nẵng"}
-                        </h2>
+                    {/* Desktop Background intentionally left blank for now */}
 
-                        <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
-                            {language === "eng"
-                                ? "Your journey begins here"
-                                : "Hành trình của bạn bắt đầu từ đây"}
-                        </p>
+                    {/* Content */}
+                    <div className="relative z-10 max-w-5xl mx-auto text-center pt-32 pb-32">
 
-                        <div className="flex justify-center mt-6">
-                            <div className="w-24 h-px bg-[#D4AF37]/60" />
-                        </div>
+                        {/* SECTION HEADER */}
+                        <div className="mb-10">
 
-                    </div>
-
-
-                    <div className="grid md:grid-cols-2 gap-12">
-
-                        {/* AIRPORT */}
-                        <div className="text-center">
-
-                            <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
-                                <span className="text-xl text-[#916A63]">
-                                    ✈
-                                </span>
-                            </div>
-
-                            <h3 className="font-heading text-3xl md:text-4xl text-[#622825] mt-6">
-                                {language === "eng"
-                                    ? "Da Nang International Airport"
-                                    : "Sân Bay Quốc Tế Đà Nẵng"}
-                            </h3>
-
-                            <p className="font-body text-sm leading-7 mt-5 text-[#916A63]">
-                                {language === "eng"
-                                    ? "Da Nang International Airport (DAD) is the main airport serving the city and is conveniently located near the wedding venue."
-                                    : "Sân bay Quốc tế Đà Nẵng (DAD) là sân bay chính phục vụ thành phố và nằm thuận tiện gần địa điểm tổ chức đám cưới."}
-                            </p>
-
-                        </div>
-
-
-                        {/* ARRIVAL */}
-                        <div className="text-center">
-
-                            <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
-                                <span className="text-xl text-[#916A63]">
-                                    ♥
-                                </span>
-                            </div>
-
-                            <h3 className="font-heading text-3xl md:text-4xl text-[#622825] mt-6">
-                                {language === "eng"
-                                    ? "Arrival"
-                                    : "Khi Đến Nơi"}
-                            </h3>
-
-                            <p className="font-body text-sm leading-7 mt-5 text-[#916A63]">
-                                {language === "eng"
-                                    ? "Once you arrive in Da Nang, taxis, ride-hailing services, and private transportation are available to take you to your accommodation."
-                                    : "Sau khi đến Đà Nẵng, bạn có thể sử dụng taxi, dịch vụ gọi xe hoặc phương tiện đưa đón riêng để di chuyển đến nơi lưu trú."}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* WHERE TO STAY */}
-            <section className="py-28 px-6 section-texture">
-                <div className="max-w-6xl mx-auto">
-
-                    {/* SECTION HEADER */}
-                    <div className="text-center mb-16">
-
-                        {/* HOTEL ICON */}
-                        <div className="flex justify-center">
-                            <svg
-                                viewBox="0 0 64 64"
-                                className="h-12 w-12 text-[var(--color-gold-accent)]"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1.6"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                aria-hidden="true"
-                            >
-                                {/* Hotel Building */}
-                                <path d="M14 54V16h36v38" />
-
-                                {/* Roof */}
-                                <path d="M10 54h44" />
-
-                                {/* Entrance */}
-                                <path d="M27 54V42h10v12" />
-
-                                {/* Windows */}
-                                <rect x="20" y="23" width="5" height="6" />
-                                <rect x="31" y="23" width="5" height="6" />
-                                <rect x="42" y="23" width="5" height="6" />
-
-                                <rect x="20" y="33" width="5" height="6" />
-                                <rect x="31" y="33" width="5" height="6" />
-                                <rect x="42" y="33" width="5" height="6" />
-
-                                {/* Hotel Roof Detail */}
-                                <path d="M10 16h44" />
-                                <path d="M18 10h28l4 6H14l4-6Z" />
-                            </svg>
-                        </div>
-
-                        <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                            {language === "eng"
-                                ? "Where to Stay"
-                                : "Nơi Lưu Trú"}
-                        </h2>
-
-                        <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
-                            {language === "eng"
-                                ? "Make yourself at home"
-                                : "Hãy tận hưởng một kỳ nghỉ thật thoải mái"}
-                        </p>
-
-                        <div className="flex justify-center mt-6">
-                            <div className="w-24 h-px bg-[#D4AF37]/60" />
-                        </div>
-
-                    </div>
-
-
-                    <div className="grid md:grid-cols-3 gap-10">
-
-                        {/* STAY AT VENUE */}
-                        <div className="text-center border border-[#916A63]/20 p-10">
-
-                            <span className="text-2xl text-[#D4AF37]">
+                            <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
                                 ♥
                             </span>
 
-                            <h3 className="font-heading text-3xl text-[#622825] mt-5">
-                                The Ocean Villas Resort
-                            </h3>
-
-                            <p className="font-body text-xs uppercase tracking-[0.25em] mt-4 text-[#916A63]">
-                                Da Nang, Viet Nam
-                            </p>
-
-                            <p className="font-body text-sm leading-7 mt-6 text-[#916A63]">
+                            <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63] mt-6">
                                 {language === "eng"
-                                    ? "Our wedding celebration will take place here, making it a convenient option for guests who would like to stay close to the festivities."
-                                    : "Đây là nơi tổ chức lễ cưới của chúng tôi, rất thuận tiện cho những khách mời muốn lưu trú gần nơi diễn ra các hoạt động."}
+                                    ? "Where We Say I Do"
+                                    : "Nơi Ta Trao Lời Hẹn Ước"}
                             </p>
 
+                            <h1 className="font-heading text-8xl text-[#4A1E1C] mt-4">
+                                The Ocean Villas Resort
+                            </h1>
+
+                            <p className="font-script text-5xl mt-6 text-[#916A63]">
+                                {language === "eng"
+                                    ? "Da Nang, Viet Nam"
+                                    : "Đà Nẵng, Việt Nam"}
+                            </p>
+
+                            <div className="flex justify-center mt-7">
+                                <div className="w-24 h-px bg-[#D4AF37]/60" />
+                            </div>
+
+                        </div>
+
+                        <p className="font-body text-sm leading-7 max-w-2xl mx-auto mt-10 text-[#622825]">
+                            {language === "eng"
+                                ? "A beautiful seaside setting where we will gather with our favorite people to celebrate this special day."
+                                : "Một không gian bên biển tuyệt đẹp, nơi chúng ta sẽ cùng những người thân yêu lưu giữ những khoảnh khắc đáng nhớ trong ngày đặc biệt này."}
+                        </p>
+
+                        <div className="mt-10">
                             <a
                                 href="https://www.google.com/maps/search/?api=1&query=The+Ocean+Villas+Resort+Da+Nang+Vietnam"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block mt-8 border border-[#622825] text-[#622825] px-7 py-3 font-body text-xs uppercase tracking-[0.2em] hover:bg-[#622825] hover:text-[#FDEFE8] transition"
+                                className="inline-block border border-[#622825] text-[#622825] px-10 py-4 font-body text-xs uppercase tracking-[0.3em] hover:bg-[#622825] hover:text-[#FDEFE8] transition"
                             >
                                 {language === "eng"
-                                    ? "View Location"
-                                    : "Xem Địa Điểm"}
+                                    ? "View Directions"
+                                    : "Xem Hướng Dẫn"}
                             </a>
-
                         </div>
 
+                    </div>
 
-                        {/* NEARBY HOTELS */}
-                        <div className="text-center border border-[#916A63]/20 p-10">
+                </section>
 
-                            <span className="text-2xl text-[#D4AF37]">
-                                ♡
+
+                {/* GETTING TO DA NANG */}
+                <section className="py-28 px-6 section-texture">
+                    <div className="max-w-5xl mx-auto">
+
+                        <div className="text-center mb-16">
+
+                            <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
+                                ✈
                             </span>
 
-                            <h3 className="font-heading text-3xl text-[#622825] mt-5">
+                            <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
                                 {language === "eng"
-                                    ? "Nearby Hotels"
-                                    : "Khách Sạn Gần Đó"}
-                            </h3>
+                                    ? "Getting to Da Nang"
+                                    : "Đến Đà Nẵng"}
+                            </h2>
 
-                            <p className="font-body text-xs uppercase tracking-[0.25em] mt-4 text-[#916A63]">
+                            <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
                                 {language === "eng"
-                                    ? "Convenient Options"
-                                    : "Các Lựa Chọn Thuận Tiện"}
+                                    ? "Your journey begins here"
+                                    : "Hành trình của bạn bắt đầu từ đây"}
                             </p>
 
-                            <p className="font-body text-sm leading-7 mt-6 text-[#916A63]">
-                                {language === "eng"
-                                    ? "There are a variety of hotels and resorts in the Da Nang area to suit different preferences and budgets."
-                                    : "Đà Nẵng có nhiều khách sạn và khu nghỉ dưỡng phù hợp với nhiều nhu cầu và ngân sách khác nhau."}
-                            </p>
+                            <div className="flex justify-center mt-6">
+                                <div className="w-24 h-px bg-[#D4AF37]/60" />
+                            </div>
 
                         </div>
 
+                        <div className="grid md:grid-cols-2 gap-12">
 
-                        {/* STAY LONGER */}
-                        <div className="text-center border border-[#916A63]/20 p-10">
+                            {/* AIRPORT */}
+                            <div className="text-center">
 
-                            <span className="text-2xl text-[#D4AF37]">
+                                <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
+                                    <span className="text-xl text-[#916A63]">
+                                        ✈
+                                    </span>
+                                </div>
+
+                                <h3 className="font-heading text-3xl md:text-4xl text-[#622825] mt-6">
+                                    {language === "eng"
+                                        ? "Da Nang International Airport"
+                                        : "Sân Bay Quốc Tế Đà Nẵng"}
+                                </h3>
+
+                                <p className="font-body text-sm leading-7 mt-5 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "Da Nang International Airport (DAD) is the main airport serving the city and is conveniently located near the wedding venue."
+                                        : "Sân bay Quốc tế Đà Nẵng (DAD) là sân bay chính phục vụ thành phố và nằm thuận tiện gần địa điểm tổ chức đám cưới."}
+                                </p>
+
+                            </div>
+
+                            {/* ARRIVAL */}
+                            <div className="text-center">
+
+                                <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
+                                    <span className="text-xl text-[#916A63]">
+                                        ♥
+                                    </span>
+                                </div>
+
+                                <h3 className="font-heading text-3xl md:text-4xl text-[#622825] mt-6">
+                                    {language === "eng"
+                                        ? "Arrival"
+                                        : "Khi Đến Nơi"}
+                                </h3>
+
+                                <p className="font-body text-sm leading-7 mt-5 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "Once you arrive in Da Nang, taxis, ride-hailing services, and private transportation are available to take you to your accommodation."
+                                        : "Sau khi đến Đà Nẵng, bạn có thể sử dụng taxi, dịch vụ gọi xe hoặc phương tiện đưa đón riêng để di chuyển đến nơi lưu trú."}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+
+                {/* WHERE TO STAY */}
+                <section className="py-28 px-6 section-texture">
+                    <div className="max-w-6xl mx-auto">
+
+                        <div className="text-center mb-16">
+
+                            <div className="flex justify-center">
+
+                                <svg
+                                    viewBox="0 0 64 64"
+                                    className="h-12 w-12 text-[var(--color-gold-accent)]"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.6"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M14 54V16h36v38" />
+                                    <path d="M10 54h44" />
+                                    <path d="M27 54V42h10v12" />
+
+                                    <rect x="20" y="23" width="5" height="6" />
+                                    <rect x="31" y="23" width="5" height="6" />
+                                    <rect x="42" y="23" width="5" height="6" />
+
+                                    <rect x="20" y="33" width="5" height="6" />
+                                    <rect x="31" y="33" width="5" height="6" />
+                                    <rect x="42" y="33" width="5" height="6" />
+
+                                    <path d="M10 16h44" />
+                                    <path d="M18 10h28l4 6H14l4-6Z" />
+                                </svg>
+
+                            </div>
+
+                            <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                                {language === "eng"
+                                    ? "Where to Stay"
+                                    : "Nơi Lưu Trú"}
+                            </h2>
+
+                            <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
+                                {language === "eng"
+                                    ? "Make yourself at home"
+                                    : "Hãy tận hưởng một kỳ nghỉ thật thoải mái"}
+                            </p>
+
+                            <div className="flex justify-center mt-6">
+                                <div className="w-24 h-px bg-[#D4AF37]/60" />
+                            </div>
+
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-10">
+
+                            {/* STAY AT VENUE */}
+                            <div className="text-center border border-[#916A63]/20 p-10">
+
+                                <span className="text-2xl text-[#D4AF37]">
+                                    ♥
+                                </span>
+
+                                <h3 className="font-heading text-3xl text-[#622825] mt-5">
+                                    The Ocean Villas Resort
+                                </h3>
+
+                                <p className="font-body text-xs uppercase tracking-[0.25em] mt-4 text-[#916A63]">
+                                    Da Nang, Viet Nam
+                                </p>
+
+                                <p className="font-body text-sm leading-7 mt-6 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "Our wedding celebration will take place here, making it a convenient option for guests who would like to stay close to the festivities."
+                                        : "Đây là nơi tổ chức lễ cưới của chúng tôi, rất thuận tiện cho những khách mời muốn lưu trú gần nơi diễn ra các hoạt động."}
+                                </p>
+
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=The+Ocean+Villas+Resort+Da+Nang+Vietnam"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block mt-8 border border-[#622825] text-[#622825] px-7 py-3 font-body text-xs uppercase tracking-[0.2em] hover:bg-[#622825] hover:text-[#FDEFE8] transition"
+                                >
+                                    {language === "eng"
+                                        ? "View Location"
+                                        : "Xem Địa Điểm"}
+                                </a>
+
+                            </div>
+
+                            {/* NEARBY HOTELS */}
+                            <div className="text-center border border-[#916A63]/20 p-10">
+
+                                <span className="text-2xl text-[#D4AF37]">
+                                    ♡
+                                </span>
+
+                                <h3 className="font-heading text-3xl text-[#622825] mt-5">
+                                    {language === "eng"
+                                        ? "Nearby Hotels"
+                                        : "Khách Sạn Gần Đó"}
+                                </h3>
+
+                                <p className="font-body text-xs uppercase tracking-[0.25em] mt-4 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "Convenient Options"
+                                        : "Các Lựa Chọn Thuận Tiện"}
+                                </p>
+
+                                <p className="font-body text-sm leading-7 mt-6 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "There are a variety of hotels and resorts in the Da Nang area to suit different preferences and budgets."
+                                        : "Đà Nẵng có nhiều khách sạn và khu nghỉ dưỡng phù hợp với nhiều nhu cầu và ngân sách khác nhau."}
+                                </p>
+
+                            </div>
+
+                            {/* STAY LONGER */}
+                            <div className="text-center border border-[#916A63]/20 p-10">
+
+                                <span className="text-2xl text-[#D4AF37]">
+                                    ✦
+                                </span>
+
+                                <h3 className="font-heading text-3xl text-[#622825] mt-5">
+                                    {language === "eng"
+                                        ? "Stay a Little Longer"
+                                        : "Ở Lại Lâu Hơn Một Chút"}
+                                </h3>
+
+                                <p className="font-body text-xs uppercase tracking-[0.25em] mt-4 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "Explore Da Nang"
+                                        : "Khám Phá Đà Nẵng"}
+                                </p>
+
+                                <p className="font-body text-sm leading-7 mt-6 text-[#916A63]">
+                                    {language === "eng"
+                                        ? "If you have the time, we would love for you to enjoy a little extra time in Da Nang and experience everything this beautiful destination has to offer."
+                                        : "Nếu có thời gian, chúng tôi rất mong bạn có thể ở lại lâu hơn để khám phá Đà Nẵng và tận hưởng những điều tuyệt vời mà thành phố xinh đẹp này mang lại."}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+
+                {/* GETTING AROUND */}
+                <section className="py-28 px-6 section-texture">
+                    <div className="max-w-5xl mx-auto">
+
+                        <div className="text-center mb-16">
+
+                            <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
                                 ✦
                             </span>
 
-                            <h3 className="font-heading text-3xl text-[#622825] mt-5">
+                            <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
                                 {language === "eng"
-                                    ? "Stay a Little Longer"
-                                    : "Ở Lại Lâu Hơn Một Chút"}
-                            </h3>
+                                    ? "Getting Around"
+                                    : "Di Chuyển"}
+                            </h2>
 
-                            <p className="font-body text-xs uppercase tracking-[0.25em] mt-4 text-[#916A63]">
+                            <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
                                 {language === "eng"
-                                    ? "Explore Da Nang"
-                                    : "Khám Phá Đà Nẵng"}
+                                    ? "Getting from here to there"
+                                    : "Di chuyển dễ dàng trong thành phố"}
                             </p>
 
-                            <p className="font-body text-sm leading-7 mt-6 text-[#916A63]">
-                                {language === "eng"
-                                    ? "If you have the time, we would love for you to enjoy a little extra time in Da Nang and experience everything this beautiful destination has to offer."
-                                    : "Nếu có thời gian, chúng tôi rất mong bạn có thể ở lại lâu hơn để khám phá Đà Nẵng và tận hưởng những điều tuyệt vời mà thành phố xinh đẹp này mang lại."}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* GETTING AROUND */}
-            <section className="py-28 px-6 section-texture">
-                <div className="max-w-5xl mx-auto">
-
-                    {/* SECTION HEADER */}
-                    <div className="text-center mb-16">
-
-                        <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
-                            ✦
-                        </span>
-
-                        <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                            {language === "eng"
-                                ? "Getting Around"
-                                : "Di Chuyển"}
-                        </h2>
-
-                        <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
-                            {language === "eng"
-                                ? "Getting from here to there"
-                                : "Di chuyển dễ dàng trong thành phố"}
-                        </p>
-
-                        <div className="flex justify-center mt-6">
-                            <div className="w-24 h-px bg-[#D4AF37]/60" />
-                        </div>
-
-                    </div>
-
-
-                    <div className="grid md:grid-cols-3 gap-10">
-
-                        {/* TAXI */}
-                        <div className="text-center">
-
-                            <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
-                                <span className="text-lg">
-                                    🚕
-                                </span>
+                            <div className="flex justify-center mt-6">
+                                <div className="w-24 h-px bg-[#D4AF37]/60" />
                             </div>
 
-                            <h3 className="font-heading text-3xl text-[#622825] mt-5">
-                                {language === "eng"
-                                    ? "Taxi & Ride Services"
-                                    : "Taxi & Dịch Vụ Gọi Xe"}
-                            </h3>
-
-                            <p className="font-body text-sm leading-7 mt-4 text-[#916A63]">
-                                {language === "eng"
-                                    ? "Taxis and ride-hailing services are convenient options for getting around Da Nang."
-                                    : "Taxi và các dịch vụ gọi xe là những lựa chọn thuận tiện để di chuyển trong Đà Nẵng."}
-                            </p>
-
                         </div>
 
+                        <div className="grid md:grid-cols-3 gap-10">
 
-                        {/* PRIVATE TRANSPORTATION */}
-                        <div className="text-center">
+                            {/* TAXI */}
+                            <div className="text-center">
 
-                            <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
-                                <span className="text-lg">
-                                    🚗
-                                </span>
-                            </div>
+                                <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
+                                    <span className="text-lg">
+                                        🚕
+                                    </span>
+                                </div>
 
-                            <h3 className="font-heading text-3xl text-[#622825] mt-5">
-                                {language === "eng"
-                                    ? "Private Transportation"
-                                    : "Phương Tiện Riêng"}
-                            </h3>
-
-                            <p className="font-body text-sm leading-7 mt-4 text-[#916A63]">
-                                {language === "eng"
-                                    ? "Guests may also arrange private transportation between the airport, hotel, and wedding venue."
-                                    : "Khách mời cũng có thể sắp xếp phương tiện riêng giữa sân bay, khách sạn và địa điểm tổ chức đám cưới."}
-                            </p>
-
-                        </div>
-
-
-                        {/* ROUTE */}
-                        <div className="text-center">
-
-                            <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
-                                <span className="text-lg">
-                                    ♧
-                                </span>
-                            </div>
-
-                            <h3 className="font-heading text-3xl text-[#622825] mt-5">
-                                {language === "eng"
-                                    ? "Plan Your Route"
-                                    : "Lên Kế Hoạch Di Chuyển"}
-                            </h3>
-
-                            <p className="font-body text-sm leading-7 mt-4 text-[#916A63]">
-                                {language === "eng"
-                                    ? "We recommend checking your preferred route and transportation options before heading to the venue."
-                                    : "Chúng tôi khuyên bạn nên kiểm tra tuyến đường và phương tiện di chuyển trước khi đến địa điểm tổ chức."}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* TRAVEL TIPS */}
-            <section className="py-28 px-6 section-texture">
-                <div className="max-w-4xl mx-auto">
-
-                    {/* SECTION HEADER */}
-                    <div className="text-center mb-16">
-
-                        <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
-                            ♡
-                        </span>
-
-                        <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
-                            {language === "eng"
-                                ? "Travel Tips"
-                                : "Thông Tin Du Lịch"}
-                        </h2>
-
-                        <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
-                            {language === "eng"
-                                ? "A few things to know"
-                                : "Một vài điều bạn nên biết"}
-                        </p>
-
-                        <div className="flex justify-center mt-6">
-                            <div className="w-24 h-px bg-[#D4AF37]/60" />
-                        </div>
-
-                    </div>
-
-
-                    <div className="space-y-10">
-
-                        {/* WEATHER */}
-                        <div className="flex gap-6 items-start">
-
-                            <div className="w-12 h-12 shrink-0 rounded-full border border-[#916A63] bg-white/40 flex items-center justify-center">
-                                <span className="text-[#916A63]">
-                                    ☼
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 className="font-heading text-3xl text-[#622825]">
+                                <h3 className="font-heading text-3xl text-[#622825] mt-5">
                                     {language === "eng"
-                                        ? "Weather"
-                                        : "Thời Tiết"}
+                                        ? "Taxi & Ride Services"
+                                        : "Taxi & Dịch Vụ Gọi Xe"}
                                 </h3>
 
-                                <p className="font-body text-sm leading-7 mt-2 text-[#916A63]">
+                                <p className="font-body text-sm leading-7 mt-4 text-[#916A63]">
                                     {language === "eng"
-                                        ? "Please check the local forecast closer to the wedding date so you can pack accordingly."
-                                        : "Vui lòng kiểm tra dự báo thời tiết gần ngày cưới để chuẩn bị trang phục và hành lý phù hợp."}
+                                        ? "Taxis and ride-hailing services are convenient options for getting around Da Nang."
+                                        : "Taxi và các dịch vụ gọi xe là những lựa chọn thuận tiện để di chuyển trong Đà Nẵng."}
                                 </p>
+
                             </div>
 
-                        </div>
+                            {/* PRIVATE TRANSPORTATION */}
+                            <div className="text-center">
 
+                                <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
+                                    <span className="text-lg">
+                                        🚗
+                                    </span>
+                                </div>
 
-                        {/* CURRENCY */}
-                        <div className="flex gap-6 items-start">
-
-                            <div className="w-12 h-12 shrink-0 rounded-full border border-[#916A63] bg-white/40 flex items-center justify-center">
-                                <span className="text-[#916A63]">
-                                    $
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 className="font-heading text-3xl text-[#622825]">
+                                <h3 className="font-heading text-3xl text-[#622825] mt-5">
                                     {language === "eng"
-                                        ? "Currency"
-                                        : "Tiền Tệ"}
+                                        ? "Private Transportation"
+                                        : "Phương Tiện Riêng"}
                                 </h3>
 
-                                <p className="font-body text-sm leading-7 mt-2 text-[#916A63]">
+                                <p className="font-body text-sm leading-7 mt-4 text-[#916A63]">
                                     {language === "eng"
-                                        ? "Vietnam uses the Vietnamese đồng (VND). Guests may wish to have some local currency available for smaller purchases."
-                                        : "Việt Nam sử dụng đồng Việt Nam (VND). Bạn có thể chuẩn bị một ít tiền mặt để thuận tiện cho các khoản chi tiêu nhỏ."}
+                                        ? "Guests may also arrange private transportation between the airport, hotel, and wedding venue."
+                                        : "Khách mời cũng có thể sắp xếp phương tiện riêng giữa sân bay, khách sạn và địa điểm tổ chức đám cưới."}
                                 </p>
+
                             </div>
 
-                        </div>
+                            {/* ROUTE */}
+                            <div className="text-center">
 
+                                <div className="w-14 h-14 mx-auto rounded-full border border-[#916A63] bg-[#FDEFE8] flex items-center justify-center">
+                                    <span className="text-lg">
+                                        ♧
+                                    </span>
+                                </div>
 
-                        {/* CONNECTIVITY */}
-                        <div className="flex gap-6 items-start">
-
-                            <div className="w-12 h-12 shrink-0 rounded-full border border-[#916A63] bg-white/40 flex items-center justify-center">
-                                <span className="text-[#916A63]">
-                                    ♧
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 className="font-heading text-3xl text-[#622825]">
+                                <h3 className="font-heading text-3xl text-[#622825] mt-5">
                                     {language === "eng"
-                                        ? "Connectivity"
-                                        : "Kết Nối"}
+                                        ? "Plan Your Route"
+                                        : "Lên Kế Hoạch Di Chuyển"}
                                 </h3>
 
-                                <p className="font-body text-sm leading-7 mt-2 text-[#916A63]">
+                                <p className="font-body text-sm leading-7 mt-4 text-[#916A63]">
                                     {language === "eng"
-                                        ? "Consider arranging an international phone plan, local SIM card, or eSIM before or shortly after arrival."
-                                        : "Bạn có thể chuẩn bị gói cước quốc tế, SIM địa phương hoặc eSIM trước hoặc ngay sau khi đến Việt Nam."}
+                                        ? "We recommend checking your preferred route and transportation options before heading to the venue."
+                                        : "Chúng tôi khuyên bạn nên kiểm tra tuyến đường và phương tiện di chuyển trước khi đến địa điểm tổ chức."}
                                 </p>
+
                             </div>
 
                         </div>
 
                     </div>
-
-                </div>
-            </section>
+                </section>
 
 
-            {/* FINAL MESSAGE */}
-            <section className="py-28 px-6 section-texture">
+                {/* TRAVEL TIPS */}
+                <section className="py-28 px-6 section-texture">
+                    <div className="max-w-4xl mx-auto">
 
-                <div className="max-w-4xl mx-auto text-center">
+                        <div className="text-center mb-16">
 
-                    {/* SECTION HEADER */}
-                    <div className="mb-10">
+                            <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
+                                ♡
+                            </span>
 
-                        <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
-                            ♥
-                        </span>
+                            <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                                {language === "eng"
+                                    ? "Travel Tips"
+                                    : "Thông Tin Du Lịch"}
+                            </h2>
 
-                        <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                            <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
+                                {language === "eng"
+                                    ? "A few things to know"
+                                    : "Một vài điều bạn nên biết"}
+                            </p>
+
+                            <div className="flex justify-center mt-6">
+                                <div className="w-24 h-px bg-[#D4AF37]/60" />
+                            </div>
+
+                        </div>
+
+                        <div className="space-y-10">
+
+                            {/* WEATHER */}
+                            <div className="flex gap-6 items-start">
+
+                                <div className="w-12 h-12 shrink-0 rounded-full border border-[#916A63] bg-white/40 flex items-center justify-center">
+                                    <span className="text-[#916A63]">
+                                        ☼
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-heading text-3xl text-[#622825]">
+                                        {language === "eng"
+                                            ? "Weather"
+                                            : "Thời Tiết"}
+                                    </h3>
+
+                                    <p className="font-body text-sm leading-7 mt-2 text-[#916A63]">
+                                        {language === "eng"
+                                            ? "Please check the local forecast closer to the wedding date so you can pack accordingly."
+                                            : "Vui lòng kiểm tra dự báo thời tiết gần ngày cưới để chuẩn bị trang phục và hành lý phù hợp."}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            {/* CURRENCY */}
+                            <div className="flex gap-6 items-start">
+
+                                <div className="w-12 h-12 shrink-0 rounded-full border border-[#916A63] bg-white/40 flex items-center justify-center">
+                                    <span className="text-[#916A63]">
+                                        $
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-heading text-3xl text-[#622825]">
+                                        {language === "eng"
+                                            ? "Currency"
+                                            : "Tiền Tệ"}
+                                    </h3>
+
+                                    <p className="font-body text-sm leading-7 mt-2 text-[#916A63]">
+                                        {language === "eng"
+                                            ? "Vietnam uses the Vietnamese đồng (VND). Guests may wish to have some local currency available for smaller purchases."
+                                            : "Việt Nam sử dụng đồng Việt Nam (VND). Bạn có thể chuẩn bị một ít tiền mặt để thuận tiện cho các khoản chi tiêu nhỏ."}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            {/* CONNECTIVITY */}
+                            <div className="flex gap-6 items-start">
+
+                                <div className="w-12 h-12 shrink-0 rounded-full border border-[#916A63] bg-white/40 flex items-center justify-center">
+                                    <span className="text-[#916A63]">
+                                        ♧
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-heading text-3xl text-[#622825]">
+                                        {language === "eng"
+                                            ? "Connectivity"
+                                            : "Kết Nối"}
+                                    </h3>
+
+                                    <p className="font-body text-sm leading-7 mt-2 text-[#916A63]">
+                                        {language === "eng"
+                                            ? "Consider arranging an international phone plan, local SIM card, or eSIM before or shortly after arrival."
+                                            : "Bạn có thể chuẩn bị gói cước quốc tế, SIM địa phương hoặc eSIM trước hoặc ngay sau khi đến Việt Nam."}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+
+                {/* FINAL MESSAGE */}
+                <section className="py-28 px-6 section-texture">
+
+                    <div className="max-w-4xl mx-auto text-center">
+
+                        <div className="mb-10">
+
+                            <span className="font-heading text-2xl text-[var(--color-gold-accent)]">
+                                ♥
+                            </span>
+
+                            <h2 className="font-heading text-5xl md:text-6xl text-[#622825] mt-4">
+                                {language === "eng"
+                                    ? "See You in Da Nang"
+                                    : "Hẹn Gặp Bạn Tại Đà Nẵng"}
+                            </h2>
+
+                            <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
+                                {language === "eng"
+                                    ? "We cannot wait to celebrate with you"
+                                    : "Chúng tôi rất mong được cùng bạn chung vui"}
+                            </p>
+
+                            <div className="flex justify-center mt-6">
+                                <div className="w-24 h-px bg-[#D4AF37]/60" />
+                            </div>
+
+                        </div>
+
+                        <p className="font-body text-sm leading-7 max-w-xl mx-auto mt-10 text-[#916A63]">
                             {language === "eng"
-                                ? "See You in Da Nang"
-                                : "Hẹn Gặp Bạn Tại Đà Nẵng"}
-                        </h2>
-
-                        <p className="font-script text-3xl md:text-4xl mt-5 text-[#916A63]">
-                            {language === "eng"
-                                ? "We cannot wait to celebrate with you"
-                                : "Chúng tôi rất mong được cùng bạn chung vui"}
+                                ? "Safe travels, and we'll see you soon!"
+                                : "Chúc bạn có một hành trình thật vui vẻ, và hẹn gặp bạn sớm!"}
                         </p>
 
-                        <div className="flex justify-center mt-6">
-                            <div className="w-24 h-px bg-[#D4AF37]/60" />
-                        </div>
-
                     </div>
 
-                    <p className="font-body text-sm leading-7 max-w-xl mx-auto mt-10 text-[#916A63]">
-                        {language === "eng"
-                            ? "Safe travels, and we'll see you soon!"
-                            : "Chúc bạn có một hành trình thật vui vẻ, và hẹn gặp bạn sớm!"}
-                    </p>
+                </section>
 
-                </div>
-
-            </section>
+            </div>
 
         </main>
     );
 }
-
