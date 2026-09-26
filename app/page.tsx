@@ -1313,7 +1313,7 @@ function MobileScheduleSection() {
         {/* MOBILE BACKGROUND */}
         <div className="absolute inset-0 md:hidden">
           <img
-            src="/images/schedule-mobile.png"
+            src="/images/schedule-test.png"
             alt=""
             className="w-full h-full object-cover object-top"
           />
@@ -1622,7 +1622,7 @@ function MobileScheduleSection() {
 }
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyh-flC_23B9Z0HTOuD3jMJLVxP9f4HpgNKQB2NlCutm3i3vVrspJtxQezaSlAx9qqvw/exec";
+  "https://script.google.com/macros/s/AKfycbztNFNB_-PFYIfeqjL0gw-xr8uM1OwIx9IqkcSoLvLKW8M_rzPKRyi3hW1Kl5J68cVWbg/exec";
 
 type Guest = {
   name: string;
@@ -1735,11 +1735,10 @@ function MobileRSVPSection() {
     setSubmitting(true);
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const response = await fetch("/api/mobile-rsvp", {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Content-Type": "text/plain;charset=utf-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           attending,
@@ -1749,12 +1748,18 @@ function MobileRSVPSection() {
         }),
       });
 
+      const result = await response.json();
+
+      if (!response.ok || result.success !== true) {
+        throw new Error("RSVP was not saved");
+      }
+
       setSubmitted(true);
     } catch {
       setError(
         isVietnamese
-          ? "Đã xảy ra lỗi. Vui lòng thử lại."
-          : "Something went wrong. Please try again."
+          ? "Không thể lưu xác nhận tham dự. Vui lòng thử lại."
+          : "Your RSVP could not be saved. Please try again."
       );
     } finally {
       setSubmitting(false);
@@ -1830,7 +1835,7 @@ function MobileRSVPSection() {
     <div
       className="relative min-h-screen bg-[#FDEFE8] bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/rsvp-mobile2.png')",
+        backgroundImage: "url('/images/rsvp-test.png')",
       }}
     >
       { }
