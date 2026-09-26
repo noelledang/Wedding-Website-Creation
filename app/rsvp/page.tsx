@@ -99,30 +99,22 @@ export default function RSVPPage() {
             return;
         }
 
-        // Names are required only for guests who are attending
-        if (attending === "yes") {
-            const hasMissingName = guestNames.some(
-                (guest) => !guest.name.trim()
+        if (attending === "yes" && guestNames.some((guest) => !guest.name.trim())) {
+            setError(
+                isVietnamese
+                    ? "Vui lòng nhập đầy đủ họ và tên của tất cả khách tham dự."
+                    : "Please enter the full name for every guest."
             );
-
-            if (hasMissingName) {
-                setError(
-                    isVietnamese
-                        ? "Vui lòng nhập đầy đủ họ và tên của tất cả khách tham dự."
-                        : "Please enter the full name for every guest."
-                );
-                return;
-            }
+            return;
         }
 
         setSubmitting(true);
 
         try {
-            await fetch(GOOGLE_SCRIPT_URL, {
+            const response = await fetch("/api/mobile-rsvp", {
                 method: "POST",
-                mode: "no-cors",
                 headers: {
-                    "Content-Type": "text/plain;charset=utf-8",
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     attending,
@@ -132,17 +124,23 @@ export default function RSVPPage() {
                 }),
             });
 
+            const result = await response.json();
+
+            if (!response.ok || result.success !== true) {
+                throw new Error("RSVP was not saved");
+            }
+
             setSubmitted(true);
         } catch {
             setError(
                 isVietnamese
-                    ? "Đã xảy ra lỗi. Vui lòng thử lại."
-                    : "Something went wrong. Please try again."
+                    ? "Không thể lưu xác nhận tham dự. Vui lòng thử lại."
+                    : "Your RSVP could not be saved. Please try again."
             );
         } finally {
             setSubmitting(false);
         }
-    };
+      };
 
     /* CONFIRMATION SCREEN */
     if (submitted) {
