@@ -28,7 +28,7 @@ export default function MobileSlideshow() {
 
             {/* SLIDESHOW BACKGROUND */}
             <img
-                src="/images/slideshow-rich-garden.webp"
+                src="/images/slideshow-hedges.webp"
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 h-full w-full object-cover object-center"
