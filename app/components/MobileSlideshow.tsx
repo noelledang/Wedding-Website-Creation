@@ -90,6 +90,7 @@ export default function MobileSlideshow() {
 
                 {/* GOLD PROGRESS DIAMONDS */}
                 <div className="mt-12 flex items-center justify-center gap-4">
+                    <span aria-hidden="true" className="h-px w-12 bg-gradient-to-r from-transparent to-[#8B5047]/65" />
                     {photos.map((photo, index) => (
                         <button
                             key={photo}
@@ -97,12 +98,13 @@ export default function MobileSlideshow() {
                             onClick={() => setCurrentPhoto(index)}
                             aria-label={`Show photo ${index + 1}`}
                             aria-current={currentPhoto === index ? "true" : undefined}
-                            className={`h-2.5 w-2.5 rotate-45 border border-[#D4AF37] transition-all duration-300 ${currentPhoto === index
-                                    ? "scale-125 bg-[#D4AF37] shadow-[0_0_8px_rgba(212,175,55,0.55)]"
-                                    : "bg-[#FDEFE8]/50 opacity-60"
+                            className={`h-2.5 w-2.5 rotate-45 border border-[#8B5047] transition-all duration-300 ${currentPhoto === index
+                                    ? "scale-125 bg-[#8B5047] shadow-[0_0_8px_rgba(139,80,71,0.25)]"
+                                    : "bg-[#FDEFE8]/50 opacity-75"
                                 }`}
                         />
                     ))}
+                    <span aria-hidden="true" className="h-px w-12 bg-gradient-to-l from-transparent to-[#8B5047]/65" />
                 </div>
 
             </div>
