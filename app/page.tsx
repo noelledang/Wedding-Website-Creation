@@ -291,11 +291,11 @@ export default function Home() {
             <div className="absolute inset-0 bg-white/10" />
 
             <div className="relative z-10 max-w-md mx-auto text-center">
-              <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
-                ♥
-              </span>
+              <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
+                {language === "eng" ? "At A Glance" : "Thông Tin Chính"}
+              </p>
 
-              <h2 className="font-heading text-5xl text-[#622825] mt-4">
+              <h2 className="font-heading text-5xl text-[#622825] mt-3">
                 {language === "eng" ? "The Details" : "Chi Tiết"}
               </h2>
 
@@ -305,11 +305,7 @@ export default function Home() {
                   : "Những điều bạn cần biết"}
               </p>
 
-              <div className="flex justify-center mt-7">
-                <div className="w-24 h-px bg-[#D4AF37]/60" />
-              </div>
-
-              <div className="mt-10 space-y-8">
+              <div className="mt-9 space-y-8">
                 {/* WHEN */}
                 <div>
                   <div className="flex justify-center mb-4">
@@ -449,50 +445,20 @@ export default function Home() {
               {/* FAMILY CONTENT */}
               <div className="relative z-10 max-w-md mx-auto text-center">
 
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-[#916A63]">
-                  Với sự chúc phúc của:
+                <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
+                  Với sự chúc phúc của
                 </p>
 
-                <h2 className="font-heading text-4xl text-[#622825] mt-4">
+                <h2 className="font-heading text-4xl text-[#622825] mt-3">
                   Gia Đình Hai Bên
                 </h2>
 
-                <div className="flex items-center justify-center gap-5 my-10">
-                  <span className="h-px w-20 bg-[#916A63]/30" />
+                <div className="mx-auto mt-5 h-px w-14 bg-[#D4AF37]/55" />
 
-                  <span className="text-xl text-[var(--color-gold-accent)]">
-                    ❦
-                  </span>
-
-                  <span className="h-px w-20 bg-[#916A63]/30" />
-                </div>
-
-                <div className="space-y-12">
+                <div className="mt-10 space-y-10">
 
                   {/* BRIDE'S FAMILY */}
                   <div className="text-center">
-                    <div className="mb-5 flex justify-center">
-                      <svg
-                        viewBox="0 0 64 64"
-                        className="h-14 w-14 text-[var(--color-gold-accent)]"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                      >
-                        <circle cx="32" cy="17" r="7" />
-                        <path d="M25 18c-5 2-7 7-6 13 1 5 3 9 1 14" />
-                        <path d="M39 18c5 2 7 7 6 13-1 5-3 9-1 14" />
-                        <path d="M25 13c2-5 5-7 7-7s5 2 7 7" />
-                        <path d="M23 34c2-5 5-8 9-8s7 3 9 8" />
-                        <path d="M23 34l-7 22h32l-7-22" />
-                        <path d="M27 28c1.5 2 3 3 5 3s3.5-1 5-3" />
-                        <path d="M21 43c7 3 15 3 22 0" />
-                      </svg>
-                    </div>
-
                     <h3 className="font-heading text-3xl text-[#5f4a42]">
                       Gia đình nhà gái
                     </h3>
@@ -510,27 +476,6 @@ export default function Home() {
 
                   {/* GROOM'S FAMILY */}
                   <div className="text-center">
-                    <div className="mb-5 flex justify-center">
-                      <svg
-                        viewBox="0 0 64 64"
-                        className="h-14 w-14 text-[var(--color-gold-accent)]"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                      >
-                        <circle cx="32" cy="16" r="7" />
-                        <path d="M25 15c1-5 4-8 7-8s6 2 7 7" />
-                        <path d="M23 34c2-5 5-8 9-8s7 3 9 8" />
-                        <path d="M23 34l-7 22h32l-7-22" />
-                        <path d="M27 28l5 7 5-7" />
-                        <path d="M30 35l2 5 2-5" />
-                        <path d="M21 43l11 13 11-13" />
-                      </svg>
-                    </div>
-
                     <h3 className="font-heading text-3xl text-[#5f4a42]">
                       Gia đình nhà trai
                     </h3>
@@ -578,11 +523,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-white/10" />
 
             <div className="relative z-10 min-h-[760px] max-w-md mx-auto flex flex-col items-center justify-center text-center py-20">
-              <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
-                ♥
-              </span>
-
-              <p className="font-body text-[10px] uppercase tracking-[0.35em] text-[#916A63] mt-6">
+              <p className="font-body text-[10px] uppercase tracking-[0.35em] text-[#916A63]">
                 {language === "eng"
                   ? "With Love"
                   : "Với Tất Cả Yêu Thương"}
@@ -592,17 +533,7 @@ export default function Home() {
                 {language === "eng" ? "Thank You" : "Cảm Ơn"}
               </h2>
 
-              <p className="font-script text-4xl text-[#916A63] mt-6">
-                {language === "eng"
-                  ? "For being part of our story"
-                  : "Vì đã là một phần trong câu chuyện của chúng mình"}
-              </p>
-
-              <div className="flex justify-center mt-7">
-                <div className="w-24 h-px bg-[#D4AF37]/60" />
-              </div>
-
-              <p className="font-body text-sm leading-7 max-w-xs mx-auto mt-8 text-[#622825]">
+              <p className="font-body text-sm leading-7 max-w-xs mx-auto mt-7 text-[#622825]">
                 {language === "eng"
                   ? "We are so grateful to celebrate this special chapter surrounded by the people we love most. Thank you for sharing in our joy and making this day even more meaningful."
                   : "Chúng mình vô cùng biết ơn khi được chia sẻ khoảnh khắc đặc biệt này cùng những người thân yêu nhất. Cảm ơn bạn đã chung vui và làm cho ngày trọng đại của chúng mình thêm ý nghĩa."}
@@ -1241,16 +1172,11 @@ function MobileVenueSection() {
         {/* Mobile Content */}
         <div className="relative z-10 max-w-md mx-auto text-center pt-20 pb-16">
 
-          {/* HEART */}
-          <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
-            ♥
-          </span>
-
           {/* SECTION LABEL */}
-          <p className="font-body text-[11px] uppercase tracking-[0.28em] text-[#916A63] mt-6">
+          <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
             {language === "eng"
-              ? "Where We Say I Do"
-              : "Nơi Ta Trao Lời Hẹn Ước"}
+              ? "The Venue"
+              : "Địa Điểm"}
           </p>
 
           {/* VENUE NAME */}
@@ -1259,26 +1185,21 @@ function MobileVenueSection() {
           </h1>
 
           {/* LOCATION */}
-          <p className="font-script text-4xl mt-6 text-[#916A63]">
+          <p className="font-body text-sm uppercase tracking-[0.2em] mt-4 text-[#916A63]">
             {language === "eng"
               ? "Da Nang, Viet Nam"
               : "Đà Nẵng, Việt Nam"}
           </p>
 
-          {/* GOLD DIVIDER */}
-          <div className="flex justify-center mt-7">
-            <div className="w-24 h-px bg-[#D4AF37]/60" />
-          </div>
-
           {/* DESCRIPTION */}
-          <p className="font-body text-sm leading-7 max-w-sm mx-auto mt-10 text-[#622825]">
+          <p className="font-body text-sm leading-7 max-w-sm mx-auto mt-7 text-[#622825]">
             {language === "eng"
               ? "A beautiful seaside setting where we will gather with our favorite people to celebrate this special day."
               : "Một không gian bên biển tuyệt đẹp, nơi chúng ta sẽ cùng những người thân yêu lưu giữ những khoảnh khắc đáng nhớ trong ngày đặc biệt này."}
           </p>
 
           {/* DIRECTIONS */}
-          <div className="mt-10">
+          <div className="mt-8">
             <a
               href="https://www.google.com/maps/search/?api=1&query=The+Ocean+Villas+Resort+Da+Nang+Vietnam"
               target="_blank"
@@ -1349,19 +1270,13 @@ function MobileScheduleSection() {
             }}
           >
 
-            <h2 className="font-heading text-5xl md:text-7xl text-[#622825]">
-              {language === "eng" ? "Schedule" : "Lịch trình"}
-            </h2>
-
-            <p className="font-script text-4xl md:text-5xl mt-5 text-[#916A63]">
-              {language === "eng"
-                ? "A day to remember"
-                : "Một ngày đáng nhớ"}
+            <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
+              {language === "eng" ? "March 13, 2027" : "13 Tháng 3, 2027"}
             </p>
 
-            <div className="flex justify-center mt-5">
-              <div className="w-24 h-px bg-[#D4AF37]/60" />
-            </div>
+            <h2 className="font-heading text-5xl md:text-7xl text-[#622825] mt-3">
+              {language === "eng" ? "Wedding Day" : "Ngày Trọng Đại"}
+            </h2>
 
           </div>
 
@@ -1857,16 +1772,16 @@ function MobileRSVPSection() {
       <section className="px-6 pt-20 pb-10 text-center section-texture">
         <div className="max-w-3xl mx-auto">
 
-          <p className="uppercase tracking-[0.3em] text-sm mb-4">
+          <p className="font-body uppercase tracking-[0.32em] text-[10px] text-[#916A63] mb-4">
             {isVietnamese
-              ? "Xác nhận tham dự"
-              : "RSVP"}
+              ? "Vui lòng phản hồi"
+              : "Please Respond"}
           </p>
 
-          <h1 className="font-heading text-5xl md:text-6xl mb-6">
+          <h1 className="font-heading text-5xl md:text-6xl mb-6 text-[#622825]">
             {isVietnamese
-              ? "Xác Nhận Tham Dự"
-              : "RSVP"}
+              ? "Bạn sẽ tham dự chứ?"
+              : "Will You Join Us?"}
           </h1>
 
           <div className="flex justify-center mb-8">
@@ -1887,13 +1802,7 @@ function MobileRSVPSection() {
         <div className="max-w-2xl mx-auto">
 
           {/* ATTENDANCE */}
-          <div className="mb-12">
-
-            <h2 className="font-heading text-2xl mb-5 text-center text-[#622825]">
-              {isVietnamese
-                ? "Bạn có tham dự không?"
-                : "Will you be attending?"}
-            </h2>
+          <div className="mb-10">
 
             <div className="grid md:grid-cols-2 gap-4">
 
@@ -2442,17 +2351,17 @@ function MobileFAQSection() {
           {/* Heading */}
           <div className="text-center">
 
-            <h1 className="font-heading text-4xl leading-tight text-[var(--color-gold-accent)]">
+            <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
+              {language === "eng"
+                ? "Good To Know"
+                : "Thông Tin Hữu Ích"}
+            </p>
+
+            <h1 className="font-heading text-4xl leading-tight text-[#622825] mt-3">
               {language === "eng"
                 ? "Frequently Asked Questions"
                 : "Câu Hỏi Thường Gặp"}
             </h1>
-
-            <p className="mt-4 font-script text-3xl text-[#916A63]">
-              {language === "eng"
-                ? "A few helpful details"
-                : "Một vài thông tin hữu ích"}
-            </p>
 
           </div>
 
