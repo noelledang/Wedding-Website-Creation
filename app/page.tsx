@@ -428,14 +428,14 @@ export default function Home() {
           {language === "viet" && (
             <section 
               id="mobile-family" 
-              className="relative min-h-[760px] px-6 py-20 overflow-hidden md:hidden">
+              className="relative min-h-[720px] px-6 py-16 overflow-hidden md:hidden">
 
               {/* MOBILE FAMILY BACKGROUND */}
-              <div className="absolute inset-0 bg-[#FDEFE8]">
+              <div className="absolute inset-0">
                 <img
                   src="/images/family-mobile.png"
                   alt=""
-                  className="h-full w-full object-contain object-center"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
 
@@ -1224,14 +1224,14 @@ function MobileVenueSection() {
       {/* MOBILE VENUE */}
       {/* ========================================================= */}
 
-      <section className="relative min-h-[760px] md:hidden px-6 overflow-hidden">
+      <section className="relative min-h-[720px] md:hidden px-6 overflow-hidden">
 
         {/* Mobile Venue Background */}
         <div className="absolute inset-0">
           <img
             src="/images/venue-mobile.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-contain object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
 
@@ -1239,7 +1239,7 @@ function MobileVenueSection() {
         <div className="absolute inset-0 bg-white/15" />
 
         {/* Mobile Content */}
-        <div className="relative z-10 max-w-md mx-auto text-center pt-24 pb-20">
+        <div className="relative z-10 max-w-md mx-auto text-center pt-20 pb-16">
 
           {/* HEART */}
           <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
