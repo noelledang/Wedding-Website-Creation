@@ -28,14 +28,14 @@ export default function MobileSlideshow() {
 
             {/* SLIDESHOW BACKGROUND */}
             <img
-                src="/images/hero.png"
+                src="/images/slideshow-rich-garden.webp"
                 alt=""
                 aria-hidden="true"
-                className="absolute -inset-3 h-[calc(100%+24px)] w-[calc(100%+24px)] object-cover object-center blur-[12px]"
+                className="absolute inset-0 h-full w-full object-cover object-center"
             />
 
             {/* SUBTLE OVERLAY FOR PHOTO VISIBILITY */}
-            <div className="absolute inset-0 bg-[#FDEFE8]/45" />
+            <div className="absolute inset-0 bg-[#FDEFE8]/5" />
             <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
