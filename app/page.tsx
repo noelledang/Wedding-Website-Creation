@@ -94,9 +94,6 @@ export default function Home() {
           {/* Light Overlay */}
           <div className="absolute inset-0 bg-white/10" />
 
-          {/* Soft transition from the slideshow */}
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDEFE8] to-transparent" />
-
           {/* Mobile Hero Content */}
           <div className="relative z-10 w-full text-center">
 
@@ -450,7 +447,6 @@ export default function Home() {
                 className="pointer-events-none absolute inset-0"
                 style={{ background: "linear-gradient(to bottom, rgba(253,239,232,0.42), rgba(250,228,232,0.22) 60%, rgba(253,239,232,0.06))" }}
               />
-              <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FDEFE8] to-transparent" />
 
               {/* FAMILY CONTENT */}
               <div className="relative z-10 max-w-md mx-auto text-center">
@@ -1243,7 +1239,6 @@ function MobileVenueSection() {
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/15" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#FDEFE8] to-transparent" />
 
         {/* Mobile Content */}
         <div className="relative z-10 max-w-md mx-auto text-center pt-28 pb-24">
