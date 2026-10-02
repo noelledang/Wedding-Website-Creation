@@ -85,7 +85,7 @@ export default function Home() {
           {/* Mobile Hero Background */}
           <div className="absolute inset-0">
             <img
-              src="/images/hero.png"
+              src="/images/hero-blush-terrace.webp"
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
