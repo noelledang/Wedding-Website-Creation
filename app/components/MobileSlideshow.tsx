@@ -42,9 +42,6 @@ export default function MobileSlideshow() {
                 style={{ background: "radial-gradient(ellipse at 0% 45%, rgba(132,149,111,0.16), transparent 40%), radial-gradient(ellipse at 100% 70%, rgba(132,149,111,0.14), transparent 38%)" }}
             />
 
-            {/* Blend the garden into the blush Hero */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FDEFE8] to-transparent" />
-
             {/* SLIDESHOW CONTENT */}
             <div className="relative z-10 mx-auto w-full max-w-md">
 
