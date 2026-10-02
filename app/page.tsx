@@ -1860,10 +1860,10 @@ function MobileRSVPSection() {
             <span className="text-3xl">❀</span>
           </div>
 
-          <p className="max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 font-body text-sm font-medium leading-relaxed text-[#622825]">
             {isVietnamese
-              ? "Vui lòng xác nhận tham dự để chúng mình có thể chuẩn bị chu đáo nhất cho ngày đặc biệt."
-              : "Please let us know if you'll be joining us so we can prepare for our special day."}
+              ? "Vui lòng xác nhận tham dự trước ngày 31 tháng 12 năm 2026."
+              : "Please RSVP by December 31, 2026."}
           </p>
 
         </div>
