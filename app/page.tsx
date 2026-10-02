@@ -281,7 +281,7 @@ export default function Home() {
           
           <section
             id="mobile-details"
-            className="relative md:hidden scroll-mt-24 px-6 py-18 bg-[#FDEFE8] overflow-hidden"
+            className="relative md:hidden scroll-mt-24 px-6 py-20 bg-[#FDEFE8] overflow-hidden"
           >
             {/* BACKGROUND */}
             <div
