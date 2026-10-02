@@ -12,7 +12,7 @@ jobs:
       - name: Submit QA RSVP
         run: |
           set -euo pipefail
-          response=$(curl -sS -w "\n%{http_code}" -X POST "https://wedding-website-creation-git-slideshow-walnut-preview-n-oelle.vercel.app/api/mobile-rsvp" \
+          response=$(curl -sS -w "\n%{http_code}" -X POST "https://noelle-nathan.vercel.app/api/mobile-rsvp" \
             -H "Content-Type: application/json" \
             --data '{"attending":"yes","guestCount":1,"guests":[{"name":"QA TEST - DELETE"}],"message":"Automated pre-production QA test from ChatGPT. Safe to delete."}')
           body=$(printf "%s" "$response" | sed '$d')
