@@ -28,14 +28,14 @@ export default function MobileSlideshow() {
 
             {/* SLIDESHOW BACKGROUND */}
             <img
-                src="/images/slideshow-mobile.png"
+                src="/images/hero.png"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                className="absolute -inset-3 h-[calc(100%+24px)] w-[calc(100%+24px)] object-cover object-center blur-[12px]"
             />
 
             {/* SUBTLE OVERLAY FOR PHOTO VISIBILITY */}
-            <div className="absolute inset-0 bg-[#FDEFE8]/10" />
+            <div className="absolute inset-0 bg-[#FDEFE8]/45" />
             <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
@@ -45,18 +45,21 @@ export default function MobileSlideshow() {
             {/* SLIDESHOW CONTENT */}
             <div className="relative z-10 mx-auto w-full max-w-md">
 
-                {/* THIN CHAMPAGNE SLIDESHOW FRAME */}
+                {/* CHAMPAGNE SLIDESHOW FRAME */}
                 <div className="relative">
-                    <div className="rounded-[24px] border border-[#C9B78D] bg-[#EFE3D0]/65 p-[3px] shadow-[0_8px_24px_rgba(98,40,37,0.10)]">
-                        <div className="rounded-[21px] border border-[#E4D3AF]/80 p-[2px]">
+                    <div
+                        className="rounded-[10px] border border-[#BCA477] p-[10px] shadow-[0_10px_28px_rgba(98,40,37,0.16)]"
+                        style={{ background: "repeating-linear-gradient(92deg, rgba(153,126,78,0.10) 0px, transparent 1px, transparent 5px), linear-gradient(135deg, #E8D8B7, #CCB58D 45%, #F0E3C9 70%, #C9AF81)" }}
+                    >
+                        <div className="border border-[#AB8B52]/65">
 
                             {/* MAIN PHOTO */}
-                            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] bg-[#FDEFE8]">
+                            <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#FDEFE8]">
                                 {photos.map((photo, index) => (
                                     <img
                                         key={photo}
                                         src={photo}
-                                        alt=""
+                                        alt={`Noelle and Nathan, photo ${index + 1}`}
                                         className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-1000 ease-in-out ${index === currentPhoto
                                                 ? "opacity-100"
                                                 : "pointer-events-none opacity-0"
