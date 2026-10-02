@@ -1866,11 +1866,16 @@ function MobileRSVPSection() {
               : "Please let us know if you'll be joining us so we can prepare for our special day."}
           </p>
 
-          <p className="mt-4 font-body text-sm font-medium leading-relaxed text-[#622825]">
-            {isVietnamese
-              ? "Vui lòng xác nhận tham dự trước ngày 31 tháng 12 năm 2026."
-              : "Please RSVP by December 31, 2026."}
-          </p>
+          <div className="mx-auto mt-6 max-w-md rounded-xl border border-[#D4AF37]/70 bg-[#FDEFE8]/90 px-5 py-5 shadow-sm">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-[#622825]">
+              {isVietnamese ? "Vui lòng xác nhận tham dự trước ngày" : "Please RSVP by"}
+            </p>
+            <p className="mt-2 font-heading text-3xl font-bold leading-tight text-[#622825] md:text-4xl">
+              <time dateTime="2026-12-31">
+                {isVietnamese ? "31 tháng 12 năm 2026" : "December 31, 2026"}
+              </time>
+            </p>
+          </div>
 
         </div>
       </section>
