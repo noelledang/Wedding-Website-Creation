@@ -99,4 +99,5 @@ export default function MusicPlayer({
         )}
       </span>
     </button>
+  );
 }
