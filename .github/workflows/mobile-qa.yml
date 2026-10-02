@@ -1,0 +1,45 @@
+name: Mobile website QA
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mobile-qa-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mobile-tests:
+    name: English and Vietnamese mobile tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install mobile browser engines
+        run: npx playwright install --with-deps chromium webkit
+      - name: Build the website
+        run: npm run build
+      - name: Test both languages on mobile Chromium and WebKit
+        run: npm run test:e2e
+      - name: Upload reports, screenshots, and failure traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-qa-${{ github.run_number }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
+          if-no-files-found: ignore
