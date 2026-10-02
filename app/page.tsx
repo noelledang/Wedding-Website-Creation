@@ -431,12 +431,13 @@ export default function Home() {
               className="relative min-h-[760px] px-6 py-20 overflow-hidden md:hidden">
 
               {/* MOBILE FAMILY BACKGROUND */}
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                  backgroundImage: "url('/images/family-mobile.png')",
-                }}
-              />
+              <div className="absolute inset-0 bg-[#FDEFE8]">
+                <img
+                  src="/images/family-mobile.png"
+                  alt=""
+                  className="h-full w-full object-contain object-center"
+                />
+              </div>
 
               {/* Warm the sky while preserving garden depth */}
               <div
@@ -1230,7 +1231,7 @@ function MobileVenueSection() {
           <img
             src="/images/venue-mobile.png"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-contain object-center"
           />
         </div>
 
