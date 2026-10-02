@@ -9,9 +9,6 @@ import MobileSlideshow from "./components/MobileSlideshow";
 export default function Home() {
   const { language } = useLanguage();
 
-  const coupleNames =
-    language === "eng" ? "Noelle & Nathan" : "Tấn Cường & Lãm Nghi";
-
   const translations = {
     eng: {
       heroTogether: "Together with their families",
@@ -1904,9 +1901,9 @@ function MobileRSVPSection() {
                 onClick={() =>
                   handleAttendanceChange("yes")
                 }
-                className={`border px-6 py-4 rounded-xl bg-[#FFF9F2]/55 backdrop-blur-sm transition ${attending === "yes"
+                className={`border px-6 py-4 rounded-xl backdrop-blur-sm transition ${attending === "yes"
                   ? "bg-[#D4AF37] text-white border-[#D4AF37]"
-                  : "border-gray-300 hover:border-[#D4AF37]"
+                  : "bg-[#FFF9F2]/55 border-[#916A63]/25 text-[#622825] hover:border-[#D4AF37]"
                   }`}
               >
                 <span className="block text-lg">
@@ -1921,9 +1918,9 @@ function MobileRSVPSection() {
                 onClick={() =>
                   handleAttendanceChange("no")
                 }
-                className={`border px-6 py-4 rounded-xl bg-[#FFF9F2]/55 backdrop-blur-sm transition ${attending === "no"
+                className={`border px-6 py-4 rounded-xl backdrop-blur-sm transition ${attending === "no"
                   ? "bg-[#D4AF37] text-white border-[#D4AF37]"
-                  : "border-gray-300 hover:border-[#D4AF37]"
+                  : "bg-[#FFF9F2]/55 border-[#916A63]/25 text-[#622825] hover:border-[#D4AF37]"
                   }`}
               >
                 <span className="block text-lg">
