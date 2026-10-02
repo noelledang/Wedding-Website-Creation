@@ -11,7 +11,7 @@ export default function Navbar() {
     const closeMenu = () => setMenuOpen(false);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#916A63]/20 bg-[#FDEFE8]/95 backdrop-blur-sm">
+        <header className="fixed top-0 left-0 right-0 z-50 hidden border-b border-[#916A63]/20 bg-[#FDEFE8]/95 backdrop-blur-sm md:block">
             <nav className="max-w-7xl mx-auto px-6 py-5">
                 <div className="flex items-center justify-between">
                     {/* COUPLE NAMES */}
