@@ -80,7 +80,7 @@ export default function Home() {
         {/* MOBILE HERO */}
         {/* ========================= */}
 
-        <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-12 overflow-hidden md:hidden">
+        <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 pb-10 overflow-hidden md:hidden">
 
           {/* Mobile Hero Background */}
           <div className="absolute inset-0">
@@ -193,12 +193,12 @@ export default function Home() {
             </div>
 
             {/* COUNTDOWN */}
-            <div className="grid grid-cols-4 gap-3 max-w-lg mx-auto mt-10">
+            <div className="grid grid-cols-4 gap-2 max-w-lg mx-auto mt-8">
 
               {/* DAYS */}
-              <div className="border border-[#916A63]/30 py-5 px-2">
+              <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
-                <p className="font-heading text-4xl text-[var(--color-gold-accent)]">
+                <p className="font-heading text-3xl text-[#9A6A16]">
                   {timeLeft.days}
                 </p>
 
@@ -209,9 +209,9 @@ export default function Home() {
               </div>
 
               {/* HOURS */}
-              <div className="border border-[#916A63]/30 py-5 px-2">
+              <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
-                <p className="font-heading text-4xl text-[var(--color-gold-accent)]">
+                <p className="font-heading text-3xl text-[#9A6A16]">
                   {timeLeft.hours}
                 </p>
 
@@ -222,9 +222,9 @@ export default function Home() {
               </div>
 
               {/* MINUTES */}
-              <div className="border border-[#916A63]/30 py-5 px-2">
+              <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
-                <p className="font-heading text-4xl text-[var(--color-gold-accent)]">
+                <p className="font-heading text-3xl text-[#9A6A16]">
                   {timeLeft.minutes}
                 </p>
 
@@ -235,9 +235,9 @@ export default function Home() {
               </div>
 
               {/* SECONDS */}
-              <div className="border border-[#916A63]/30 py-5 px-2">
+              <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
-                <p className="font-heading text-4xl text-[var(--color-gold-accent)]">
+                <p className="font-heading text-3xl text-[#9A6A16]">
                   {timeLeft.seconds}
                 </p>
 
@@ -281,7 +281,7 @@ export default function Home() {
           
           <section
             id="mobile-details"
-            className="relative md:hidden scroll-mt-24 px-6 py-24 bg-[#FDEFE8] overflow-hidden"
+            className="relative md:hidden scroll-mt-24 px-6 py-18 bg-[#FDEFE8] overflow-hidden"
           >
             {/* BACKGROUND */}
             <div
@@ -312,7 +312,7 @@ export default function Home() {
                 <div className="w-24 h-px bg-[#D4AF37]/60" />
               </div>
 
-              <div className="mt-12 space-y-10">
+              <div className="mt-10 space-y-8">
                 {/* WHEN */}
                 <div>
                   <div className="flex justify-center mb-4">
@@ -431,7 +431,7 @@ export default function Home() {
           {language === "viet" && (
             <section 
               id="mobile-family" 
-              className="relative min-h-[900px] px-6 py-24 overflow-hidden md:hidden">
+              className="relative min-h-[760px] px-6 py-20 overflow-hidden md:hidden">
 
               {/* MOBILE FAMILY BACKGROUND */}
               <div
@@ -469,7 +469,7 @@ export default function Home() {
                   <span className="h-px w-20 bg-[#916A63]/30" />
                 </div>
 
-                <div className="space-y-16">
+                <div className="space-y-12">
 
                   {/* BRIDE'S FAMILY */}
                   <div className="text-center">
@@ -500,11 +500,11 @@ export default function Home() {
                     </h3>
 
                     <div className="mt-6 space-y-2">
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Ông: Đặng Mậu Tân
                       </p>
 
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Bà: Lâm Lan
                       </p>
                     </div>
@@ -538,11 +538,11 @@ export default function Home() {
                     </h3>
 
                     <div className="mt-6 space-y-2">
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Ông: Huỳnh Văn Tấn
                       </p>
 
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Bà: Phạm Thị Thu
                       </p>
                     </div>
@@ -567,7 +567,7 @@ export default function Home() {
           {/* MOBILE THANK YOU */}
           <section 
             id="mobile-thank-you"
-          className="relative min-h-[900px] px-6 overflow-hidden md:hidden">
+          className="relative min-h-[760px] px-6 overflow-hidden md:hidden">
             {/* BACKGROUND */}
             <div className="absolute inset-0">
               <img
@@ -579,7 +579,7 @@ export default function Home() {
 
             <div className="absolute inset-0 bg-white/10" />
 
-            <div className="relative z-10 min-h-[900px] max-w-md mx-auto flex flex-col items-center justify-center text-center py-28">
+            <div className="relative z-10 min-h-[760px] max-w-md mx-auto flex flex-col items-center justify-center text-center py-20">
               <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
                 ♥
               </span>
@@ -604,7 +604,7 @@ export default function Home() {
                 <div className="w-24 h-px bg-[#D4AF37]/60" />
               </div>
 
-              <p className="font-body text-sm leading-7 max-w-sm mx-auto mt-10 text-[#622825]">
+              <p className="font-body text-sm leading-7 max-w-xs mx-auto mt-8 text-[#622825]">
                 {language === "eng"
                   ? "We are so grateful to celebrate this special chapter surrounded by the people we love most. Thank you for sharing in our joy and making this day even more meaningful."
                   : "Chúng mình vô cùng biết ơn khi được chia sẻ khoảnh khắc đặc biệt này cùng những người thân yêu nhất. Cảm ơn bạn đã chung vui và làm cho ngày trọng đại của chúng mình thêm ý nghĩa."}
@@ -616,7 +616,7 @@ export default function Home() {
                     : "font-great-vibes text-5xl"
                   }`}
               >
-                {coupleNames}
+                {language === "viet" ? <>Tấn Cường<br />&amp; Lãm Nghi</> : <>Noelle &amp; Nathan</>}
               </p>
             </div>
           </section>
@@ -761,7 +761,7 @@ export default function Home() {
                 <div className="grid grid-cols-4 gap-5 max-w-lg mx-auto mt-10">
 
                   {/* DAYS */}
-                  <div className="border border-[#916A63]/30 py-5 px-2">
+                  <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
                     <p className="font-heading text-5xl text-[var(--color-gold-accent)]">
                       {timeLeft.days}
@@ -774,7 +774,7 @@ export default function Home() {
                   </div>
 
                   {/* HOURS */}
-                  <div className="border border-[#916A63]/30 py-5 px-2">
+                  <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
                     <p className="font-heading text-5xl text-[var(--color-gold-accent)]">
                       {timeLeft.hours}
@@ -787,7 +787,7 @@ export default function Home() {
                   </div>
 
                   {/* MINUTES */}
-                  <div className="border border-[#916A63]/30 py-5 px-2">
+                  <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
                     <p className="font-heading text-5xl text-[var(--color-gold-accent)]">
                       {timeLeft.minutes}
@@ -800,7 +800,7 @@ export default function Home() {
                   </div>
 
                   {/* SECONDS */}
-                  <div className="border border-[#916A63]/30 py-5 px-2">
+                  <div className="border border-[#916A63]/25 bg-[#FFF9F2]/20 py-4 px-1.5 backdrop-blur-[1px]">
 
                     <p className="font-heading text-5xl text-[var(--color-gold-accent)]">
                       {timeLeft.seconds}
@@ -925,11 +925,11 @@ export default function Home() {
 
                     <div className="mt-6 space-y-2">
 
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Ông: Đặng Mậu Tân
                       </p>
 
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Bà: Lâm Lan
                       </p>
 
@@ -979,11 +979,11 @@ export default function Home() {
 
                     <div className="mt-6 space-y-2">
 
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Ông: Huỳnh Văn Tấn
                       </p>
 
-                      <p className="font-body text-base text-[#8c756b]">
+                      <p className="font-body text-base font-medium text-[#6F584F]">
                         Bà: Phạm Thị Thu
                       </p>
 
@@ -1226,7 +1226,7 @@ function MobileVenueSection() {
       {/* MOBILE VENUE */}
       {/* ========================================================= */}
 
-      <section className="relative min-h-[850px] md:hidden px-6 overflow-hidden">
+      <section className="relative min-h-[760px] md:hidden px-6 overflow-hidden">
 
         {/* Mobile Venue Background */}
         <div className="absolute inset-0">
@@ -1241,7 +1241,7 @@ function MobileVenueSection() {
         <div className="absolute inset-0 bg-white/15" />
 
         {/* Mobile Content */}
-        <div className="relative z-10 max-w-md mx-auto text-center pt-28 pb-24">
+        <div className="relative z-10 max-w-md mx-auto text-center pt-24 pb-20">
 
           {/* HEART */}
           <span className="font-heading text-3xl text-[var(--color-gold-accent)]">
@@ -1344,7 +1344,7 @@ function MobileScheduleSection() {
 
           {/* SECTION HEADER */}
           <div
-            className="text-center mb-20 pt-12 md:pt-0"
+            className="text-center mb-14 pt-8 md:pt-0"
             style={{
               textShadow:
                 "-1px -1px 2px rgba(255,248,240,0.95), 1px -1px 2px rgba(255,248,240,0.95), -1px 1px 2px rgba(255,248,240,0.95), 1px 1px 2px rgba(255,248,240,0.95), 0 0 7px rgba(255,248,240,0.9)",
@@ -1380,7 +1380,7 @@ function MobileScheduleSection() {
             {/* VERTICAL LINE */}
             <div className="absolute hidden md:block left-[150px] top-2 bottom-2 w-px bg-[#916A63]/40"></div>
 
-            <div className="space-y-14">
+            <div className="space-y-10">
 
 
               {/* GUEST ARRIVAL */}
@@ -1412,7 +1412,7 @@ function MobileScheduleSection() {
                       : "Đón Khách"}
                   </h3>
 
-                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Check in, grab a drink & find your seat"
                       : "Đón khách, thưởng thức đồ uống và tìm chỗ ngồi"}
@@ -1453,7 +1453,7 @@ function MobileScheduleSection() {
                       : "Lễ Vows"}
                   </h3>
 
-                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? 'Join us as we say "I do"'
                       : "Chứng kiến khoảnh khắc 2 vợ chồng trao lời thề nguyện và cảm ơn gia đình, bạn bè đã đi cùng chúng tôi đến ngày hôm nay"}
@@ -1494,7 +1494,7 @@ function MobileScheduleSection() {
                       : "Chụp hình và giải khát"}
                   </h3>
 
-                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Mingle, sip & celebrate"
                       : "Cùng chụp hình, trò chuyện và chung vui"}
@@ -1535,7 +1535,7 @@ function MobileScheduleSection() {
                       : "Tiệc Mừng"}
                   </h3>
 
-                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Dinner, dancing & good vibes"
                       : "Dùng tiệc và giao lưu, tận hưởng những khoảnh khắc đáng nhớ"}
@@ -1576,7 +1576,7 @@ function MobileScheduleSection() {
                       : "Điệu Nhảy Đầu Tiên"}
                   </h3>
 
-                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "A special moment for the newlyweds"
                       : "Khoảnh khắc của cô dâu và chú rể nhảy điệu đầu tiên"}
@@ -1617,7 +1617,7 @@ function MobileScheduleSection() {
                       : "Tiễn Cô Dâu & Chú Rể"}
                   </h3>
 
-                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Send us off in style!"
                       : "Cùng tiễn cô dâu và chú rể trong niềm vui và những lời chúc tốt đẹp"}
@@ -1856,7 +1856,7 @@ function MobileRSVPSection() {
       { }
 
       {/* RSVP HEADER */}
-      <section className="py-24 px-6 text-center section-texture">
+      <section className="px-6 pt-20 pb-10 text-center section-texture">
         <div className="max-w-3xl mx-auto">
 
           <p className="uppercase tracking-[0.3em] text-sm mb-4">
@@ -1867,8 +1867,8 @@ function MobileRSVPSection() {
 
           <h1 className="font-heading text-5xl md:text-6xl mb-6">
             {isVietnamese
-              ? "Bạn sẽ tham dự chứ?"
-              : "Will You Join Us?"}
+              ? "Xác Nhận Tham Dự"
+              : "RSVP"}
           </h1>
 
           <div className="flex justify-center mb-8">
@@ -1885,13 +1885,13 @@ function MobileRSVPSection() {
       </section>
 
       {/* RSVP FORM */}
-      <section className="py-20 px-6">
+      <section className="px-6 pt-6 pb-20">
         <div className="max-w-2xl mx-auto">
 
           {/* ATTENDANCE */}
           <div className="mb-12">
 
-            <h2 className="font-heading text-3xl mb-6 text-center">
+            <h2 className="font-heading text-2xl mb-5 text-center text-[#622825]">
               {isVietnamese
                 ? "Bạn có tham dự không?"
                 : "Will you be attending?"}
@@ -1904,7 +1904,7 @@ function MobileRSVPSection() {
                 onClick={() =>
                   handleAttendanceChange("yes")
                 }
-                className={`border px-6 py-5 rounded-lg transition ${attending === "yes"
+                className={`border px-6 py-4 rounded-xl bg-[#FFF9F2]/55 backdrop-blur-sm transition ${attending === "yes"
                   ? "bg-[#D4AF37] text-white border-[#D4AF37]"
                   : "border-gray-300 hover:border-[#D4AF37]"
                   }`}
@@ -1921,7 +1921,7 @@ function MobileRSVPSection() {
                 onClick={() =>
                   handleAttendanceChange("no")
                 }
-                className={`border px-6 py-5 rounded-lg transition ${attending === "no"
+                className={`border px-6 py-4 rounded-xl bg-[#FFF9F2]/55 backdrop-blur-sm transition ${attending === "no"
                   ? "bg-[#D4AF37] text-white border-[#D4AF37]"
                   : "border-gray-300 hover:border-[#D4AF37]"
                   }`}
@@ -2425,7 +2425,7 @@ function MobileFAQSection() {
       {/* =========================================================
           MOBILE FAQ ACCORDION
           ========================================================= */}
-      <section className="relative min-h-screen overflow-hidden px-5 py-24 md:hidden">
+      <section className="relative min-h-screen overflow-hidden px-5 py-20 md:hidden">
 
         {/* Mobile Background */}
         <div
@@ -2460,13 +2460,13 @@ function MobileFAQSection() {
 
 
           {/* Accordion */}
-          <div className="mt-12 space-y-4">
+          <div className="mt-10 space-y-3">
 
 
             {/* DRESS CODE */}
             <div
               id="what-should-i-wear"
-              className="scroll-mt-28 overflow-hidden rounded-xl border border-[#916A63]/20 bg-[#FDEFE8]/55"
+              className="scroll-mt-28 overflow-hidden rounded-2xl border border-[#916A63]/15 bg-[#FFF9F2]/62 shadow-[0_6px_20px_rgba(98,40,37,0.05)] backdrop-blur-[2px]"
             >
 
               <button
@@ -2477,7 +2477,7 @@ function MobileFAQSection() {
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
               >
 
-                <h2 className="font-heading text-xl leading-7 text-[var(--color-gold-accent)]">
+                <h2 className="font-heading text-xl leading-7 text-[#622825]">
                   {language === "eng"
                     ? "What should I wear?"
                     : "Tôi nên mặc gì?"}
@@ -2566,7 +2566,7 @@ function MobileFAQSection() {
 
 
             {/* CHILDREN */}
-            <div className="overflow-hidden rounded-xl border border-[#916A63]/20 bg-[#FDEFE8]/55">
+            <div className="overflow-hidden rounded-2xl border border-[#916A63]/15 bg-[#FFF9F2]/62 shadow-[0_6px_20px_rgba(98,40,37,0.05)] backdrop-blur-[2px]">
 
               <button
                 type="button"
@@ -2576,7 +2576,7 @@ function MobileFAQSection() {
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
               >
 
-                <h2 className="font-heading text-xl leading-7 text-[var(--color-gold-accent)]">
+                <h2 className="font-heading text-xl leading-7 text-[#622825]">
                   {language === "eng"
                     ? "Can I bring my children?"
                     : "Tôi có thể đưa trẻ em đến dự không?"}
@@ -2637,7 +2637,7 @@ function MobileFAQSection() {
 
 
             {/* ARRIVAL */}
-            <div className="overflow-hidden rounded-xl border border-[#916A63]/20 bg-[#FDEFE8]/55">
+            <div className="overflow-hidden rounded-2xl border border-[#916A63]/15 bg-[#FFF9F2]/62 shadow-[0_6px_20px_rgba(98,40,37,0.05)] backdrop-blur-[2px]">
 
               <button
                 type="button"
@@ -2647,7 +2647,7 @@ function MobileFAQSection() {
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
               >
 
-                <h2 className="font-heading text-xl leading-7 text-[var(--color-gold-accent)]">
+                <h2 className="font-heading text-xl leading-7 text-[#622825]">
                   {language === "eng"
                     ? "What time should I arrive?"
                     : "Tôi nên đến lúc mấy giờ?"}
@@ -2714,7 +2714,7 @@ function MobileFAQSection() {
 
 
             {/* CEREMONY & RECEPTION */}
-            <div className="overflow-hidden rounded-xl border border-[#916A63]/20 bg-[#FDEFE8]/55">
+            <div className="overflow-hidden rounded-2xl border border-[#916A63]/15 bg-[#FFF9F2]/62 shadow-[0_6px_20px_rgba(98,40,37,0.05)] backdrop-blur-[2px]">
 
               <button
                 type="button"
@@ -2724,7 +2724,7 @@ function MobileFAQSection() {
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
               >
 
-                <h2 className="font-heading text-xl leading-7 text-[var(--color-gold-accent)]">
+                <h2 className="font-heading text-xl leading-7 text-[#622825]">
                   {language === "eng"
                     ? "Why is there a Vows Ceremony and a Reception?"
                     : "Vì sao có Lễ Vows và Tiệc Mừng?"}
@@ -2788,7 +2788,7 @@ function MobileFAQSection() {
 
 
             {/* PLUS ONE */}
-            <div className="overflow-hidden rounded-xl border border-[#916A63]/20 bg-[#FDEFE8]/55">
+            <div className="overflow-hidden rounded-2xl border border-[#916A63]/15 bg-[#FFF9F2]/62 shadow-[0_6px_20px_rgba(98,40,37,0.05)] backdrop-blur-[2px]">
 
               <button
                 type="button"
@@ -2798,7 +2798,7 @@ function MobileFAQSection() {
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
               >
 
-                <h2 className="font-heading text-xl leading-7 text-[var(--color-gold-accent)]">
+                <h2 className="font-heading text-xl leading-7 text-[#622825]">
                   {language === "eng"
                     ? "Can I bring a plus-one?"
                     : "Tôi có thể đi cùng người thân hoặc bạn đời không?"}
