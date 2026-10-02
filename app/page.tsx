@@ -290,7 +290,7 @@ export default function Home() {
 
             <div className="absolute inset-0 bg-white/10" />
 
-            <div className="relative z-10 max-w-md mx-auto text-center">
+            <div className="relative z-10 min-h-[720px] max-w-md mx-auto flex flex-col justify-center text-center py-14">
               <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
                 {language === "eng" ? "At A Glance" : "Thông Tin Chính"}
               </p>
@@ -424,12 +424,12 @@ export default function Home() {
           {language === "viet" && (
             <section 
               id="mobile-family" 
-              className="relative min-h-[720px] px-6 py-16 overflow-hidden md:hidden">
+              className="relative min-h-[720px] px-6 overflow-hidden md:hidden">
 
               {/* MOBILE FAMILY BACKGROUND */}
               <div className="absolute inset-0">
                 <img
-                  src="/images/family-mobile.png"
+                  src="/images/family-mobile-branding.webp"
                   alt=""
                   className="h-full w-full object-cover object-center"
                 />
@@ -455,7 +455,7 @@ export default function Home() {
 
                 <div className="mx-auto mt-5 h-px w-14 bg-[#D4AF37]/55" />
 
-                <div className="mt-10 space-y-10">
+                <div className="mt-12 space-y-14">
 
                   {/* BRIDE'S FAMILY */}
                   <div className="text-center">
