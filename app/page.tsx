@@ -1409,7 +1409,7 @@ function MobileScheduleSection() {
                       : "Đón Khách"}
                   </h3>
 
-                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Check in, grab a drink & find your seat"
                       : "Đón khách, thưởng thức đồ uống và tìm chỗ ngồi"}
@@ -1450,7 +1450,7 @@ function MobileScheduleSection() {
                       : "Lễ Vows"}
                   </h3>
 
-                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? 'Join us as we say "I do"'
                       : "Chứng kiến khoảnh khắc 2 vợ chồng trao lời thề nguyện và cảm ơn gia đình, bạn bè đã đi cùng chúng tôi đến ngày hôm nay"}
@@ -1491,7 +1491,7 @@ function MobileScheduleSection() {
                       : "Chụp hình và giải khát"}
                   </h3>
 
-                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Mingle, sip & celebrate"
                       : "Cùng chụp hình, trò chuyện và chung vui"}
@@ -1532,7 +1532,7 @@ function MobileScheduleSection() {
                       : "Tiệc Mừng"}
                   </h3>
 
-                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Dinner, dancing & good vibes"
                       : "Dùng tiệc và giao lưu, tận hưởng những khoảnh khắc đáng nhớ"}
@@ -1573,7 +1573,7 @@ function MobileScheduleSection() {
                       : "Điệu Nhảy Đầu Tiên"}
                   </h3>
 
-                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "A special moment for the newlyweds"
                       : "Khoảnh khắc của cô dâu và chú rể nhảy điệu đầu tiên"}
@@ -1614,7 +1614,7 @@ function MobileScheduleSection() {
                       : "Tiễn Cô Dâu & Chú Rể"}
                   </h3>
 
-                  <p className="hidden md:block font-body text-sm mt-2 font-medium text-[#622825]">
+                  <p className="font-body text-sm mt-2 font-medium text-[#622825]">
                     {language === "eng"
                       ? "Send us off in style!"
                       : "Cùng tiễn cô dâu và chú rể trong niềm vui và những lời chúc tốt đẹp"}
