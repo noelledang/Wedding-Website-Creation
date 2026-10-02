@@ -94,6 +94,9 @@ export default function Home() {
           {/* Light Overlay */}
           <div className="absolute inset-0 bg-white/10" />
 
+          {/* Soft transition from the slideshow */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDEFE8] to-transparent" />
+
           {/* Mobile Hero Content */}
           <div className="relative z-10 w-full text-center">
 
@@ -441,8 +444,13 @@ export default function Home() {
                 }}
               />
 
-              {/* LIGHT OVERLAY */}
-              <div className="absolute inset-0 bg-white/10" />
+              {/* Warm the sky while preserving garden depth */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{ background: "linear-gradient(to bottom, rgba(253,239,232,0.42), rgba(250,228,232,0.22) 60%, rgba(253,239,232,0.06))" }}
+              />
+              <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FDEFE8] to-transparent" />
 
               {/* FAMILY CONTENT */}
               <div className="relative z-10 max-w-md mx-auto text-center">
@@ -1235,6 +1243,7 @@ function MobileVenueSection() {
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/15" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#FDEFE8] to-transparent" />
 
         {/* Mobile Content */}
         <div className="relative z-10 max-w-md mx-auto text-center pt-28 pb-24">
@@ -1318,6 +1327,17 @@ function MobileScheduleSection() {
             className="w-full h-full object-cover object-top"
           />
         </div>
+
+        {/* Quiet the lower scenery behind the timeline */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 md:hidden"
+          style={{
+            backdropFilter: "blur(1.5px)",
+            background: "linear-gradient(to bottom, transparent 35%, rgba(253,239,232,0.12) 55%, rgba(253,239,232,0.28))",
+            maskImage: "linear-gradient(to bottom, transparent 35%, black 60%)",
+          }}
+        />
 
         <div
   className="relative z-10 max-w-4xl mx-auto -translate-y-20"
