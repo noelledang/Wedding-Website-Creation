@@ -429,7 +429,7 @@ export default function Home() {
               {/* MOBILE FAMILY BACKGROUND */}
               <div className="absolute inset-0">
                 <img
-                  src="/images/family-mobile-branding.webp"
+                  src="/images/family-mobile.png"
                   alt=""
                   className="h-full w-full object-cover object-center"
                 />
