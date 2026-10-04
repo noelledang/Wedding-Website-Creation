@@ -443,7 +443,7 @@ export default function Home() {
               />
 
               {/* FAMILY CONTENT */}
-              <div className="relative z-10 max-w-md mx-auto text-center">
+              <div className="relative z-10 max-w-md mx-auto pt-12 text-center">
 
                 <p className="font-body text-[10px] uppercase tracking-[0.32em] text-[#916A63]">
                   Với sự chúc phúc của
