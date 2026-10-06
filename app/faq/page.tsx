@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useInvitation } from "../InvitationProvider";
+import { arrivalText } from "../../lib/invitation";
 import { useLanguage } from "../LanguageProvider";
 
 export default function FAQPage() {
   const { language } = useLanguage();
+  const invitation = useInvitation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -155,7 +158,7 @@ export default function FAQPage() {
 
             <p className="font-body text-sm leading-7 mt-3 text-[#622825]">
 
-              {language === "eng" ? (
+              {invitation ? arrivalText(invitation.eventGroup, language) : language === "eng" ? (
                 <>
                   For the Vows Ceremony, guest arrival begins at 3:30 PM, with the ceremony beginning
                   at 4:00 PM.
@@ -505,7 +508,7 @@ export default function FAQPage() {
 
                   <p className="border-t border-[#916A63]/15 px-5 pb-6 pt-4 font-body text-sm leading-7 text-[#622825]">
 
-                    {language === "eng" ? (
+                    {invitation ? arrivalText(invitation.eventGroup, language) : language === "eng" ? (
                       <>
                         For the Vows Ceremony, guest arrival begins at 3:30 PM, with the ceremony beginning
                         at 4:00 PM.

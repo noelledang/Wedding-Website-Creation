@@ -1,4 +1,9 @@
-export default function AdminPage() {
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { validAdminSession } from "../../lib/admin-session";
+
+export default async function AdminPage() {
+    if (!validAdminSession((await cookies()).get("admin_session")?.value)) redirect("/admin/login");
     return (
         <main className="min-h-screen bg-[#FDEFE8] px-6 py-16">
             <div className="max-w-6xl mx-auto">
@@ -18,6 +23,10 @@ export default function AdminPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="bg-white/70 rounded-2xl p-6 border border-[#916A63]/20">
+                        <h2 className="font-heading text-3xl text-[#622825]">Guest Invitations</h2>
+                        <a href="/admin/invitations" className="inline-block mt-5 px-5 py-2 rounded-full bg-[#622825] text-white font-body text-sm">Create Invitations</a>
+                    </div>
 
                     <div className="bg-white/70 rounded-2xl p-6 border border-[#916A63]/20">
                         <h2 className="font-heading text-3xl text-[#622825]">

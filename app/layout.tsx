@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import { InvitationProvider } from "./InvitationProvider";
 import WeddingIntro from "./components/WeddingIntro";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
@@ -59,11 +61,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
+          <Suspense fallback={<main className="min-h-screen bg-[#FDEFE8]" />}><InvitationProvider>
           <WeddingIntro />
           <Navbar />
           <LanguageSwitcher />
           <MusicPlayerWrapper />
           {children}
+          </InvitationProvider></Suspense>
         </LanguageProvider>
       </body>
     </html>
