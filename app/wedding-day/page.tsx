@@ -1,9 +1,12 @@
 "use client";
 
+import { useInvitation } from "../InvitationProvider";
 import { useLanguage } from "../LanguageProvider";
 
 export default function WeddingDayPage() {
   const { language } = useLanguage();
+  const invitation = useInvitation();
+  const receptionOnly = invitation?.eventGroup === "reception";
 
   return (
     <main>
@@ -54,6 +57,7 @@ export default function WeddingDayPage() {
             <div className="space-y-14">
 
 
+              {!receptionOnly && <>
               {/* GUEST ARRIVAL */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
@@ -134,6 +138,7 @@ export default function WeddingDayPage() {
               </div>
 
 
+              </>}
               {/* COCKTAIL HOUR */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
@@ -160,8 +165,8 @@ export default function WeddingDayPage() {
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
                     {language === "eng"
-                      ? "Photos & Drink Hour"
-                      : "Chụp hình và giải khát"}
+                      ? (receptionOnly ? "Guest Arrival & Photos" : "Photos & Drink Hour")
+                      : (receptionOnly ? "Đón Khách & Chụp Hình" : "Chụp hình và giải khát")}
                   </h3>
 
                   <p className="font-body text-sm mt-2 text-[#916A63]">

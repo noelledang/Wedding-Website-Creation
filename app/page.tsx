@@ -3,11 +3,15 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageProvider";
-import Link from "next/link";
+import Link from "./InvitationLink";
+import { useInvitation, InvitationDetails } from "./InvitationProvider";
+import { arrivalText, eventDate } from "../lib/invitation";
 import MobileSlideshow from "./components/MobileSlideshow";
 
 export default function Home() {
   const { language } = useLanguage();
+  const invitation = useInvitation();
+  const eventGroup = invitation?.eventGroup ?? "ceremony";
 
   const translations = {
     eng: {
@@ -37,7 +41,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const weddingDate = new Date("2027-03-13T16:00:00");
+    const weddingDate = new Date(invitation ? eventDate(eventGroup) : "2027-03-13T16:00:00");
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -64,7 +68,7 @@ export default function Home() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [eventGroup, invitation]);
 
   return (
     <>
@@ -96,11 +100,11 @@ export default function Home() {
 
             {/* INTRO */}
             <p className="font-body text-sm uppercase tracking-[0.35em] mb-6">
-              {translations[language].heroTogether}
+              {invitation ? (language === "eng" ? `${invitation.guestName},` : `Trân trọng kính mời ${invitation.guestName}`) : translations[language].heroTogether}
             </p>
 
             <p className="font-body text-sm uppercase tracking-[0.15em] mb-6">
-              {translations[language].heroInvitation}
+              {invitation ? (language === "eng" ? "We invite you to celebrate the wedding of" : "Đến chung vui trong lễ cưới của") : translations[language].heroInvitation}
             </p>
 
             {/* COUPLE NAMES */}
@@ -189,6 +193,7 @@ export default function Home() {
 
             </div>
 
+            {invitation && <p className="mt-5 font-body text-sm leading-7 text-[#622825]">{arrivalText(invitation.eventGroup, language)}</p>}
             {/* COUNTDOWN */}
             <div className="grid grid-cols-4 gap-2 max-w-lg mx-auto mt-8">
 
@@ -643,11 +648,11 @@ export default function Home() {
             <div className="relative z-10 text-center">
 
               <p className="font-body text-sm uppercase tracking-[0.35em] mb-6">
-                {translations[language].heroTogether}
+                {invitation ? (language === "eng" ? `${invitation.guestName},` : `Trân trọng kính mời ${invitation.guestName}`) : translations[language].heroTogether}
               </p>
 
               <p className="font-body text-sm uppercase tracking-[0.15em] mb-6">
-                {translations[language].heroInvitation}
+                {invitation ? (language === "eng" ? "We invite you to celebrate the wedding of" : "Đến chung vui trong lễ cưới của") : translations[language].heroInvitation}
               </p>
 
               {/* COUPLE NAMES */}
@@ -755,7 +760,8 @@ export default function Home() {
                   {translations[language].heroDate}
                 </p>
 
-                {/* COUNTDOWN */}
+                {invitation && <p className="mt-5 font-body text-sm leading-7 text-[#622825]">{arrivalText(invitation.eventGroup, language)}</p>}
+            {/* COUNTDOWN */}
                 <div className="grid grid-cols-4 gap-5 max-w-lg mx-auto mt-10">
 
                   {/* DAYS */}
@@ -1302,6 +1308,8 @@ function MobileVenueSection() {
 
 function MobileScheduleSection() {
   const { language } = useLanguage();
+  const invitation = useInvitation();
+  const receptionOnly = invitation?.eventGroup === "reception";
 
   return (
     <div>
@@ -1381,6 +1389,7 @@ function MobileScheduleSection() {
             <div className="space-y-10">
 
 
+              {!receptionOnly && <>
               {/* GUEST ARRIVAL */}
               <div className="relative flex items-start gap-4 md:gap-12">
                 <div className="w-20 md:w-32 shrink-0 text-right pl-1 md:pl-0">
@@ -1461,6 +1470,7 @@ function MobileScheduleSection() {
               </div>
 
 
+              </>}
               {/* COCKTAIL HOUR */}
               <div className="relative flex items-start gap-4 md:gap-12">
 
@@ -1488,8 +1498,8 @@ function MobileScheduleSection() {
                 <div>
                   <h3 className="font-heading text-3xl md:text-4xl">
                     {language === "eng"
-                      ? "Photos & Drink Hour"
-                      : "Chụp hình và giải khát"}
+                      ? (receptionOnly ? "Guest Arrival & Photos" : "Photos & Drink Hour")
+                      : (receptionOnly ? "Đón Khách & Chụp Hình" : "Chụp hình và giải khát")}
                   </h3>
 
                   <p className="font-body text-sm mt-2 font-medium text-[#622825]">
@@ -1643,6 +1653,7 @@ type Guest = {
 
 function MobileRSVPSection() {
   const { language } = useLanguage();
+  const invitation = useInvitation();
 
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
   const [guestCount, setGuestCount] = useState(1);
@@ -1754,6 +1765,7 @@ function MobileRSVPSection() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+                    invitationToken: invitation?.token,
           attending,
           guestCount: attending === "yes" ? guestCount : 0,
           guests: guestNames,
@@ -1882,6 +1894,7 @@ function MobileRSVPSection() {
         </div>
       </section>
 
+      <InvitationDetails />
       {/* RSVP FORM */}
       <section className="px-6 pt-6 pb-20">
         <div className="max-w-2xl mx-auto">
@@ -1959,7 +1972,7 @@ function MobileRSVPSection() {
                     }
                     className="border border-gray-300 rounded-lg px-6 py-4 text-lg bg-white"
                   >
-                    {[1, 2, 3, 4, 5, 6].map(
+                    {Array.from({ length: invitation?.maxGuests ?? 6 }, (_, index) => index + 1).map(
                       (number) => (
                         <option
                           key={number}
@@ -2415,6 +2428,7 @@ function MobileGallerySection() {
 
 function MobileFAQSection() {
   const { language } = useLanguage();
+  const invitation = useInvitation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -2671,7 +2685,7 @@ function MobileFAQSection() {
 
                   <p className="border-t border-[#916A63]/15 px-5 pb-6 pt-4 font-body text-sm leading-7 text-[#622825]">
 
-                    {language === "eng" ? (
+                    {invitation ? arrivalText(invitation.eventGroup, language) : language === "eng" ? (
                       <>
                         For the Vows Ceremony, guest arrival begins at 3:30 PM, with the ceremony beginning
                         at 4:00 PM.

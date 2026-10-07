@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useInvitation, InvitationDetails } from "../InvitationProvider";
+import { invitationHref } from "../../lib/invitation";
 import { useLanguage } from "../LanguageProvider";
 
 
@@ -13,6 +15,7 @@ type Guest = {
 
 export default function RSVPPage() {
     const { language } = useLanguage();
+    const invitation = useInvitation();
 
     const [attending, setAttending] = useState<"yes" | "no" | "">("");
     const [guestCount, setGuestCount] = useState(1);
@@ -117,6 +120,7 @@ export default function RSVPPage() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    invitationToken: invitation?.token,
                     attending,
                     guestCount: attending === "yes" ? guestCount : 0,
                     guests: guestNames,
@@ -248,7 +252,8 @@ export default function RSVPPage() {
                 </div>
             </section>
 
-            {/* RSVP FORM */}
+            <InvitationDetails />
+      {/* RSVP FORM */}
             <section className="py-20 px-6">
                 <div className="max-w-2xl mx-auto">
 
@@ -325,7 +330,7 @@ export default function RSVPPage() {
                                         }
                                         className="border border-gray-300 rounded-lg px-6 py-4 text-lg bg-white"
                                     >
-                                        {[1, 2, 3, 4, 5, 6].map(
+                                        {Array.from({ length: invitation?.maxGuests ?? 6 }, (_, index) => index + 1).map(
                                             (number) => (
                                                 <option
                                                     key={number}

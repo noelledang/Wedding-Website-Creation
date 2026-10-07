@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "../InvitationLink";
 import { useLanguage } from "../LanguageProvider";
 
 export default function Navbar() {
