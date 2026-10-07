@@ -3,7 +3,7 @@ import { randomBytes } from "node:crypto";
 import { isInvitationToken, parseInvitationInput, type Invitation } from "./invitation";
 export class InvitationStorageError extends Error {}
 function options() {
-  const token = process.env.INVITATIONS_READ_WRITE_TOKEN;
+  const token = process.env.INVITATIONS_READ_WRITE_TOKEN || process.env.Invitations_READ_WRITE_TOKEN;
   if (!token) throw new InvitationStorageError("Connect a private Blob store and set INVITATIONS_READ_WRITE_TOKEN to enable invitations.");
   return { token };
 }
