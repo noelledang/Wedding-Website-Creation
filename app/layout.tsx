@@ -45,12 +45,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: isVietnameseSite
-      ? "Tấn Cường & Lam Nghi | Save the Date"
+      ? "Tấn Cường & Lãm Nghi | Save the Date"
       : "Noelle & Nathan | Save the Date",
     description: "Join us as we celebrate our wedding.",
     metadataBase: new URL(isVietnameseSite ? "https://tancuong-lamnghi.vercel.app" : "https://noelle-nathan.vercel.app"),
     openGraph: {
-      title: isVietnameseSite ? "Tấn Cường & Lam Nghi | Save the Date" : "Noelle & Nathan | Save the Date",
+      title: isVietnameseSite ? "Tấn Cường & Lãm Nghi | Save the Date" : "Noelle & Nathan | Save the Date",
       description: "Join us as we celebrate our wedding.",
       images: [{ url: "/opengraph-image.JPG", width: 1200, height: 630 }],
       type: "website",
