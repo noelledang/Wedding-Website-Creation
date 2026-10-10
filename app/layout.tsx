@@ -56,6 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
     },
     twitter: { card: "summary_large_image", images: ["/opengraph-image.JPG"] },
+    icons: { icon: [{ url: "/opengraph-image.JPG", type: "image/jpeg" }], apple: "/opengraph-image.JPG" },
   };
 }
 
