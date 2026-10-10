@@ -48,6 +48,14 @@ export async function generateMetadata(): Promise<Metadata> {
       ? "Tấn Cường & Lam Nghi | Save the Date"
       : "Noelle & Nathan | Save the Date",
     description: "Join us as we celebrate our wedding.",
+    metadataBase: new URL(isVietnameseSite ? "https://tancuong-lamnghi.vercel.app" : "https://noelle-nathan.vercel.app"),
+    openGraph: {
+      title: isVietnameseSite ? "Tấn Cường & Lam Nghi | Save the Date" : "Noelle & Nathan | Save the Date",
+      description: "Join us as we celebrate our wedding.",
+      images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
+      type: "website",
+    },
+    twitter: { card: "summary_large_image", images: ["/opengraph-image.jpg"] },
   };
 }
 
