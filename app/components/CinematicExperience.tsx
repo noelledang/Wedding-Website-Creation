@@ -11,11 +11,13 @@ export default function CinematicExperience() {
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setEnabled(!media.matches);
+    const mobile = window.matchMedia("(max-width: 767px)");
+    const update = () => setEnabled(!media.matches && mobile.matches);
     update();
     media.addEventListener("change", update);
+    mobile.addEventListener("change", update);
 
-    if (media.matches) return () => media.removeEventListener("change", update);
+    if (media.matches) return () => { media.removeEventListener("change", update); mobile.removeEventListener("change", update); };
 
     const sections = Array.from(document.querySelectorAll("main section"));
     const observer = new IntersectionObserver((entries) => {
@@ -31,6 +33,7 @@ export default function CinematicExperience() {
       observer.disconnect();
       sections.forEach((section) => section.classList.remove("cinematic-visible"));
       media.removeEventListener("change", update);
+      mobile.removeEventListener("change", update);
     };
   }, []);
 
@@ -62,6 +65,11 @@ export default function CinematicExperience() {
         @keyframes cinematic-enter {
           from { opacity: .35; transform: translateY(18px); filter: blur(2px); }
           to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @media (min-width: 768px) {
+          .cinematic-ambient, .cinematic-spark { display: none !important; }
+          main section.cinematic-visible > .relative.z-10,
+          main section.cinematic-visible > .relative.z-20 { animation: none !important; }
         }
         @media (prefers-reduced-motion: reduce) {
           .cinematic-ambient, .cinematic-spark { display: none !important; }
