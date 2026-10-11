@@ -100,30 +100,32 @@ export default function CinematicExperience() {
         }
 
         @media (max-width: 767px) {
-          #mobile-home + section::before, #mobile-home + section::after {
+          /* Hero follows the slideshow inside main, not inside #mobile-home. */
+          main > section.md\\:hidden::before,
+          main > section.md\\:hidden::after {
             content: ""; position: absolute; z-index: 5; pointer-events: none;
-            width: min(39vw, 170px); height: 190px;
+            width: min(36vw, 160px); height: 175px;
             background: url("/images/slideshow-floral-corner.png") center / contain no-repeat;
             opacity: 0;
           }
-          #mobile-home + section::before { top: 2%; left: -3%; }
-          #mobile-home + section::after { bottom: 2%; right: -3%; }
-          #mobile-home + section.cinematic-visible::before {
+          main > section.md\\:hidden::before { top: 1%; left: -2%; }
+          main > section.md\\:hidden::after { bottom: 1%; right: -2%; }
+          main > section.md\\:hidden.cinematic-visible::before {
             animation: rose-left 2.8s ease-out .1s both;
           }
-          #mobile-home + section.cinematic-visible::after {
+          main > section.md\\:hidden.cinematic-visible::after {
             animation: rose-right 2.8s ease-out .35s both;
           }
-          #mobile-home + section.cinematic-visible h1 {
+          main > section.md\\:hidden.cinematic-visible h1 {
             animation: name-reveal 3s ease-in-out .3s both;
           }
           @keyframes rose-left {
             from { opacity: 0; transform: translate(-20px,-15px) rotate(-25deg) scale(.5); }
-            to { opacity: .85; transform: translate(0,0) rotate(-4deg) scale(1); }
+            to { opacity: .9; transform: translate(0,0) rotate(-4deg) scale(1); }
           }
           @keyframes rose-right {
             from { opacity: 0; transform: translate(20px,15px) rotate(150deg) scale(.5); }
-            to { opacity: .85; transform: translate(0,0) rotate(180deg) scale(1); }
+            to { opacity: .9; transform: translate(0,0) rotate(180deg) scale(1); }
           }
           @keyframes name-reveal {
             0% { opacity: .4; text-shadow: 0 0 0 transparent; }
