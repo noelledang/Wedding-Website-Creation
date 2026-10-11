@@ -1,4 +1,5 @@
 import WeddingIntro from "./components/WeddingIntro";
+import CinematicExperience from "./components/CinematicExperience";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import {
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <WeddingIntro />
+          <CinematicExperience />
           <Navbar />
           <LanguageSwitcher />
           <MusicPlayerWrapper />
