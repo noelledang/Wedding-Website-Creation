@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageProvider";
 import Link from "next/link";
 import MobileSlideshow from "./components/MobileSlideshow";
+import MobileHeroBloom from "./components/MobileHeroBloom";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -78,6 +79,7 @@ export default function Home() {
         {/* ========================= */}
 
         <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 pb-10 overflow-hidden md:hidden">
+          <MobileHeroBloom />
 
           {/* Mobile Hero Background */}
           <div className="absolute inset-0">
