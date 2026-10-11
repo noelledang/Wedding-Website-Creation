@@ -98,6 +98,39 @@ export default function CinematicExperience() {
             to { opacity: 1; transform: translateY(0) scale(1); }
           }
         }
+
+        @media (max-width: 767px) {
+          #mobile-home + section::before, #mobile-home + section::after {
+            content: ""; position: absolute; z-index: 5; pointer-events: none;
+            width: min(39vw, 170px); height: 190px;
+            background: url("/images/slideshow-floral-corner.png") center / contain no-repeat;
+            opacity: 0;
+          }
+          #mobile-home + section::before { top: 2%; left: -3%; }
+          #mobile-home + section::after { bottom: 2%; right: -3%; }
+          #mobile-home + section.cinematic-visible::before {
+            animation: rose-left 2.8s ease-out .1s both;
+          }
+          #mobile-home + section.cinematic-visible::after {
+            animation: rose-right 2.8s ease-out .35s both;
+          }
+          #mobile-home + section.cinematic-visible h1 {
+            animation: name-reveal 3s ease-in-out .3s both;
+          }
+          @keyframes rose-left {
+            from { opacity: 0; transform: translate(-20px,-15px) rotate(-25deg) scale(.5); }
+            to { opacity: .85; transform: translate(0,0) rotate(-4deg) scale(1); }
+          }
+          @keyframes rose-right {
+            from { opacity: 0; transform: translate(20px,15px) rotate(150deg) scale(.5); }
+            to { opacity: .85; transform: translate(0,0) rotate(180deg) scale(1); }
+          }
+          @keyframes name-reveal {
+            0% { opacity: .4; text-shadow: 0 0 0 transparent; }
+            55% { opacity: 1; text-shadow: 0 0 20px rgba(255,225,151,.85); }
+            100% { opacity: 1; text-shadow: 0 0 2px rgba(212,175,55,.2); }
+          }
+        }
         @media (min-width: 768px) {
           .cinematic-ambient, .cinematic-spark { display: none !important; }
           main section.cinematic-visible > .relative.z-10,
