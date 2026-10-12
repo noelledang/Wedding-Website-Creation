@@ -41,6 +41,18 @@ export default function CinematicExperience() {
 
   return (
     <>
+      <div className="cinematic-petals" aria-hidden="true">
+        {Array.from({ length: 10 }, (_, index) => (
+          <span key={index} className="cinematic-petal" style={{
+            left: `${5 + index * 9.5}%`,
+            width: `${13 + (index % 4) * 4}px`,
+            height: `${19 + (index % 4) * 5}px`,
+            animationDelay: `${-index * 2.7}s`,
+            animationDuration: `${13 + (index % 5) * 3}s`,
+            opacity: 0.62 + (index % 3) * 0.1,
+          }} />
+        ))}
+      </div>
       <div className="cinematic-ambient" aria-hidden="true">
         {Array.from({ length: 16 }, (_, index) => (
           <span key={index} className="cinematic-spark" style={{
@@ -52,6 +64,24 @@ export default function CinematicExperience() {
         ))}
       </div>
       <style jsx global>{`
+        .cinematic-petals { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 16; }
+        .cinematic-petal {
+          position: absolute; top: -45px; display: block;
+          border-radius: 8% 75% 12% 75%;
+          background: radial-gradient(ellipse at 28% 24%, #fff0e9 0%, #e9a9b1 42%, #ad5268 82%, #8c354d 100%);
+          box-shadow: inset -2px -2px 3px rgba(103,37,57,.18), 0 2px 4px rgba(90,35,55,.12);
+          animation: cinematic-petal-fall linear infinite;
+          will-change: transform;
+        }
+        .cinematic-petal:nth-child(3n) { background: radial-gradient(ellipse at 25% 20%, #fff7ed, #f3c5c6 48%, #c7778c 100%); }
+        .cinematic-petal:nth-child(4n) { background: radial-gradient(ellipse at 25% 20%, #e9a0ae, #a34762 65%, #742a46 100%); }
+        @keyframes cinematic-petal-fall {
+          0% { transform: translate3d(-12px,-8vh,0) rotate(0deg) rotateY(0deg); }
+          25% { transform: translate3d(28px,28vh,0) rotate(95deg) rotateY(65deg); }
+          50% { transform: translate3d(-22px,58vh,0) rotate(185deg) rotateY(150deg); }
+          75% { transform: translate3d(24px,87vh,0) rotate(270deg) rotateY(240deg); }
+          100% { transform: translate3d(-10px,120vh,0) rotate(370deg) rotateY(360deg); }
+        }
         .cinematic-ambient { position: fixed; inset: 0; z-index: 15; pointer-events: none; overflow: hidden; }
         .cinematic-spark { position: absolute; width: 5px; height: 5px; border-radius: 50%;
           background: #f7e6b0; box-shadow: 0 0 9px 3px rgba(212,175,55,.3);
@@ -100,7 +130,7 @@ export default function CinematicExperience() {
         }
 
         @media (min-width: 768px) {
-          .cinematic-ambient, .cinematic-spark { display: none !important; }
+          .cinematic-ambient, .cinematic-spark, .cinematic-petals { display: none !important; }
           main section.cinematic-visible > .relative.z-10,
           main section.cinematic-visible > .relative.z-20 { animation: none !important; }
         }
