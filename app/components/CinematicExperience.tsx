@@ -67,7 +67,7 @@ export default function CinematicExperience() {
         .cinematic-petals { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 16; }
         .cinematic-petal {
           position: absolute; top: -45px; display: block;
-          border-radius: 65% 45% 58% 42% / 58% 48% 62% 42%;
+          border-radius: 75% 35% 65% 20% / 70% 35% 65% 30%;
           background: #f1c0cd;
           animation: cinematic-petal-fall linear infinite;
           will-change: transform;
@@ -77,20 +77,20 @@ export default function CinematicExperience() {
         .cinematic-petal:nth-child(7n) { background: #fff0ed; }
         .cinematic-petal:nth-child(even) { animation-name: cinematic-petal-fall-alt; }
         @keyframes cinematic-petal-fall {
-          0% { transform: translate3d(-8px,-6vh,0) rotate(-16deg) rotateY(0deg); }
-          20% { transform: translate3d(10px,20vh,0) rotate(12deg) rotateY(25deg); }
-          42% { transform: translate3d(-9px,46vh,0) rotate(-9deg) rotateY(52deg); }
-          65% { transform: translate3d(13px,76vh,0) rotate(18deg) rotateY(83deg); }
-          82% { transform: translate3d(1px,99vh,0) rotate(-7deg) rotateY(108deg); }
-          100% { transform: translate3d(8px,125vh,0) rotate(14deg) rotateY(132deg); }
+          0% { transform: translate3d(-8px,-6vh,0) rotate(-16deg); }
+          20% { transform: translate3d(10px,20vh,0) rotate(12deg); }
+          42% { transform: translate3d(-9px,46vh,0) rotate(-9deg); }
+          65% { transform: translate3d(13px,76vh,0) rotate(18deg); }
+          82% { transform: translate3d(1px,99vh,0) rotate(-7deg); }
+          100% { transform: translate3d(8px,125vh,0) rotate(14deg); }
         }
         @keyframes cinematic-petal-fall-alt {
-          0% { transform: translate3d(7px,-6vh,0) rotate(12deg) rotateY(30deg); }
-          22% { transform: translate3d(-13px,22vh,0) rotate(-14deg) rotateY(55deg); }
-          45% { transform: translate3d(5px,50vh,0) rotate(8deg) rotateY(80deg); }
-          67% { transform: translate3d(-11px,78vh,0) rotate(-12deg) rotateY(105deg); }
-          85% { transform: translate3d(3px,102vh,0) rotate(9deg) rotateY(127deg); }
-          100% { transform: translate3d(-6px,125vh,0) rotate(-10deg) rotateY(145deg); }
+          0% { transform: translate3d(7px,-6vh,0) rotate(12deg); }
+          22% { transform: translate3d(-13px,22vh,0) rotate(-14deg); }
+          45% { transform: translate3d(5px,50vh,0) rotate(8deg); }
+          67% { transform: translate3d(-11px,78vh,0) rotate(-12deg); }
+          85% { transform: translate3d(3px,102vh,0) rotate(9deg); }
+          100% { transform: translate3d(-6px,125vh,0) rotate(-10deg); }
         }
         .cinematic-ambient { position: fixed; inset: 0; z-index: 15; pointer-events: none; overflow: hidden; }
         .cinematic-spark { position: absolute; width: 5px; height: 5px; border-radius: 50%;
