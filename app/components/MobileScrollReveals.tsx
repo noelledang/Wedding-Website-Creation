@@ -23,8 +23,8 @@ export default function MobileScrollReveals() {
       hero.querySelectorAll<HTMLElement>(".relative.z-10 > p, .relative.z-10 > h1").forEach(el => targets.add(el));
     }
     const slideshow = document.querySelector<HTMLElement>("#mobile-home");
-    const frame = slideshow?.querySelector<HTMLElement>(".relative.z-10 > .relative");
-    if (frame) targets.add(frame);
+    const photoFrame = slideshow?.querySelector<HTMLElement>(".relative.z-10 > .relative");
+    if (photoFrame) targets.add(photoFrame);
     for (const selector of roots) {
       const root = document.querySelector<HTMLElement>(selector);
       if (!root) continue;
