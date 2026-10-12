@@ -45,11 +45,11 @@ export default function CinematicExperience() {
         {Array.from({ length: 10 }, (_, index) => (
           <span key={index} className="cinematic-petal" style={{
             left: `${5 + index * 9.5}%`,
-            width: `${8 + (index % 4) * 2}px`,
-            height: `${12 + (index % 4) * 3}px`,
+            width: `${10 + (index % 4) * 2}px`,
+            height: `${11 + (index % 4) * 2}px`,
             animationDelay: `${-index * 2.7}s`,
             animationDuration: `${13 + (index % 5) * 3}s`,
-            opacity: 0.55 + (index % 3) * 0.07,
+            opacity: 0.78 + (index % 3) * 0.07,
           }} />
         ))}
       </div>
@@ -67,14 +67,14 @@ export default function CinematicExperience() {
         .cinematic-petals { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 16; }
         .cinematic-petal {
           position: absolute; top: -45px; display: block;
-          border-radius: 15% 75% 18% 75%;
-          background: radial-gradient(ellipse at 28% 24%, #fffaf7 0%, #f8dfe2 45%, #eabcc6 100%);
-          box-shadow: inset -1px -1px 2px rgba(174,117,132,.12), 0 1px 2px rgba(150,90,105,.08);
+          border-radius: 65% 45% 58% 42% / 58% 48% 62% 42%;
+          background: #f1c0cd;
           animation: cinematic-petal-fall linear infinite;
           will-change: transform;
         }
-        .cinematic-petal:nth-child(3n) { background: radial-gradient(ellipse at 25% 20%, #fffdfb, #fbe8e8 48%, #f1cdd5 100%); }
-        .cinematic-petal:nth-child(4n) { background: radial-gradient(ellipse at 25% 20%, #fff5f5, #f2d2da 65%, #e5b5c2 100%); }
+        .cinematic-petal:nth-child(3n) { background: #f8dce3; }
+        .cinematic-petal:nth-child(4n) { background: #e8adb9; }
+        .cinematic-petal:nth-child(7n) { background: #fff0ed; }
         @keyframes cinematic-petal-fall {
           0% { transform: translate3d(-12px,-8vh,0) rotate(0deg) rotateY(0deg); }
           25% { transform: translate3d(28px,28vh,0) rotate(95deg) rotateY(65deg); }
