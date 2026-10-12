@@ -17,6 +17,14 @@ export default function MobileScrollReveals() {
       "#mobile-thank-you"
     ];
     const targets = new Set<HTMLElement>();
+    const hero = document.querySelector<HTMLElement>("#mobile-home + section");
+    if (hero) {
+      hero.classList.add("mobile-cinematic-hero");
+      hero.querySelectorAll<HTMLElement>(".relative.z-10 > p, .relative.z-10 > h1").forEach(el => targets.add(el));
+    }
+    const slideshow = document.querySelector<HTMLElement>("#mobile-home");
+    const frame = slideshow?.querySelector<HTMLElement>(".relative.z-10 > .relative");
+    if (frame) targets.add(frame);
     for (const selector of roots) {
       const root = document.querySelector<HTMLElement>(selector);
       if (!root) continue;
@@ -101,6 +109,7 @@ export default function MobileScrollReveals() {
         observer.disconnect();
         finaleObserver?.disconnect();
         thankYou?.classList.remove("mobile-finale-visible");
+        hero?.classList.remove("mobile-cinematic-hero");
         cleanupTimeline();
       };
     }
@@ -112,11 +121,30 @@ export default function MobileScrollReveals() {
       }
     }, { threshold: 0.2 }) : null;
     if (thankYou) finaleObserver?.observe(thankYou);
-    return () => { observer.disconnect(); finaleObserver?.disconnect(); thankYou?.classList.remove("mobile-finale-visible"); };
+    return () => { observer.disconnect(); finaleObserver?.disconnect(); thankYou?.classList.remove("mobile-finale-visible"); hero?.classList.remove("mobile-cinematic-hero"); };
   }, []);
 
   return <style jsx global>{`
     @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+      #mobile-home .relative.z-10 > .relative.mobile-cinematic-reveal {
+        animation: mobile-cinematic-frame 1450ms cubic-bezier(.16,.75,.2,1) both;
+      }
+      #mobile-home .relative.z-10 > .relative::after {
+        content: ""; position: absolute; inset: 8px; z-index: 31;
+        pointer-events: none; border: 1px solid rgba(239,217,160,.18);
+        animation: mobile-frame-shimmer 5.5s ease-in-out infinite;
+      }
+      .mobile-cinematic-hero .relative.z-10 > p.mobile-cinematic-reveal:nth-child(2) { animation-delay: 160ms; }
+      .mobile-cinematic-hero .relative.z-10 > h1.mobile-cinematic-reveal { animation-delay: 300ms; }
+      #mobile-thank-you .mobile-cinematic-reveal { animation-duration: 1350ms; }
+      @keyframes mobile-cinematic-frame {
+        from { opacity: .4; transform: translateY(24px) scale(.955); filter: blur(2px); }
+        to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+      }
+      @keyframes mobile-frame-shimmer {
+        0%,100% { box-shadow: inset 0 0 0 rgba(250,224,164,0); }
+        50% { box-shadow: inset 0 0 22px rgba(250,224,164,.17); }
+      }
       .mobile-cinematic-reveal {
         animation: mobile-cinematic-rise 1050ms cubic-bezier(.2,.72,.22,1) both;
       }
