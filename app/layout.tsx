@@ -1,5 +1,6 @@
 import WeddingIntro from "./components/WeddingIntro";
 import CinematicExperience from "./components/CinematicExperience";
+import MobileScrollReveals from "./components/MobileScrollReveals";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import {
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <LanguageProvider>
           <WeddingIntro />
           <CinematicExperience />
+          <MobileScrollReveals />
           <Navbar />
           <LanguageSwitcher />
           <MusicPlayerWrapper />
