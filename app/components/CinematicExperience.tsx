@@ -47,8 +47,8 @@ export default function CinematicExperience() {
             left: `${5 + index * 9.5}%`,
             width: `${10 + (index % 4) * 2}px`,
             height: `${11 + (index % 4) * 2}px`,
-            animationDelay: `${-index * 2.7}s`,
-            animationDuration: `${13 + (index % 5) * 3}s`,
+            animationDelay: `${-index * 3.9}s`,
+            animationDuration: `${23 + (index % 5) * 3}s`,
             opacity: 0.78 + (index % 3) * 0.07,
           }} />
         ))}
@@ -75,12 +75,22 @@ export default function CinematicExperience() {
         .cinematic-petal:nth-child(3n) { background: #f8dce3; }
         .cinematic-petal:nth-child(4n) { background: #e8adb9; }
         .cinematic-petal:nth-child(7n) { background: #fff0ed; }
+        .cinematic-petal:nth-child(even) { animation-name: cinematic-petal-fall-alt; }
         @keyframes cinematic-petal-fall {
-          0% { transform: translate3d(-12px,-8vh,0) rotate(0deg) rotateY(0deg); }
-          25% { transform: translate3d(28px,28vh,0) rotate(95deg) rotateY(65deg); }
-          50% { transform: translate3d(-22px,58vh,0) rotate(185deg) rotateY(150deg); }
-          75% { transform: translate3d(24px,87vh,0) rotate(270deg) rotateY(240deg); }
-          100% { transform: translate3d(-10px,120vh,0) rotate(370deg) rotateY(360deg); }
+          0% { transform: translate3d(-8px,-6vh,0) rotate(-16deg) rotateY(0deg); }
+          20% { transform: translate3d(10px,20vh,0) rotate(12deg) rotateY(25deg); }
+          42% { transform: translate3d(-9px,46vh,0) rotate(-9deg) rotateY(52deg); }
+          65% { transform: translate3d(13px,76vh,0) rotate(18deg) rotateY(83deg); }
+          82% { transform: translate3d(1px,99vh,0) rotate(-7deg) rotateY(108deg); }
+          100% { transform: translate3d(8px,125vh,0) rotate(14deg) rotateY(132deg); }
+        }
+        @keyframes cinematic-petal-fall-alt {
+          0% { transform: translate3d(7px,-6vh,0) rotate(12deg) rotateY(30deg); }
+          22% { transform: translate3d(-13px,22vh,0) rotate(-14deg) rotateY(55deg); }
+          45% { transform: translate3d(5px,50vh,0) rotate(8deg) rotateY(80deg); }
+          67% { transform: translate3d(-11px,78vh,0) rotate(-12deg) rotateY(105deg); }
+          85% { transform: translate3d(3px,102vh,0) rotate(9deg) rotateY(127deg); }
+          100% { transform: translate3d(-6px,125vh,0) rotate(-10deg) rotateY(145deg); }
         }
         .cinematic-ambient { position: fixed; inset: 0; z-index: 15; pointer-events: none; overflow: hidden; }
         .cinematic-spark { position: absolute; width: 5px; height: 5px; border-radius: 50%;
