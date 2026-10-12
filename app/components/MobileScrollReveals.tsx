@@ -93,7 +93,7 @@ export default function MobileScrollReveals() {
       const finaleObserver = thankYou ? new IntersectionObserver(entries => {
         if (entries.some(entry => entry.isIntersecting)) {
           thankYou.classList.add("mobile-finale-visible");
-          finaleObserver.disconnect();
+          finaleObserver?.disconnect();
         }
       }, { threshold: 0.2 }) : null;
       if (thankYou) finaleObserver?.observe(thankYou);
@@ -108,7 +108,7 @@ export default function MobileScrollReveals() {
     const finaleObserver = thankYou ? new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {
         thankYou.classList.add("mobile-finale-visible");
-        finaleObserver.disconnect();
+        finaleObserver?.disconnect();
       }
     }, { threshold: 0.2 }) : null;
     if (thankYou) finaleObserver?.observe(thankYou);
