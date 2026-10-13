@@ -40,7 +40,7 @@ export default function EnvelopeOpening({ onDone }: { onDone: () => void }) {
           <div className="invitation-words">
             <span>WELCOME TO OUR WEDDING</span>
             <strong>Noelle <em>&amp;</em> Nathan</strong>
-            <span>03 · 13 · 2027</span>
+            <span className="ornamental-date"><i />03.13.2027<i /></span>
           </div>
         </div>
         <div className="front-pocket" aria-hidden="true" />
@@ -64,9 +64,9 @@ export default function EnvelopeOpening({ onDone }: { onDone: () => void }) {
         .invitation-words { display:flex; flex-direction:column; align-items:center; gap:24px; text-align:center; padding:20px; }
         .invitation-words span { font:11px Georgia,serif; letter-spacing:.16em; color:#925d3d; }
         .invitation-words strong { font-family:var(--font-great-vibes),cursive; font-size:clamp(38px,11vw,65px); font-weight:400; line-height:1.1; color:#733d42; }
-        .invitation-words em { font-style:normal; font-size:.55em; }
+        .ornamental-date { display:flex; align-items:center; justify-content:center; gap:12px; white-space:nowrap; color:#a37b39 !important; }\n        .ornamental-date i { display:block; width:clamp(24px,9vw,55px); height:1px; background:linear-gradient(90deg,transparent,#bd9b59 35%,#bd9b59 65%,transparent); position:relative; }\n        .ornamental-date i::after { content:""; position:absolute; width:5px; height:5px; border:1px solid #bd9b59; transform:rotate(45deg); top:-2px; left:calc(50% - 3px); background:#fffaf2; }\n        .invitation-words em { font-style:normal; font-size:.55em; }
         .front-pocket { z-index:4; clip-path:polygon(0 58%,50% 75%,100% 58%,100% 100%,0 100%); }
-        .flap-perspective { position:absolute; inset:0; z-index:6; transform-style:preserve-3d; transform-origin:50% 0; pointer-events:none; }
+        .flap-perspective { position:absolute; inset:0; z-index:6; transform-style:preserve-3d; transform-origin:50% 0; pointer-events:none; will-change:transform; }
         .flap-art { clip-path:polygon(0 0,100% 0,50% 63%); backface-visibility:hidden; }
         .seal-button { position:absolute; z-index:8; left:50%; top:60%; width:clamp(88px,27vw,125px); height:clamp(88px,27vw,125px); transform:translate(-50%,-50%); border-radius:50%; background:transparent; cursor:pointer; touch-action:manipulation; }
         .seal-button:focus-visible { outline:3px solid #885a32; outline-offset:4px; }
@@ -76,7 +76,7 @@ export default function EnvelopeOpening({ onDone }: { onDone: () => void }) {
         .is-opening .warm-glow { animation:light-inside 2.4s 1.2s ease-out both; }
         .is-opening .invitation { animation:rise-card 2.3s 1.72s cubic-bezier(.2,.65,.16,1) both; }
         .is-opening.wedding-envelope { animation:fade-to-greeting .9s 4.18s ease-in-out both; }
-        @keyframes fold-flap { 0% { transform:rotateX(0deg); } 100% { transform:rotateX(-178deg); } }
+        @keyframes fold-flap { 0% { transform:rotateX(0deg); } 100% { transform:rotateX(165deg); } }
         @keyframes light-inside { 0% { opacity:0; transform:scale(.65); } 55% { opacity:.95; } 100% { opacity:.8; transform:scale(1.18); } }
         @keyframes rise-card { 0% { transform:translateY(9%) scale(1); } 65% { transform:translateY(-28%) scale(1.04); } 100% { transform:translateY(-37%) scale(1.11); } }
         @keyframes fade-to-greeting { to { opacity:0; transform:scale(1.035); } }
