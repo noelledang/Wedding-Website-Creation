@@ -61,49 +61,74 @@ export default function WeddingIntro() {
     };
 
     return (
-        <div className={`fixed inset-0 z-[10000] overflow-hidden bg-[#FFF7F1] transition-opacity duration-1000 md:hidden ${entering ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
-            <div className="absolute inset-0 wedding-intro-backdrop" aria-hidden="true">
-                <img src="/wedding-intro/floral-welcome.png" alt="" className="h-full w-full object-fill" />
+        <div
+            className={`fixed inset-0 z-[10000] overflow-hidden bg-[#FDEFE8] transition-opacity duration-1000 md:hidden ${entering ? "opacity-0" : "opacity-100"
+                }`}
+        >
+            {/* Background Image */}
+            <div className="absolute inset-0">
+                <img
+                    src="/wedding-intro/intro-2.JPG"
+                    alt="Welcome to Our Wedding"
+                    className="h-full w-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-black/10" />
             </div>
-            <div className="absolute inset-0 pointer-events-none wedding-intro-light" aria-hidden="true" />
-            <div className="relative z-10 mx-auto flex h-full w-full max-w-lg flex-col items-center justify-center px-12 text-center">
-                <div className="w-full wedding-intro-heading">
-                    <p className="font-body text-[11px] uppercase tracking-[0.3em] text-[#966D45]">Welcome to</p>
-                    <h1 className="mt-2 font-heading text-[clamp(24px,7vw,37px)] uppercase tracking-[0.08em] text-[#7C4940]">Our Wedding</h1>
-                </div>
-                <div className="mt-8 w-full wedding-intro-names">
-                    <p className="font-great-vibes text-[clamp(54px,14vw,80px)] leading-[1.1] text-[#702E32]">Noelle</p>
-                    <p className="my-1 font-heading text-3xl text-[#AC8554]">&amp;</p>
-                    <p className="font-great-vibes text-[clamp(54px,14vw,80px)] leading-[1.1] text-[#702E32]">Nathan</p>
-                </div>
-                <p className="mt-7 font-body text-xs tracking-[0.35em] text-[#855E48] wedding-intro-date">03.13.2027</p>
-                <div className="mt-12 w-full wedding-intro-actions">
-                    <p className="mb-5 font-body text-[10px] uppercase tracking-[0.19em] text-[#794C45]">Please select your language</p>
-                    <div className="flex items-center justify-center gap-3">
-                        <button type="button" disabled={entering} onClick={() => handleLanguageSelect("eng")}
-                            className={`min-w-0 flex-1 border border-[#B89560] bg-[#FFF5ED]/90 px-3 py-3 font-body text-[11px] uppercase tracking-[0.1em] text-[#733D3D] shadow-[0_3px_12px_rgba(110,60,50,.08)] transition-colors active:bg-[#F5DED7] ${language === "eng" ? "ring-1 ring-[#B89560]" : ""}`}>
-                            English
-                        </button>
-                        <button type="button" disabled={entering} onClick={() => handleLanguageSelect("viet")}
-                            className={`min-w-0 flex-1 border border-[#B89560] bg-[#FFF5ED]/90 px-3 py-3 font-body text-[11px] uppercase tracking-[0.05em] text-[#733D3D] shadow-[0_3px_12px_rgba(110,60,50,.08)] transition-colors active:bg-[#F5DED7] ${language === "viet" ? "ring-1 ring-[#B89560]" : ""}`}>
-                            Tiếng Việt
-                        </button>
-                    </div>
+
+            {/* Header */}
+            <div className="absolute top-32 left-1/2 z-10 w-full -translate-x-1/2 px-6 text-center">
+                <div className="relative inline-flex items-center gap-3 px-6 py-2">
+                    <div className="absolute inset-0 rounded-full bg-[#FDEFE8]/75 blur-[1px]" />
+
+                    <span className="relative text-xs text-[#D4AF37]">❦</span>
+
+                    <p className="relative font-body text-sm uppercase tracking-[0.15em] text-[#4A2420]">
+                        Welcome to Our Wedding
+                    </p>
+
+                    <span className="relative text-xs text-[#D4AF37]">❦</span>
                 </div>
             </div>
-            <style jsx>{`
-                @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
-                    .wedding-intro-backdrop { animation: intro-bloom 2.6s ease-out both; transform-origin: center; }
-                    .wedding-intro-light { background: radial-gradient(ellipse at center, rgba(255,246,222,.26), transparent 70%); animation: intro-light 2.4s ease-out both; }
-                    .wedding-intro-heading { animation: intro-rise 1s .4s both; }
-                    .wedding-intro-names { animation: intro-rise 1.3s .85s both; }
-                    .wedding-intro-date { animation: intro-rise .9s 1.35s both; }
-                    .wedding-intro-actions { animation: intro-rise .9s 1.7s both; }
-                    @keyframes intro-bloom { from { opacity: .25; transform: scale(1.045); filter: blur(4px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
-                    @keyframes intro-light { from { opacity: 0; } to { opacity: 1; } }
-                    @keyframes intro-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-                }
-            `}</style>
+            {/* Bottom Content */}
+            <div className="absolute bottom-16 left-1/2 z-10 flex w-full -translate-x-1/2 flex-col items-center px-6 text-center">
+            
+                <div className="mb-6 relative inline-flex items-center gap-3 px-7 py-2">
+                    <div className="absolute inset-0 rounded-full bg-[#FDEFE8]/75 blur-[1px]" />
+
+                    <span className="relative text-xs text-[#D4AF37]">❦</span>
+
+                    <p className="relative font-body text-sm uppercase tracking-[0.35em] text-[#4A2420]">
+                        03.13.2027
+                    </p>
+
+                    <span className="relative text-xs text-[#D4AF37]">❦</span>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                    <button
+                        type="button"
+                        onClick={() => handleLanguageSelect("eng")}
+                        className={`min-w-[110px] rounded-full border px-5 py-2.5 font-[var(--font-body)] text-sm uppercase tracking-[0.18em] transition-all duration-300 ${language === "eng"
+                                ? "border-[#D4AF37] bg-[#D4AF37] text-white shadow-lg"
+                                : "border-white/80 bg-white/20 text-white backdrop-blur-sm"
+                            }`}
+                    >
+                        English
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => handleLanguageSelect("viet")}
+                        className={`min-w-[110px] rounded-full border px-5 py-2.5 font-[var(--font-body)] text-sm uppercase tracking-[0.18em] transition-all duration-300 ${language === "viet"
+                                ? "border-[#D4AF37] bg-[#D4AF37] text-white shadow-lg"
+                                : "border-white/80 bg-white/20 text-white backdrop-blur-sm"
+                            }`}
+                    >
+                        Tiếng Việt
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }
