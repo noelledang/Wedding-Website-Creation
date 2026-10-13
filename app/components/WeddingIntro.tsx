@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "../LanguageProvider";
+import EnvelopeOpening from "./EnvelopeOpening";
 
 type Language = "eng" | "viet";
 
