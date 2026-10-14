@@ -41,6 +41,8 @@ export default function FairyWandSparkles() {
         for(let k=1;k<=steps;k++) emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,5);
       } else emit(x,y,12);
       last={x,y};
+      // Paint the newly emitted particles immediately, without waiting for the next animation frame.
+      renderParticles(performance.now(), false);
     };
     const onMouseMove = (event:MouseEvent) => {
       // Mousemove fallback for browsers that inconsistently dispatch pointermove.
@@ -49,12 +51,11 @@ export default function FairyWandSparkles() {
     };
     const reset = () => { last=null; };
     const onDown = (event:PointerEvent) => {reset();onMove(event);};
-    const draw = (t:number) => {
-      if(!running) return;
+    const renderParticles = (t:number, advance:boolean) => {
       ctx.clearRect(0,0,width,height);
       for(let i=particles.length-1;i>=0;i--){
         const p=particles[i];
-        p.x+=p.vx;p.y+=p.vy;p.vx*=.975;p.vy=p.vy*.975-.004;p.life-=p.decay;
+        if(advance){p.x+=p.vx;p.y+=p.vy;p.vx*=.975;p.vy=p.vy*.975-.004;p.life-=p.decay;}
         if(p.life<=0){particles.splice(i,1);continue;}
         const twinkle=.55+.45*Math.sin(t*.019+p.phase);
         const r=p.r*(.75+twinkle*.7);
@@ -71,6 +72,10 @@ export default function FairyWandSparkles() {
         }else{ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fill();}
         ctx.restore();
       }
+    };
+    const draw = (t:number) => {
+      if(!running) return;
+      renderParticles(t,true);
       frame=requestAnimationFrame(draw);
     };
     window.addEventListener("resize",resize);
