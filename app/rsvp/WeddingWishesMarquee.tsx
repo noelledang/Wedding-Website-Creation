@@ -52,7 +52,7 @@ export default function WeddingWishesMarquee() {
           ))}
         </div>
       </div>
-      <style jsx>{`@keyframes weddingWishesScroll { to { transform: translateX(-50%); } }`}</style>
+      <style jsx global>{`@keyframes weddingWishesScroll { to { transform: translateX(-50%); } }`}</style>
     </section>
   );
 }
