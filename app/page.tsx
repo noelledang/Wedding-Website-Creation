@@ -558,7 +558,7 @@ export default function Home() {
 
           <div id="mobile-schedule" className="scroll-mt-24"><MobileScheduleSection /></div>
 
-          <div id="mobile-rsvp" className="scroll-mt-24 md:hidden">
+          <div id="mobile-rsvp" className="scroll-mt-24 md:hidden relative bg-[#FDEFE8] bg-cover bg-center" style={{ backgroundImage: "url('/images/rsvp-test.png')" }}>
             <MobileRSVPSection />
             <div className="relative z-10 w-full"><WeddingWishesMarquee /></div>
           </div>
@@ -1852,10 +1852,7 @@ function MobileRSVPSection() {
 
   return (
     <div
-      className="relative min-h-screen bg-[#FDEFE8] bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/rsvp-test.png')",
-      }}
+      className="relative min-h-screen bg-transparent"
     >
       { }
 
