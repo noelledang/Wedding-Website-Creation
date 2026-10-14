@@ -42,6 +42,11 @@ export default function FairyWandSparkles() {
       } else emit(x,y,12);
       last={x,y};
     };
+    const onMouseMove = (event:MouseEvent) => {
+      // Mousemove fallback for browsers that inconsistently dispatch pointermove.
+      if (window.PointerEvent) return;
+      onMove(event as unknown as PointerEvent);
+    };
     const reset = () => { last=null; };
     const onDown = (event:PointerEvent) => {reset();onMove(event);};
     const draw = (t:number) => {
@@ -69,21 +74,23 @@ export default function FairyWandSparkles() {
       frame=requestAnimationFrame(draw);
     };
     window.addEventListener("resize",resize);
-    window.addEventListener("pointermove",onMove,{passive:true});
+    window.addEventListener("pointermove",onMove,{passive:true,capture:true});
     window.addEventListener("pointerdown",onDown,{passive:true});
     window.addEventListener("pointerup",reset,{passive:true});
     window.addEventListener("pointercancel",reset,{passive:true});
-    document.addEventListener("pointerout",reset,{passive:true});
+    // Do not reset on pointerout: it fires when crossing child elements.
+    // Listen in capture phase to keep the trail continuous over interactive UI.
+    window.addEventListener("mousemove",onMouseMove,{passive:true,capture:true});
     frame=requestAnimationFrame(draw);
     return () => {
       running=false;cancelAnimationFrame(frame);
       window.removeEventListener("resize",resize);
-      window.removeEventListener("pointermove",onMove);
+      window.removeEventListener("pointermove",onMove,true);
       window.removeEventListener("pointerdown",onDown);
       window.removeEventListener("pointerup",reset);
       window.removeEventListener("pointercancel",reset);
-      document.removeEventListener("pointerout",reset);
+      window.removeEventListener("mousemove",onMouseMove,true);
     };
   },[]);
-  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[45] h-screen w-screen" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[9999] h-screen w-screen" />;
 }
