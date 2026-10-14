@@ -560,7 +560,6 @@ export default function Home() {
 
           <div id="mobile-rsvp" className="scroll-mt-24 md:hidden relative bg-[#FDEFE8] bg-cover bg-center" style={{ backgroundImage: "url('/images/rsvp-test.png')" }}>
             <MobileRSVPSection />
-            <div className="relative z-10 w-full"><WeddingWishesMarquee /></div>
           </div>
 
           <div id="mobile-gallery" className="hidden">
@@ -2176,6 +2175,9 @@ function MobileRSVPSection() {
         </div>
       </section>
 
+      <div className="relative z-10 w-full px-2 pb-12">
+        <WeddingWishesMarquee />
+      </div>
     </div>
   );
 }
