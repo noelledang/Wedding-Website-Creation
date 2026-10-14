@@ -33,7 +33,8 @@ export default function FairyWandSparkles() {
       if(particles.length>180)particles.splice(0,particles.length-180);
     };
     const onMove = (event:PointerEvent) => {
-      if(event.pointerType==="touch" && event.buttons===0) return;
+      // Touch is handled separately to support scrolling on mobile Safari.
+      if(event.pointerType==="touch") return;
       const x=event.clientX,y=event.clientY;
       if(last){
         const distance=Math.hypot(x-last.x,y-last.y);
@@ -54,6 +55,26 @@ export default function FairyWandSparkles() {
       if (last === null && event.pointerType !== "touch") onMove(event);
     };
     const reset = () => { last=null; };
+    const onTouchStart = (event:TouchEvent) => {
+      const touch=event.touches[0];
+      if(!touch) return;
+      reset();
+      emit(touch.clientX,touch.clientY,12);
+      last={x:touch.clientX,y:touch.clientY};
+      renderParticles(performance.now(),false);
+    };
+    const onTouchMove = (event:TouchEvent) => {
+      const touch=event.touches[0];
+      if(!touch) return;
+      const x=touch.clientX,y=touch.clientY;
+      if(last){
+        const distance=Math.hypot(x-last.x,y-last.y);
+        const steps=Math.min(9,Math.max(1,Math.ceil(distance/12)));
+        for(let k=1;k<=steps;k++)emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,5);
+      }else emit(x,y,12);
+      last={x,y};
+      renderParticles(performance.now(),false);
+    };
     const onDown = (event:PointerEvent) => {reset();onMove(event);};
     const renderParticles = (t:number, advance:boolean) => {
       ctx.clearRect(0,0,width,height);
@@ -84,6 +105,10 @@ export default function FairyWandSparkles() {
       frame=requestAnimationFrame(draw);
     };
     window.addEventListener("resize",resize);
+    window.addEventListener("touchstart",onTouchStart,{passive:true,capture:true});
+    window.addEventListener("touchmove",onTouchMove,{passive:true,capture:true});
+    window.addEventListener("touchend",reset,{passive:true});
+    window.addEventListener("touchcancel",reset,{passive:true});
     window.addEventListener("pointermove",onMove,{passive:true,capture:true});
     window.addEventListener("pointerover",onFirstPointerOver,{passive:true,capture:true});
     window.addEventListener("pointerdown",onDown,{passive:true});
@@ -96,6 +121,10 @@ export default function FairyWandSparkles() {
     return () => {
       running=false;cancelAnimationFrame(frame);
       window.removeEventListener("resize",resize);
+      window.removeEventListener("touchstart",onTouchStart,true);
+      window.removeEventListener("touchmove",onTouchMove,true);
+      window.removeEventListener("touchend",reset);
+      window.removeEventListener("touchcancel",reset);
       window.removeEventListener("pointermove",onMove,true);
       window.removeEventListener("pointerover",onFirstPointerOver,true);
       window.removeEventListener("pointerdown",onDown);
