@@ -41,20 +41,21 @@ export default function WeddingWishesMarquee() {
   );
   const displayWishes = wishes.length === 1 ? [...wishes, ...wishes, ...wishes] : wishes.length === 2 ? [...wishes, ...wishes] : wishes;
   return (
-    <section aria-label={language === "viet" ? "Lời chúc từ người thân" : "Wishes from our loved ones"} className="py-12 overflow-hidden bg-transparent">
-      <h2 className="font-heading text-3xl md:text-4xl text-center text-[#865467] mb-2">
+    <section aria-label={language === "viet" ? "Lời chúc từ người thân" : "Wishes from our loved ones"} className="relative overflow-hidden bg-transparent pt-5 pb-14">
+      <div className="mx-auto mb-7 flex max-w-[220px] items-center justify-center gap-3 text-[#B88A70]/80" aria-hidden="true"><span className="h-px flex-1 bg-[#B88A70]/45" /><span className="text-lg">❀</span><span className="h-px flex-1 bg-[#B88A70]/45" /></div>
+      <h2 className="font-heading text-[1.65rem] md:text-4xl text-center text-[#773F45] mb-2 px-4">
         ♡ {language === "viet" ? "Lời Chúc Từ Người Thân" : "Wishes From Our Loved Ones"} ♡
       </h2>
-      <p className="text-center text-sm text-[#997982] mb-7">
+      <p className="text-center text-xs md:text-sm text-[#885F5D] mb-8 px-5">
         {language === "viet" ? "Yêu thương từ gia đình và bạn bè" : "A little love from our family and friends"}
       </p>
       {isDemo && <p className="text-center text-xs text-[#865467] mb-4">Preview sample messages · Tin nhắn mẫu</p>}
       <div className="w-full overflow-hidden group" tabIndex={0} aria-label="Wedding wishes, pause on hover or focus">
-        <div className="flex w-max min-w-max gap-3 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none">
+        <div className="flex w-max min-w-max gap-4 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none">
           {[...displayWishes, ...displayWishes].map((wish, index) => (
-            <div key={index} aria-hidden={index >= displayWishes.length} className="w-[230px] md:w-[270px] shrink-0 min-h-32 rounded-2xl border border-[#D8B89A]/70 bg-[#FFF4EF]/55 backdrop-blur-[3px] px-5 py-5 text-center shadow-[0_4px_18px_rgba(100,55,65,0.07)]">
-              <p className="font-heading text-xl text-[#864C62] mb-2">{wish.name} ♡</p>
-              <p className="font-heading italic text-base text-[#785D65] leading-relaxed break-words">{wish.message}</p>
+            <div key={index} aria-hidden={index >= displayWishes.length} className="w-[218px] md:w-[270px] shrink-0 min-h-36 rounded-xl border border-[#CFAF99]/45 bg-[#FFF5EE]/40 backdrop-blur-[2px] px-4 py-5 text-center shadow-[0_3px_12px_rgba(100,55,65,0.035)]">
+              <p className="font-heading text-lg text-[#773F45] mb-2">{wish.name} ♡</p>
+              <p className="font-heading italic text-sm md:text-base text-[#785653] leading-relaxed break-words">{wish.message}</p>
             </div>
           ))}
         </div>
