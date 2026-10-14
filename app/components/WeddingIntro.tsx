@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "../LanguageProvider";
-import EnvelopeOpening from "./EnvelopeOpening";
 
 type Language = "eng" | "viet";
 
@@ -11,14 +10,12 @@ export default function WeddingIntro() {
 
     const [entering, setEntering] = useState(false);
     const [finished, setFinished] = useState(false);
-    const [showEnvelope, setShowEnvelope] = useState(true);
 
     useEffect(() => {
         // Desktop: skip the intro completely
         if (window.innerWidth >= 768) {
             setFinished(true);
         }
-        try { if (sessionStorage.getItem("wedding-envelope-seen")) setShowEnvelope(false); } catch {}
     }, []);
 
     if (finished) {
@@ -64,8 +61,6 @@ export default function WeddingIntro() {
     };
 
     return (
-        <>
-        {showEnvelope && <EnvelopeOpening onDone={() => setShowEnvelope(false)} />}
         <div
             className={`fixed inset-0 z-[10000] overflow-hidden bg-[#FDEFE8] transition-opacity duration-1000 md:hidden ${entering ? "opacity-0" : "opacity-100"
                 }`}
@@ -135,6 +130,5 @@ export default function WeddingIntro() {
                 </div>
             </div>
         </div>
-        </>
     );
 }
