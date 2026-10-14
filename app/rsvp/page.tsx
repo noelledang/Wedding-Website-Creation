@@ -159,7 +159,7 @@ export default function RSVPPage() {
 
                         <h1 className="font-heading text-5xl md:text-6xl mb-6">
                             {isVietnamese
-                                ? "Cảm ơn bạn!"
+                                ? attending === "yes" ? "Trân Trọng Cảm Ơn!" : "Chân Thành Cảm Ơn!"
                                 : "Thank You!"}
                         </h1>
 
@@ -172,8 +172,8 @@ export default function RSVPPage() {
                         <p className="font-heading text-2xl md:text-3xl mb-6">
                             {isVietnamese
                                 ? attending === "yes"
-                                    ? "Chúng mình rất vui khi bạn sẽ chung vui cùng chúng mình!"
-                                    : "Cảm ơn bạn đã cho chúng mình biết."
+                                    ? "Chúng tôi đã nhận được xác nhận tham dự và rất vui khi mọi người sẽ có mặt trong ngày trọng đại."
+                                    : "Rất tiếc vì không có dịp gặp nhau trong ngày vui."
                                 : attending === "yes"
                                     ? "We’re so happy you’ll be celebrating with us!"
                                     : "Thank you for letting us know."}
@@ -182,8 +182,8 @@ export default function RSVPPage() {
                         <p className="leading-relaxed max-w-lg mx-auto">
                             {isVietnamese
                                 ? attending === "yes"
-                                    ? "Xác nhận tham dự của bạn đã được ghi nhận. Chúng mình rất mong được gặp bạn trong ngày đặc biệt này."
-                                    : "Chúng mình rất tiếc sẽ không có cơ hội được đón tiếp bạn trong ngày đặc biệt này, nhưng rất trân trọng lời chúc của bạn."
+                                    ? "Hẹn gặp trong ngày vui!"
+                                    : "Xin chân thành cảm ơn những lời chúc phúc dành cho chúng tôi!"
                                 : attending === "yes"
                                     ? "Your RSVP has been received. We can't wait to celebrate this special day with you!"
                                     : "We’re sorry we won’t get to celebrate together, but we truly appreciate your warm wishes."}
