@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import WeddingWishesMarquee from "./rsvp/WeddingWishesMarquee";
 import { useLanguage } from "./LanguageProvider";
 import Link from "next/link";
 import MobileSlideshow from "./components/MobileSlideshow";
@@ -2172,7 +2173,9 @@ function MobileRSVPSection() {
 
         </div>
       </section>
-
+      <div className="relative z-10 w-full px-2 pb-12">
+        <WeddingWishesMarquee />
+      </div>
     </div>
   );
 }
