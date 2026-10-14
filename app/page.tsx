@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageProvider";
 import Link from "next/link";
 import MobileSlideshow from "./components/MobileSlideshow";
+import WeddingWishesMarquee from "./rsvp/WeddingWishesMarquee";
 import MobileHeroBloom from "./components/MobileHeroBloom";
 
 export default function Home() {
@@ -557,7 +558,10 @@ export default function Home() {
 
           <div id="mobile-schedule" className="scroll-mt-24"><MobileScheduleSection /></div>
 
-          <div id="mobile-rsvp" className="scroll-mt-24"><MobileRSVPSection /></div>
+          <div id="mobile-rsvp" className="scroll-mt-24 md:hidden">
+            <MobileRSVPSection />
+            <div className="relative z-10 w-full bg-[#FFF9F6]/95"><WeddingWishesMarquee /></div>
+          </div>
 
           <div id="mobile-gallery" className="hidden">
             <MobileGallerySection />
