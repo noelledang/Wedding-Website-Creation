@@ -15,6 +15,7 @@ export default function WeddingWishesMarquee() {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [isDemo, setIsDemo] = useState(false);
   const [status, setStatus] = useState("loading");
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -50,14 +51,26 @@ export default function WeddingWishesMarquee() {
         {language === "viet" ? "Yêu thương từ gia đình và bạn bè" : "A little love from our family and friends"}
       </p>
       {isDemo && <p className="text-center text-xs text-[#865467] mb-4">Preview sample messages · Tin nhắn mẫu</p>}
-      <div className="w-full overflow-hidden group" tabIndex={0} aria-label="Wedding wishes, pause on hover or focus">
-        <div className="flex w-max min-w-max gap-4 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none">
+      <div className="relative w-full">
+        <button
+          type="button"
+          onClick={() => setPaused((value) => !value)}
+          aria-pressed={paused}
+          aria-label={paused ? (language === "viet" ? "Tiếp tục chạy lời chúc" : "Resume wedding wishes") : (language === "viet" ? "Tạm dừng lời chúc" : "Pause wedding wishes")}
+          title={paused ? (language === "viet" ? "Tiếp tục" : "Resume") : (language === "viet" ? "Tạm dừng" : "Pause")}
+          className="absolute right-3 top-2 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-[#CFAF99]/70 bg-[#FFF5EE]/90 text-[#773F45] shadow-sm backdrop-blur-sm transition hover:bg-[#FFF5EE] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#773F45]"
+        >
+          <span aria-hidden="true" className="text-sm">{paused ? "▶" : "Ⅱ"}</span>
+        </button>
+        <div className="w-full overflow-hidden group" tabIndex={0} aria-label="Wedding wishes, pause on hover or focus">
+        <div className="flex w-max min-w-max gap-4 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none" style={{ animationPlayState: paused ? "paused" : undefined }}>
           {[...displayWishes, ...displayWishes].map((wish, index) => (
             <div key={index} aria-hidden={index >= displayWishes.length} className="w-[218px] md:w-[270px] shrink-0 min-h-36 rounded-xl border border-[#CFAF99]/45 bg-[#FFF5EE]/40 backdrop-blur-[2px] px-4 py-5 text-center shadow-[0_3px_12px_rgba(100,55,65,0.035)]">
               <p className="font-heading text-lg text-[#773F45] mb-2">{wish.name} ♡</p>
               <p className="font-heading italic text-sm md:text-base text-[#785653] leading-relaxed break-words">{wish.message}</p>
             </div>
           ))}
+        </div>
         </div>
       </div>
       <style jsx global>{`@keyframes weddingWishesScroll { to { transform: translateX(-50%); } }`}</style>
