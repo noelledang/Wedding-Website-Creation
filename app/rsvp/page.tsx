@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "../LanguageProvider";
+import WeddingWishesMarquee from "./WeddingWishesMarquee";
 
 
 const GOOGLE_SCRIPT_URL =
@@ -538,6 +539,8 @@ export default function RSVPPage() {
 
                 </div>
             </section>
+
+            <WeddingWishesMarquee />
 
         </main>
     );
