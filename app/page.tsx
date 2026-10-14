@@ -1814,7 +1814,7 @@ function MobileRSVPSection() {
             <p className="font-heading text-2xl md:text-3xl mb-6">
               {isVietnamese
                 ? attending === "yes"
-                  ? "Chúng tôi đã nhận được xác nhận tham dự của Quý khách."
+                  ? "Chúng tôi đã nhận được xác nhận tham dự và rất vui khi mọi người sẽ có mặt trong ngày trọng đại."
                   : "Chúng tôi đã nhận được phản hồi của Quý khách."
                 : attending === "yes"
                   ? "We’re so happy you’ll be celebrating with us!"
@@ -1824,7 +1824,7 @@ function MobileRSVPSection() {
             <p className="leading-relaxed max-w-lg mx-auto">
               {isVietnamese
                 ? attending === "yes"
-                  ? "Rất hân hạnh được đón tiếp Quý khách trong ngày trọng đại của chúng tôi."
+                  ? "Hẹn gặp trong ngày vui!"
                   : "Xin chân thành cảm ơn Quý khách đã dành thời gian hồi đáp và gửi những lời chúc tốt đẹp đến gia đình chúng tôi."
                 : attending === "yes"
                   ? "Your RSVP has been received. We can't wait to celebrate this special day with you!"
