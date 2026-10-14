@@ -9,7 +9,7 @@ export async function GET() {
   const feedKey = process.env.WEDDING_WISHES_FEED_KEY;
 
   if (!feedUrl || !feedKey) {
-    return NextResponse.json({ wishes: [], demo: false }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ wishes: [], demo: false, status: "configuration_missing" }, { headers: { "Cache-Control": "no-store" } });
   }
 
   try {
@@ -44,8 +44,8 @@ export async function GET() {
         }))
       : [];
 
-    return NextResponse.json({ wishes, demo: false }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ wishes, demo: false, status: wishes.length ? "ready" : "no_approved_messages" }, { headers: { "Cache-Control": "no-store" } });
   } catch {
-    return NextResponse.json({ wishes: [], demo: false }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ wishes: [], demo: false, status: "feed_unavailable" }, { headers: { "Cache-Control": "no-store" } });
   }
 }
