@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 /** Decorative fairy-wand sparkle trail. Never captures clicks or touches. */
 export default function FairyWandSparkles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -16,7 +16,6 @@ export default function FairyWandSparkles() {
     let particles: Particle[] = [];
     let last: {x:number;y:number}|null = null;
     let width = 0, height = 0, frame = 0, running = true;
-    let tip: {x:number;y:number;until:number}|null = null;
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -42,7 +41,6 @@ export default function FairyWandSparkles() {
         for(let k=1;k<=steps;k++) emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,5);
       } else emit(x,y,12);
       last={x,y};
-      tip={x,y,until:performance.now()+85};
       // Paint the newly emitted particles immediately, without waiting for the next animation frame.
       renderParticles(performance.now(), false);
     };
@@ -50,6 +48,10 @@ export default function FairyWandSparkles() {
       // Mousemove fallback for browsers that inconsistently dispatch pointermove.
       if (window.PointerEvent) return;
       onMove(event as unknown as PointerEvent);
+    };
+    const onFirstPointerOver = (event:PointerEvent) => {
+      // The first pointer entering the page must trigger fairy dust, not a click.
+      if (last === null && event.pointerType !== "touch") onMove(event);
     };
     const reset = () => { last=null; };
     const onDown = (event:PointerEvent) => {reset();onMove(event);};
@@ -74,20 +76,7 @@ export default function FairyWandSparkles() {
         }else{ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fill();}
         ctx.restore();
       }
-      // A bright, cursor-anchored sparkle gives immediate visual feedback;
-      // only the scattered fairy dust is allowed to trail behind.
-      if(tip && t<tip.until){
-        const x=tip.x,y=tip.y;
-        ctx.save();ctx.translate(x,y);
-        ctx.globalAlpha=1;ctx.fillStyle="#fff9db";ctx.shadowColor="#e7b75d";ctx.shadowBlur=9;
-        const r=2.1;
-        ctx.beginPath();ctx.moveTo(0,-r*2.7);
-        ctx.quadraticCurveTo(r*.15,-r*.15,r*2.7,0);
-        ctx.quadraticCurveTo(r*.15,r*.15,0,r*2.7);
-        ctx.quadraticCurveTo(-r*.15,r*.15,-r*2.7,0);
-        ctx.quadraticCurveTo(-r*.15,-r*.15,0,-r*2.7);
-        ctx.fill();ctx.restore();
-      }
+
     };
     const draw = (t:number) => {
       if(!running) return;
@@ -96,6 +85,7 @@ export default function FairyWandSparkles() {
     };
     window.addEventListener("resize",resize);
     window.addEventListener("pointermove",onMove,{passive:true,capture:true});
+    window.addEventListener("pointerover",onFirstPointerOver,{passive:true,capture:true});
     window.addEventListener("pointerdown",onDown,{passive:true});
     window.addEventListener("pointerup",reset,{passive:true});
     window.addEventListener("pointercancel",reset,{passive:true});
@@ -107,6 +97,7 @@ export default function FairyWandSparkles() {
       running=false;cancelAnimationFrame(frame);
       window.removeEventListener("resize",resize);
       window.removeEventListener("pointermove",onMove,true);
+      window.removeEventListener("pointerover",onFirstPointerOver,true);
       window.removeEventListener("pointerdown",onDown);
       window.removeEventListener("pointerup",reset);
       window.removeEventListener("pointercancel",reset);
