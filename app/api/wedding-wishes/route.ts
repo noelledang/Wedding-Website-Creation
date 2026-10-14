@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-type Wish = { name: string; message: string; approved?: boolean; consent?: boolean };
+type Wish = { name: string; message: string; approved?: boolean };
 
 export async function GET() {
   const feedUrl = process.env.WEDDING_WISHES_FEED_URL;
@@ -35,7 +35,7 @@ export async function GET() {
     const wishes = Array.isArray(rows)
       ? rows.filter((item): item is Wish =>
           item !== null && typeof item === "object" &&
-          item.approved === true && item.consent === true &&
+          item.approved === true &&
           typeof item.name === "string" && typeof item.message === "string" &&
           item.name.trim().length > 0 && item.message.trim().length > 0
         ).slice(0, 100).map(item => ({
