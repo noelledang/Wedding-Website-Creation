@@ -600,7 +600,7 @@ export default function Home() {
               <p className="font-script text-4xl text-[#916A63] mt-6">
                 {language === "eng"
                   ? "For being part of our story"
-                  : "Vì đã là một phần trong câu chuyện của chúng mình"}
+                  : "Sự hiện diện của Quý khách là niềm vinh hạnh của chúng tôi"}
               </p>
 
               <div className="flex justify-center mt-7">
@@ -610,7 +610,7 @@ export default function Home() {
               <p className="font-body text-sm leading-7 max-w-xs mx-auto mt-8 text-[#622825]">
                 {language === "eng"
                   ? "We are so grateful to celebrate this special chapter surrounded by the people we love most. Thank you for sharing in our joy and making this day even more meaningful."
-                  : "Chúng mình vô cùng biết ơn khi được chia sẻ khoảnh khắc đặc biệt này cùng những người thân yêu nhất. Cảm ơn bạn đã chung vui và làm cho ngày trọng đại của chúng mình thêm ý nghĩa."}
+                  : "Chúng tôi xin chân thành cảm ơn Quý khách đã dành thời gian đến chung vui và gửi những lời chúc tốt đẹp trong ngày trọng đại. Sự hiện diện và tình cảm của Quý khách là niềm vui và kỷ niệm quý báu đối với gia đình chúng tôi."}
               </p>
 
               <p
@@ -1801,7 +1801,7 @@ function MobileRSVPSection() {
 
             <h1 className="font-heading text-5xl md:text-6xl mb-6">
               {isVietnamese
-                ? "Cảm ơn bạn!"
+                ? "Trân Trọng Cảm Ơn!"
                 : "Thank You!"}
             </h1>
 
@@ -1814,8 +1814,8 @@ function MobileRSVPSection() {
             <p className="font-heading text-2xl md:text-3xl mb-6">
               {isVietnamese
                 ? attending === "yes"
-                  ? "Chúng mình rất vui khi bạn sẽ chung vui cùng chúng mình!"
-                  : "Cảm ơn bạn đã cho chúng mình biết."
+                  ? "Chúng tôi đã nhận được xác nhận tham dự của Quý khách."
+                  : "Chúng tôi đã nhận được phản hồi của Quý khách."
                 : attending === "yes"
                   ? "We’re so happy you’ll be celebrating with us!"
                   : "Thank you for letting us know."}
@@ -1824,8 +1824,8 @@ function MobileRSVPSection() {
             <p className="leading-relaxed max-w-lg mx-auto">
               {isVietnamese
                 ? attending === "yes"
-                  ? "Xác nhận tham dự của bạn đã được ghi nhận. Chúng mình rất mong được gặp bạn trong ngày đặc biệt này."
-                  : "Chúng mình rất tiếc sẽ không có cơ hội được đón tiếp bạn trong ngày đặc biệt này, nhưng rất trân trọng lời chúc của bạn."
+                  ? "Rất hân hạnh được đón tiếp Quý khách trong ngày trọng đại của chúng tôi."
+                  : "Xin chân thành cảm ơn Quý khách đã dành thời gian hồi đáp và gửi những lời chúc tốt đẹp đến gia đình chúng tôi."
                 : attending === "yes"
                   ? "Your RSVP has been received. We can't wait to celebrate this special day with you!"
                   : "We’re sorry we won’t get to celebrate together, but we truly appreciate your warm wishes."}
