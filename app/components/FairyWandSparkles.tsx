@@ -133,5 +133,5 @@ export default function FairyWandSparkles() {
       window.removeEventListener("mousemove",onMouseMove,true);
     };
   },[]);
-  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[9999] h-screen w-screen" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[10001] h-screen w-screen" />;
 }
