@@ -14,6 +14,7 @@ export default function WeddingWishesMarquee() {
   const { language } = useLanguage();
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [isDemo, setIsDemo] = useState(false);
+  const [status, setStatus] = useState("loading");
 
   useEffect(() => {
     let active = true;
@@ -26,12 +27,18 @@ export default function WeddingWishesMarquee() {
         if (!active) return;
         setWishes(Array.isArray(data.wishes) ? data.wishes : []);
         setIsDemo(data.demo === true);
+        setStatus(typeof (data as { status?: string }).status === "string" ? (data as { status: string }).status : "ready");
       })
-      .catch(() => { if (active) setWishes([]); });
+      .catch(() => { if (active) { setWishes([]); setStatus("feed_unavailable"); } });
     return () => { active = false; };
   }, []);
 
-  if (wishes.length === 0) return null;
+  if (wishes.length === 0) return (
+    <section className="py-12 text-center" aria-label="Wedding wishes">
+      <h2 className="font-heading text-3xl md:text-4xl text-[#865467] mb-3">♡ {language === "viet" ? "Lời Chúc Từ Người Thân" : "Wishes From Our Loved Ones"} ♡</h2>
+      <p className="text-sm text-[#997982]">{status === "loading" ? "Loading wedding wishes…" : status === "no_approved_messages" ? "No approved wishes are available yet." : "Wedding wishes are temporarily unavailable in Preview."}</p>
+    </section>
+  );
   const displayWishes = wishes.length === 1 ? [...wishes, ...wishes, ...wishes] : wishes.length === 2 ? [...wishes, ...wishes] : wishes;
   return (
     <section aria-label={language === "viet" ? "Lời chúc từ người thân" : "Wishes from our loved ones"} className="py-12 overflow-hidden">
