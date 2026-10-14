@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import MobileHeroBloom from "./components/MobileHeroBloom";
 import WeddingWishesMarquee from "./rsvp/WeddingWishesMarquee";
 import { useLanguage } from "./LanguageProvider";
 import Link from "next/link";
@@ -79,6 +80,7 @@ export default function Home() {
         {/* ========================= */}
 
         <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 pb-10 overflow-hidden md:hidden">
+          <MobileHeroBloom />
 
           {/* Mobile Hero Background */}
           <div className="absolute inset-0">
