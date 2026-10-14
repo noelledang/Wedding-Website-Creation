@@ -41,7 +41,7 @@ export default function WeddingWishesMarquee() {
   );
   const displayWishes = wishes.length === 1 ? [...wishes, ...wishes, ...wishes] : wishes.length === 2 ? [...wishes, ...wishes] : wishes;
   return (
-    <section aria-label={language === "viet" ? "Lời chúc từ người thân" : "Wishes from our loved ones"} className="py-12 overflow-hidden">
+    <section aria-label={language === "viet" ? "Lời chúc từ người thân" : "Wishes from our loved ones"} className="py-12 overflow-hidden bg-transparent">
       <h2 className="font-heading text-3xl md:text-4xl text-center text-[#865467] mb-2">
         ♡ {language === "viet" ? "Lời Chúc Từ Người Thân" : "Wishes From Our Loved Ones"} ♡
       </h2>
@@ -52,7 +52,7 @@ export default function WeddingWishesMarquee() {
       <div className="w-full overflow-hidden group" tabIndex={0} aria-label="Wedding wishes, pause on hover or focus">
         <div className="flex w-max min-w-max gap-3 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none">
           {[...displayWishes, ...displayWishes].map((wish, index) => (
-            <div key={index} aria-hidden={index >= displayWishes.length} className="w-[230px] md:w-[270px] shrink-0 min-h-32 rounded-xl border border-[#D8B89A] bg-[#FFF9F6]/95 px-5 py-5 text-center shadow-sm">
+            <div key={index} aria-hidden={index >= displayWishes.length} className="w-[230px] md:w-[270px] shrink-0 min-h-32 rounded-2xl border border-[#D8B89A]/70 bg-[#FFF4EF]/55 backdrop-blur-[3px] px-5 py-5 text-center shadow-[0_4px_18px_rgba(100,55,65,0.07)]">
               <p className="font-heading text-xl text-[#864C62] mb-2">{wish.name} ♡</p>
               <p className="font-heading italic text-base text-[#785D65] leading-relaxed break-words">{wish.message}</p>
             </div>
