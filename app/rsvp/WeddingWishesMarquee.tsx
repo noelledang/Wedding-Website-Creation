@@ -49,8 +49,8 @@ export default function WeddingWishesMarquee() {
         {language === "viet" ? "Yêu thương từ gia đình và bạn bè" : "A little love from our family and friends"}
       </p>
       {isDemo && <p className="text-center text-xs text-[#865467] mb-4">Preview sample messages · Tin nhắn mẫu</p>}
-      <div className="w-full overflow-x-auto md:overflow-hidden group" tabIndex={0} aria-label="Wedding wishes, pause on hover or focus">
-        <div className="flex w-max gap-3 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none">
+      <div className="w-full overflow-hidden group" tabIndex={0} aria-label="Wedding wishes, pause on hover or focus">
+        <div className="flex w-max min-w-max gap-3 animate-[weddingWishesScroll_35s_linear_infinite] group-hover:[animation-play-state:paused] group-focus:[animation-play-state:paused] motion-reduce:animate-none">
           {[...displayWishes, ...displayWishes].map((wish, index) => (
             <div key={index} aria-hidden={index >= displayWishes.length} className="w-[230px] md:w-[270px] shrink-0 min-h-32 rounded-xl border border-[#D8B89A] bg-[#FFF9F6]/95 px-5 py-5 text-center shadow-sm">
               <p className="font-heading text-xl text-[#864C62] mb-2">{wish.name} ♡</p>
