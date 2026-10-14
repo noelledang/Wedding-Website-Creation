@@ -15,6 +15,8 @@ export default function FairyWandSparkles() {
     type Particle = { x:number; y:number; vx:number; vy:number; life:number; decay:number; r:number; phase:number; kind:number; tone:number };
     let particles: Particle[] = [];
     let last: {x:number;y:number}|null = null;
+    let activeTouch: {x:number;y:number}|null = null;
+    let lastTouchSparkle = 0;
     let width = 0, height = 0, frame = 0, running = true;
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
@@ -59,7 +61,11 @@ export default function FairyWandSparkles() {
       const touch=event.touches[0];
       if(!touch) return;
       reset();
-      emit(touch.clientX,touch.clientY,12);
+      emit(touch.clientX,touch.clientY,24);
+      // Keep the first-tap burst visible long enough to see, even after a quick lift.
+      for(const particle of particles.slice(-24)) particle.decay *= .45;
+      activeTouch={x:touch.clientX,y:touch.clientY};
+      lastTouchSparkle=performance.now();
       last={x:touch.clientX,y:touch.clientY};
       renderParticles(performance.now(),false);
     };
@@ -67,6 +73,8 @@ export default function FairyWandSparkles() {
       const touch=event.touches[0];
       if(!touch) return;
       const x=touch.clientX,y=touch.clientY;
+      activeTouch={x,y};
+      lastTouchSparkle=performance.now();
       if(last){
         const distance=Math.hypot(x-last.x,y-last.y);
         const steps=Math.min(9,Math.max(1,Math.ceil(distance/12)));
@@ -75,7 +83,8 @@ export default function FairyWandSparkles() {
       last={x,y};
       renderParticles(performance.now(),false);
     };
-    const onDown = (event:PointerEvent) => {reset();onMove(event);};
+    const onTouchEnd = () => { activeTouch=null; reset(); };
+    const onDown = (event:PointerEvent) => { if(event.pointerType==="touch") return; reset();onMove(event); };
     const renderParticles = (t:number, advance:boolean) => {
       ctx.clearRect(0,0,width,height);
       for(let i=particles.length-1;i>=0;i--){
@@ -101,14 +110,19 @@ export default function FairyWandSparkles() {
     };
     const draw = (t:number) => {
       if(!running) return;
+      // Emit while a finger remains down, including stationary holds and page scrolling.
+      if(activeTouch && t-lastTouchSparkle>=70){
+        emit(activeTouch.x,activeTouch.y,6);
+        lastTouchSparkle=t;
+      }
       renderParticles(t,true);
       frame=requestAnimationFrame(draw);
     };
     window.addEventListener("resize",resize);
     window.addEventListener("touchstart",onTouchStart,{passive:true,capture:true});
     window.addEventListener("touchmove",onTouchMove,{passive:true,capture:true});
-    window.addEventListener("touchend",reset,{passive:true});
-    window.addEventListener("touchcancel",reset,{passive:true});
+    window.addEventListener("touchend",onTouchEnd,{passive:true});
+    window.addEventListener("touchcancel",onTouchEnd,{passive:true});
     window.addEventListener("pointermove",onMove,{passive:true,capture:true});
     window.addEventListener("pointerover",onFirstPointerOver,{passive:true,capture:true});
     window.addEventListener("pointerdown",onDown,{passive:true});
@@ -123,8 +137,8 @@ export default function FairyWandSparkles() {
       window.removeEventListener("resize",resize);
       window.removeEventListener("touchstart",onTouchStart,true);
       window.removeEventListener("touchmove",onTouchMove,true);
-      window.removeEventListener("touchend",reset);
-      window.removeEventListener("touchcancel",reset);
+      window.removeEventListener("touchend",onTouchEnd);
+      window.removeEventListener("touchcancel",onTouchEnd);
       window.removeEventListener("pointermove",onMove,true);
       window.removeEventListener("pointerover",onFirstPointerOver,true);
       window.removeEventListener("pointerdown",onDown);
