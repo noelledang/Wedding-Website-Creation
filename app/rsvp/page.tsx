@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import WeddingWishesMarquee from "./WeddingWishesMarquee";
 import { useLanguage } from "../LanguageProvider";
 
 
@@ -203,6 +204,7 @@ export default function RSVPPage() {
 
                     </div>
                 </section>
+                <WeddingWishesMarquee />
             </main>
         );
     }
@@ -538,7 +540,9 @@ export default function RSVPPage() {
 
                 </div>
             </section>
-
+            <div className="relative z-10 w-full bg-[#FFF9F6]/90">
+                <WeddingWishesMarquee />
+            </div>
         </main>
     );
 }
