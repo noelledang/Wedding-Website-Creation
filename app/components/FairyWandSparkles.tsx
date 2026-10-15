@@ -76,7 +76,6 @@ export default function FairyWandSparkles() {
       if(!touch) return;
       const x=touch.clientX,y=touch.clientY;
       activeTouch={x,y};
-      lastTouchPosition=activeTouch;
       if(last){
         const distance=Math.hypot(x-last.x,y-last.y);
         const steps=Math.min(9,Math.max(1,Math.ceil(distance/12)));
@@ -91,7 +90,6 @@ export default function FairyWandSparkles() {
       if(event.pointerType!=="touch" || activeTouch) return;
       // Some mobile browsers deliver pointerdown before touchstart.
       activeTouch={x:event.clientX,y:event.clientY};
-      lastTouchPosition=activeTouch;
       last={...activeTouch};
       emit(event.clientX,event.clientY,24);
       for(const particle of particles.slice(-24)) particle.decay *= .45;
