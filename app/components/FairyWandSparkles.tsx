@@ -17,6 +17,7 @@ export default function FairyWandSparkles() {
     let last: {x:number;y:number}|null = null;
     let activeTouch: {x:number;y:number}|null = null;
     let lastTouchSparkle = 0;
+    let lastTouchPosition: {x:number;y:number}|null = null;
     let width = 0, height = 0, frame = 0, running = true;
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
@@ -46,7 +47,6 @@ export default function FairyWandSparkles() {
       last={x,y};
       // Paint the newly emitted particles immediately, without waiting for the next animation frame.
       renderParticles(performance.now(), false);
-      wake();
     };
     const onMouseMove = (event:MouseEvent) => {
       // Mousemove fallback for browsers that inconsistently dispatch pointermove.
@@ -66,16 +66,17 @@ export default function FairyWandSparkles() {
       // Keep the first-tap burst visible long enough to see, even after a quick lift.
       for(const particle of particles.slice(-24)) particle.decay *= .45;
       activeTouch={x:touch.clientX,y:touch.clientY};
+      lastTouchPosition=activeTouch;
       lastTouchSparkle=performance.now();
       last={x:touch.clientX,y:touch.clientY};
       renderParticles(performance.now(),false);
-      wake();
     };
     const onTouchMove = (event:TouchEvent) => {
       const touch=event.touches[0];
       if(!touch) return;
       const x=touch.clientX,y=touch.clientY;
       activeTouch={x,y};
+      lastTouchPosition=activeTouch;
       if(last){
         const distance=Math.hypot(x-last.x,y-last.y);
         const steps=Math.min(9,Math.max(1,Math.ceil(distance/12)));
@@ -84,30 +85,18 @@ export default function FairyWandSparkles() {
       last={x,y};
       renderParticles(performance.now(),false);
     };
-    const onTouchEnd = () => { activeTouch=null; reset(); };
+    const onTouchEnd = () => { activeTouch=null; lastTouchPosition=null; reset(); };
     const onDown = (event:PointerEvent) => { if(event.pointerType==="touch") return; reset();onMove(event); };
     const onPointerTouchStart = (event:PointerEvent) => {
       if(event.pointerType!=="touch" || activeTouch) return;
       // Some mobile browsers deliver pointerdown before touchstart.
       activeTouch={x:event.clientX,y:event.clientY};
+      lastTouchPosition=activeTouch;
       last={...activeTouch};
       emit(event.clientX,event.clientY,24);
       for(const particle of particles.slice(-24)) particle.decay *= .45;
       lastTouchSparkle=performance.now();
       renderParticles(lastTouchSparkle,false);
-      wake();
-    };
-    const onScroll = () => {
-      // Mobile browsers may throttle touchmove while native scrolling continues.
-      // Keep the existing density and timing by using the same 70ms emission interval.
-      if(!activeTouch) return;
-      const now=performance.now();
-      if(now-lastTouchSparkle>=70){
-        emit(activeTouch.x,activeTouch.y,6);
-        lastTouchSparkle=now;
-        renderParticles(now,false);
-        wake();
-      }
     };
     const renderParticles = (t:number, advance:boolean) => {
       ctx.clearRect(0,0,width,height);
@@ -139,13 +128,10 @@ export default function FairyWandSparkles() {
         emit(activeTouch.x,activeTouch.y,6);
         lastTouchSparkle=t;
       }
-      if(particles.length) renderParticles(t,true);
-      if(particles.length || activeTouch) frame=requestAnimationFrame(draw);
-      else frame=0;
+      renderParticles(t,true);
+      frame=requestAnimationFrame(draw);
     };
-    const wake = () => { if(!frame) frame=requestAnimationFrame(draw); };
     window.addEventListener("resize",resize);
-    window.addEventListener("scroll",onScroll,{passive:true,capture:true});
     window.addEventListener("touchstart",onTouchStart,{passive:true,capture:true});
     window.addEventListener("touchmove",onTouchMove,{passive:true,capture:true});
     window.addEventListener("touchend",onTouchEnd,{passive:true});
@@ -159,10 +145,10 @@ export default function FairyWandSparkles() {
     // Do not reset on pointerout: it fires when crossing child elements.
     // Listen in capture phase to keep the trail continuous over interactive UI.
     window.addEventListener("mousemove",onMouseMove,{passive:true,capture:true});
+    frame=requestAnimationFrame(draw);
     return () => {
       running=false;cancelAnimationFrame(frame);
       window.removeEventListener("resize",resize);
-      window.removeEventListener("scroll",onScroll,true);
       window.removeEventListener("touchstart",onTouchStart,true);
       window.removeEventListener("touchmove",onTouchMove,true);
       window.removeEventListener("touchend",onTouchEnd);
