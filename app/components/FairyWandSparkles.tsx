@@ -17,7 +17,6 @@ export default function FairyWandSparkles() {
     let last: {x:number;y:number}|null = null;
     let activeTouch: {x:number;y:number}|null = null;
     let lastTouchSparkle = 0;
-    let lastTouchActivity = 0;
     let width = 0, height = 0, frame = 0, running = true;
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
@@ -62,12 +61,11 @@ export default function FairyWandSparkles() {
       const touch=event.touches[0];
       if(!touch) return;
       reset();
-      emit(touch.clientX,touch.clientY,36);
+      emit(touch.clientX,touch.clientY,24);
       // Keep the first-tap burst visible long enough to see, even after a quick lift.
-      for(const particle of particles.slice(-36)) particle.decay *= .38;
+      for(const particle of particles.slice(-24)) particle.decay *= .45;
       activeTouch={x:touch.clientX,y:touch.clientY};
       lastTouchSparkle=performance.now();
-      lastTouchActivity=lastTouchSparkle;
       last={x:touch.clientX,y:touch.clientY};
       renderParticles(performance.now(),false);
     };
@@ -76,12 +74,11 @@ export default function FairyWandSparkles() {
       if(!touch) return;
       const x=touch.clientX,y=touch.clientY;
       activeTouch={x,y};
-      lastTouchActivity=performance.now();
       if(last){
         const distance=Math.hypot(x-last.x,y-last.y);
-        const steps=Math.min(12,Math.max(1,Math.ceil(distance/8)));
-        for(let k=1;k<=steps;k++)emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,8);
-      }else emit(x,y,24);
+        const steps=Math.min(9,Math.max(1,Math.ceil(distance/12)));
+        for(let k=1;k<=steps;k++)emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,5);
+      }else emit(x,y,12);
       last={x,y};
       renderParticles(performance.now(),false);
     };
@@ -113,8 +110,8 @@ export default function FairyWandSparkles() {
     const draw = (t:number) => {
       if(!running) return;
       // Emit while a finger remains down, including stationary holds and page scrolling.
-      if(activeTouch && t-lastTouchSparkle>=35){
-        emit(activeTouch.x,activeTouch.y,10);
+      if(activeTouch && t-lastTouchSparkle>=70){
+        emit(activeTouch.x,activeTouch.y,6);
         lastTouchSparkle=t;
       }
       renderParticles(t,true);
