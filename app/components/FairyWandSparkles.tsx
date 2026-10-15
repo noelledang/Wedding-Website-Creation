@@ -108,6 +108,7 @@ export default function FairyWandSparkles() {
         emit(activeTouch.x,activeTouch.y,6);
         lastTouchSparkle=now;
         renderParticles(now,false);
+        wake();
       }
     };
     const renderParticles = (t:number, advance:boolean) => {
