@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 /** Decorative fairy-wand sparkle trail. Never captures clicks or touches. */
 export default function FairyWandSparkles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -15,6 +15,9 @@ export default function FairyWandSparkles() {
     type Particle = { x:number; y:number; vx:number; vy:number; life:number; decay:number; r:number; phase:number; kind:number; tone:number };
     let particles: Particle[] = [];
     let last: {x:number;y:number}|null = null;
+    let activeTouch: {x:number;y:number}|null = null;
+    let lastTouchSparkle = 0;
+    let lastTouchPosition: {x:number;y:number}|null = null;
     let width = 0, height = 0, frame = 0, running = true;
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
@@ -33,7 +36,8 @@ export default function FairyWandSparkles() {
       if(particles.length>180)particles.splice(0,particles.length-180);
     };
     const onMove = (event:PointerEvent) => {
-      if(event.pointerType==="touch" && event.buttons===0) return;
+      // Touch is handled separately to support scrolling on mobile Safari.
+      if(event.pointerType==="touch") return;
       const x=event.clientX,y=event.clientY;
       if(last){
         const distance=Math.hypot(x-last.x,y-last.y);
@@ -41,15 +45,64 @@ export default function FairyWandSparkles() {
         for(let k=1;k<=steps;k++) emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,5);
       } else emit(x,y,12);
       last={x,y};
+      // Paint the newly emitted particles immediately, without waiting for the next animation frame.
+      renderParticles(performance.now(), false);
+    };
+    const onMouseMove = (event:MouseEvent) => {
+      // Mousemove fallback for browsers that inconsistently dispatch pointermove.
+      if (window.PointerEvent) return;
+      onMove(event as unknown as PointerEvent);
+    };
+    const onFirstPointerOver = (event:PointerEvent) => {
+      // The first pointer entering the page must trigger fairy dust, not a click.
+      if (last === null && event.pointerType !== "touch") onMove(event);
     };
     const reset = () => { last=null; };
-    const onDown = (event:PointerEvent) => {reset();onMove(event);};
-    const draw = (t:number) => {
-      if(!running) return;
+    const onTouchStart = (event:TouchEvent) => {
+      const touch=event.touches[0];
+      if(!touch || activeTouch) return;
+      reset();
+      emit(touch.clientX,touch.clientY,24);
+      // Keep the first-tap burst visible long enough to see, even after a quick lift.
+      for(const particle of particles.slice(-24)) particle.decay *= .45;
+      activeTouch={x:touch.clientX,y:touch.clientY};
+      lastTouchPosition=activeTouch;
+      lastTouchSparkle=performance.now();
+      last={x:touch.clientX,y:touch.clientY};
+      renderParticles(performance.now(),false);
+    };
+    const onTouchMove = (event:TouchEvent) => {
+      const touch=event.touches[0];
+      if(!touch) return;
+      const x=touch.clientX,y=touch.clientY;
+      activeTouch={x,y};
+      lastTouchPosition=activeTouch;
+      if(last){
+        const distance=Math.hypot(x-last.x,y-last.y);
+        const steps=Math.min(9,Math.max(1,Math.ceil(distance/12)));
+        for(let k=1;k<=steps;k++)emit(last.x+(x-last.x)*k/steps,last.y+(y-last.y)*k/steps,5);
+      }else emit(x,y,12);
+      last={x,y};
+      renderParticles(performance.now(),false);
+    };
+    const onTouchEnd = () => { activeTouch=null; lastTouchPosition=null; reset(); };
+    const onDown = (event:PointerEvent) => { if(event.pointerType==="touch") return; reset();onMove(event); };
+    const onPointerTouchStart = (event:PointerEvent) => {
+      if(event.pointerType!=="touch" || activeTouch) return;
+      // Some mobile browsers deliver pointerdown before touchstart.
+      activeTouch={x:event.clientX,y:event.clientY};
+      lastTouchPosition=activeTouch;
+      last={...activeTouch};
+      emit(event.clientX,event.clientY,24);
+      for(const particle of particles.slice(-24)) particle.decay *= .45;
+      lastTouchSparkle=performance.now();
+      renderParticles(lastTouchSparkle,false);
+    };
+    const renderParticles = (t:number, advance:boolean) => {
       ctx.clearRect(0,0,width,height);
       for(let i=particles.length-1;i>=0;i--){
         const p=particles[i];
-        p.x+=p.vx;p.y+=p.vy;p.vx*=.975;p.vy=p.vy*.975-.004;p.life-=p.decay;
+        if(advance){p.x+=p.vx;p.y+=p.vy;p.vx*=.975;p.vy=p.vy*.975-.004;p.life-=p.decay;}
         if(p.life<=0){particles.splice(i,1);continue;}
         const twinkle=.55+.45*Math.sin(t*.019+p.phase);
         const r=p.r*(.75+twinkle*.7);
@@ -66,24 +119,48 @@ export default function FairyWandSparkles() {
         }else{ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fill();}
         ctx.restore();
       }
+
+    };
+    const draw = (t:number) => {
+      if(!running) return;
+      // Emit while a finger remains down, including stationary holds and page scrolling.
+      if(activeTouch && t-lastTouchSparkle>=70){
+        emit(activeTouch.x,activeTouch.y,6);
+        lastTouchSparkle=t;
+      }
+      renderParticles(t,true);
       frame=requestAnimationFrame(draw);
     };
     window.addEventListener("resize",resize);
-    window.addEventListener("pointermove",onMove,{passive:true});
+    window.addEventListener("touchstart",onTouchStart,{passive:true,capture:true});
+    window.addEventListener("touchmove",onTouchMove,{passive:true,capture:true});
+    window.addEventListener("touchend",onTouchEnd,{passive:true});
+    window.addEventListener("touchcancel",onTouchEnd,{passive:true});
+    window.addEventListener("pointermove",onMove,{passive:true,capture:true});
+    window.addEventListener("pointerdown",onPointerTouchStart,{passive:true,capture:true});
+    window.addEventListener("pointerover",onFirstPointerOver,{passive:true,capture:true});
     window.addEventListener("pointerdown",onDown,{passive:true});
     window.addEventListener("pointerup",reset,{passive:true});
     window.addEventListener("pointercancel",reset,{passive:true});
-    document.addEventListener("pointerout",reset,{passive:true});
+    // Do not reset on pointerout: it fires when crossing child elements.
+    // Listen in capture phase to keep the trail continuous over interactive UI.
+    window.addEventListener("mousemove",onMouseMove,{passive:true,capture:true});
     frame=requestAnimationFrame(draw);
     return () => {
       running=false;cancelAnimationFrame(frame);
       window.removeEventListener("resize",resize);
-      window.removeEventListener("pointermove",onMove);
+      window.removeEventListener("touchstart",onTouchStart,true);
+      window.removeEventListener("touchmove",onTouchMove,true);
+      window.removeEventListener("touchend",onTouchEnd);
+      window.removeEventListener("touchcancel",onTouchEnd);
+      window.removeEventListener("pointermove",onMove,true);
+      window.removeEventListener("pointerdown",onPointerTouchStart,true);
+      window.removeEventListener("pointerover",onFirstPointerOver,true);
       window.removeEventListener("pointerdown",onDown);
       window.removeEventListener("pointerup",reset);
       window.removeEventListener("pointercancel",reset);
-      document.removeEventListener("pointerout",reset);
+      window.removeEventListener("mousemove",onMouseMove,true);
     };
   },[]);
-  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[45] h-screen w-screen" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[10001] h-screen w-screen" />;
 }
